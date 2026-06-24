@@ -891,13 +891,15 @@ function SaasCommand() {
 
 function App() {
   const root = useRef<HTMLDivElement>(null)
+  const skipSplash = new URLSearchParams(window.location.search).has('nosplash')
   const [route, setRoute] = useState(window.location.hash.replace('#', '') || '/')
-  const [showSplash, setShowSplash] = useState(true)
+  const [showSplash, setShowSplash] = useState(!skipSplash)
 
   useEffect(() => {
+    if (skipSplash) return
     const splashTimer = window.setTimeout(() => setShowSplash(false), 1900)
     return () => window.clearTimeout(splashTimer)
-  }, [])
+  }, [skipSplash])
 
   useEffect(() => {
     const syncRoute = () => setRoute(window.location.hash.replace('#', '') || '/')
@@ -912,13 +914,15 @@ function App() {
         return
       }
 
-      gsap
-        .timeline({
-          onComplete: () => setShowSplash(false),
-        })
-        .from('.splashGrid span', { opacity: 0, y: 18, stagger: 0.08, duration: 0.45, ease: 'power3.out' })
-        .fromTo('.splashBar', { scaleX: 0 }, { scaleX: 1, transformOrigin: 'left', duration: 0.55, ease: 'power3.inOut' }, '-=0.12')
-        .to('.splashScreen', { opacity: 0, yPercent: -6, duration: 0.42, ease: 'power2.inOut' }, '+=0.08')
+      if (!skipSplash) {
+        gsap
+          .timeline({
+            onComplete: () => setShowSplash(false),
+          })
+          .from('.splashGrid span', { opacity: 0, y: 18, stagger: 0.08, duration: 0.45, ease: 'power3.out' })
+          .fromTo('.splashBar', { scaleX: 0 }, { scaleX: 1, transformOrigin: 'left', duration: 0.55, ease: 'power3.inOut' }, '-=0.12')
+          .to('.splashScreen', { opacity: 0, yPercent: -6, duration: 0.42, ease: 'power2.inOut' }, '+=0.08')
+      }
 
       gsap.set('.motion-rise', { opacity: 0, y: 38 })
       gsap.set('.awardWord', { opacity: 0, rotateX: 42, rotateY: 18, yPercent: 80, transformPerspective: 700 })
