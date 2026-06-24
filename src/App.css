@@ -1,8 +1,7 @@
 :root {
-  color: #f6f3ee;
   background: #070707;
+  color: #f8f5ef;
   font-synthesis: none;
-  text-rendering: geometricPrecision;
 }
 
 * {
@@ -37,47 +36,43 @@ a {
 h1,
 h2,
 h3 {
-  font-weight: 820;
+  font-weight: 860;
   letter-spacing: 0;
   text-wrap: balance;
 }
 
 h1 {
-  font-size: clamp(3.6rem, 9vw, 10.5rem);
-  line-height: 0.92;
+  font-size: clamp(3.2rem, 9vw, 9.6rem);
+  line-height: 0.9;
 }
 
 h2 {
-  font-size: clamp(2.35rem, 5.2vw, 6.2rem);
-  line-height: 0.98;
+  font-size: clamp(2.25rem, 5.4vw, 5.8rem);
+  line-height: 0.95;
 }
 
 h3 {
-  font-size: clamp(1.35rem, 2.1vw, 2.3rem);
-  line-height: 1.05;
-}
-
-p {
-  line-height: 1.72;
+  font-size: clamp(1.25rem, 2.1vw, 2.2rem);
+  line-height: 1.04;
 }
 
 .topNav {
   align-items: center;
-  backdrop-filter: blur(20px);
-  background: rgba(7, 7, 7, 0.68);
-  border: 1px solid rgba(246, 243, 238, 0.13);
+  backdrop-filter: blur(22px);
+  background: rgba(7, 7, 7, 0.72);
+  border: 1px solid rgba(248, 245, 239, 0.14);
   border-radius: 8px;
   display: flex;
-  gap: 18px;
+  gap: 12px;
   justify-content: space-between;
   left: 50%;
-  max-width: 1240px;
-  padding: 12px;
+  max-width: 1220px;
+  padding: 10px;
   position: fixed;
-  top: 18px;
+  top: 14px;
   transform: translateX(-50%);
-  width: calc(100% - 32px);
-  z-index: 30;
+  width: calc(100% - 28px);
+  z-index: 40;
 }
 
 .brandPage .topNav {
@@ -89,105 +84,112 @@ p {
 }
 
 .topNav.light {
-  background: rgba(255, 249, 239, 0.82);
-  border-color: rgba(112, 62, 42, 0.16);
+  background: rgba(255, 249, 239, 0.88);
+  border-color: rgba(119, 64, 44, 0.16);
 }
 
 .topNav.ivory {
-  background: rgba(20, 17, 13, 0.74);
-  border-color: rgba(222, 191, 124, 0.2);
+  background: rgba(18, 14, 8, 0.76);
+  border-color: rgba(224, 194, 121, 0.22);
 }
 
 .brandMark {
   align-items: center;
-  background: #f6f3ee;
+  background: #f8f5ef;
   border-radius: 8px;
-  color: #080808;
+  color: #070707;
   display: inline-flex;
-  flex: 0 0 auto;
-  font-weight: 920;
-  height: 44px;
+  flex: 0 0 42px;
+  font-weight: 950;
+  height: 42px;
   justify-content: center;
   text-decoration: none;
-  width: 44px;
 }
 
 .navLinks {
   display: flex;
-  flex-wrap: wrap;
-  gap: 4px;
+  flex: 0 1 auto;
+  flex-wrap: nowrap;
+  gap: 3px;
   justify-content: flex-end;
+  min-width: 0;
+  overflow: hidden;
 }
 
 .navLinks a {
   border-radius: 8px;
-  color: rgba(246, 243, 238, 0.72);
-  font-size: 0.84rem;
-  font-weight: 780;
-  padding: 10px 12px;
+  color: rgba(248, 245, 239, 0.74);
+  flex: 0 0 auto;
+  font-size: 0.82rem;
+  font-weight: 850;
+  padding: 10px 11px;
   text-decoration: none;
 }
 
 .topNav.light .navLinks a {
-  color: #694132;
+  color: #693b2b;
 }
 
 .navLinks a:hover {
-  background: rgba(246, 243, 238, 0.1);
+  background: rgba(248, 245, 239, 0.12);
   color: #ffffff;
 }
 
 .topNav.light .navLinks a:hover {
-  background: rgba(112, 62, 42, 0.1);
-  color: #321b13;
+  background: rgba(119, 64, 44, 0.1);
+  color: #35190f;
 }
 
 .button {
   border-radius: 8px;
   display: inline-flex;
-  font-weight: 880;
-  justify-content: center;
+  font-weight: 900;
   line-height: 1;
   padding: 15px 18px;
   text-decoration: none;
+  transition: transform 180ms ease, filter 180ms ease;
+}
+
+.button:hover,
+.workTile:hover {
+  transform: translateY(-4px);
 }
 
 .primary {
-  background: #f6f3ee;
-  color: #080808;
+  background: #f8f5ef;
+  color: #070707;
 }
 
 .secondary,
 .ghostCyan {
-  background: rgba(246, 243, 238, 0.06);
-  border: 1px solid rgba(246, 243, 238, 0.16);
-  color: #f6f3ee;
+  background: rgba(248, 245, 239, 0.06);
+  border: 1px solid rgba(248, 245, 239, 0.18);
 }
 
 .berry {
-  background: #9f2638;
-  color: #fff8ef;
+  background: #a1263a;
+  color: #fff9f0;
 }
 
 .cream {
-  background: #fff7e8;
-  border: 1px solid rgba(112, 62, 42, 0.18);
-  color: #6b2f25;
+  background: #fff8ed;
+  border: 1px solid rgba(119, 64, 44, 0.18);
+  color: #693b2b;
 }
 
 .gold {
-  background: #dec27c;
-  color: #130f08;
+  background: #e4c374;
+  color: #150f06;
 }
 
 .ghostGold {
-  background: rgba(222, 194, 124, 0.08);
-  border: 1px solid rgba(222, 194, 124, 0.32);
-  color: #f5df9e;
+  background: rgba(228, 195, 116, 0.08);
+  border: 1px solid rgba(228, 195, 116, 0.34);
+  color: #f7df99;
 }
 
 .cyan {
-  background: #78f0ff;
+  background: #7cf2ff;
   color: #031019;
 }
 
@@ -200,60 +202,46 @@ p {
 
 .eyebrow,
 .kicker {
-  font-size: 0.74rem;
-  font-weight: 900;
+  font-size: 0.76rem;
+  font-weight: 950;
   letter-spacing: 0.12em;
-  margin-bottom: 14px;
+  margin-bottom: 16px;
   text-transform: uppercase;
 }
 
 .portfolioPage {
   background:
-    radial-gradient(circle at 15% 12%, rgba(255, 255, 255, 0.08), transparent 26rem),
-    radial-gradient(circle at 82% 24%, rgba(120, 240, 255, 0.12), transparent 32rem),
+    radial-gradient(circle at 82% 18%, rgba(124, 242, 255, 0.16), transparent 32rem),
+    radial-gradient(circle at 16% 12%, rgba(255, 255, 255, 0.08), transparent 24rem),
     #070707;
-  color: #f6f3ee;
 }
 
 .studioHero {
+  align-items: end;
   display: grid;
-  gap: 28px;
-  grid-template-columns: minmax(0, 1fr) minmax(360px, 0.46fr);
+  gap: 30px;
+  grid-template-columns: minmax(0, 1fr) minmax(360px, 0.55fr);
   margin: 0 auto;
-  max-width: 1240px;
+  max-width: 1220px;
   min-height: 100svh;
-  padding: 136px 24px 74px;
-}
-
-.heroLabel {
-  align-self: start;
-  color: rgba(246, 243, 238, 0.72);
-  display: flex;
-  font-size: 0.88rem;
-  font-weight: 760;
-  gap: 18px;
-  grid-column: 1 / -1;
-  justify-content: space-between;
+  padding: 126px 22px 58px;
 }
 
 .studioHeadline {
-  align-self: end;
-  max-width: 900px;
+  max-width: 850px;
 }
 
-.studioHeadline p {
-  color: rgba(246, 243, 238, 0.72);
-  font-size: clamp(1.05rem, 1.8vw, 1.35rem);
-  margin-top: 26px;
-  max-width: 760px;
+.studioHeadline .eyebrow,
+.portfolioPage .eyebrow {
+  color: #7cf2ff;
 }
 
 .studioScene {
   align-self: stretch;
   background:
-    radial-gradient(circle at 48% 48%, rgba(120, 240, 255, 0.2), transparent 40%),
+    radial-gradient(circle at 48% 48%, rgba(124, 242, 255, 0.22), transparent 42%),
     #111111;
-  border: 1px solid rgba(246, 243, 238, 0.14);
+  border: 1px solid rgba(248, 245, 239, 0.14);
   border-radius: 8px;
   min-height: 530px;
   overflow: hidden;
@@ -268,150 +256,106 @@ p {
 
 .sceneFallback {
   animation: pulse 1.8s ease-in-out infinite;
-  background: radial-gradient(circle, rgba(120, 240, 255, 0.28), transparent 48%);
-}
-
-.sceneCaption {
-  backdrop-filter: blur(18px);
-  background: rgba(7, 7, 7, 0.66);
-  border: 1px solid rgba(246, 243, 238, 0.14);
-  border-radius: 8px;
-  bottom: 18px;
-  display: grid;
-  gap: 3px;
-  left: 18px;
-  padding: 14px;
-  position: absolute;
-}
-
-.sceneCaption span {
-  color: #78f0ff;
-  font-size: 0.72rem;
-  font-weight: 900;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
+  background: radial-gradient(circle, rgba(124, 242, 255, 0.28), transparent 48%);
 }
 
 .ticker {
-  border-block: 1px solid rgba(246, 243, 238, 0.12);
+  border-block: 1px solid rgba(248, 245, 239, 0.12);
   display: flex;
-  gap: 18px;
+  gap: 24px;
   overflow: hidden;
-  padding: 18px 24px;
+  padding: 18px 22px;
   white-space: nowrap;
 }
 
 .ticker span {
-  color: rgba(246, 243, 238, 0.76);
-  font-size: clamp(1.4rem, 3vw, 3.3rem);
-  font-weight: 860;
-}
-
-.workIndex,
-.capabilitySection,
-.processSection,
-.studioContact {
-  margin: 0 auto;
-  max-width: 1240px;
-  padding: 96px 24px;
-}
-
-.sectionLead {
-  max-width: 860px;
-}
-
-.sectionLead .eyebrow,
-.portfolioPage .eyebrow {
-  color: #78f0ff;
-}
-
-.workRows {
-  border-top: 1px solid rgba(246, 243, 238, 0.16);
-  margin-top: 42px;
-}
-
-.workRow {
-  align-items: center;
-  border-bottom: 1px solid rgba(246, 243, 238, 0.16);
-  color: #f6f3ee;
-  display: grid;
-  gap: 24px;
-  grid-template-columns: 54px minmax(180px, 0.42fr) minmax(260px, 1fr) 180px;
-  min-height: 220px;
-  padding: 24px 0;
-  text-decoration: none;
-}
-
-.workRow > span {
-  color: #78f0ff;
+  color: rgba(248, 245, 239, 0.78);
+  font-size: clamp(1.7rem, 4.6vw, 5rem);
   font-weight: 900;
 }
 
-.workRow p {
-  color: rgba(246, 243, 238, 0.68);
+.workWall,
+.skillStrip,
+.studioContact {
+  margin: 0 auto;
+  max-width: 1220px;
+  padding: 88px 22px;
 }
 
-.workRow img {
-  aspect-ratio: 1.25;
+.workWall {
+  display: grid;
+  gap: 18px;
+}
+
+.workTile {
+  border: 1px solid rgba(248, 245, 239, 0.14);
   border-radius: 8px;
+  color: #f8f5ef;
+  display: grid;
+  gap: 18px;
+  grid-template-columns: 48px minmax(260px, 0.85fr) minmax(260px, 1fr);
+  min-height: 420px;
+  overflow: hidden;
+  padding: 18px;
+  position: relative;
+  text-decoration: none;
+  transition: border-color 180ms ease, transform 180ms ease;
+}
+
+.workTile:hover {
+  border-color: rgba(124, 242, 255, 0.45);
+}
+
+.workTile > span {
+  color: #7cf2ff;
+  font-weight: 950;
+  z-index: 2;
+}
+
+.workTile img {
+  align-self: stretch;
+  border-radius: 8px;
+  height: 100%;
   object-fit: cover;
   width: 100%;
 }
 
-.workRow:first-child img {
+.workTile:first-child img {
   background: #fff0dc;
   object-fit: contain;
-  padding: 10px;
-}
-
-.capabilityGrid,
-.processSection {
-  display: grid;
-  gap: 14px;
-  grid-template-columns: repeat(5, 1fr);
-}
-
-.capabilityGrid {
-  margin-top: 40px;
-}
-
-.capabilityCard,
-.processItem {
-  background: rgba(246, 243, 238, 0.06);
-  border: 1px solid rgba(246, 243, 238, 0.12);
-  border-radius: 8px;
-  min-height: 260px;
   padding: 20px;
 }
 
-.capabilityCard p,
-.processItem p {
-  color: rgba(246, 243, 238, 0.68);
-  margin-top: 22px;
+.workTile div {
+  align-self: end;
+  z-index: 2;
 }
 
-.processItem span {
-  color: #78f0ff;
-  font-weight: 900;
+.workTile p {
+  color: rgba(248, 245, 239, 0.68);
+  font-weight: 800;
+  margin-bottom: 12px;
 }
 
-.processItem h3 {
-  margin-top: 58px;
+.skillStrip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding-top: 0;
+}
+
+.skillStrip span {
+  border: 1px solid rgba(248, 245, 239, 0.16);
+  border-radius: 999px;
+  font-weight: 850;
+  padding: 12px 14px;
 }
 
 .studioContact {
-  background: #f6f3ee;
+  background: #f8f5ef;
   border-radius: 8px;
   color: #070707;
   margin-bottom: 24px;
-}
-
-.studioContact .eyebrow {
-  color: #070707;
-}
-
-.studioContact h2 {
-  max-width: 980px;
 }
 
 .contactLinks {
@@ -421,10 +365,10 @@ p {
 .contactLinks a {
   background: #070707;
   border-radius: 8px;
-  color: #f6f3ee;
-  font-weight: 860;
+  color: #f8f5ef;
+  font-weight: 900;
   overflow-wrap: anywhere;
-  padding: 16px;
+  padding: 15px;
   text-decoration: none;
 }
 
@@ -435,25 +379,25 @@ p {
 
 .brandPage section {
   margin-inline: auto;
-  max-width: 1240px;
-  padding-inline: 24px;
+  max-width: 1220px;
+  padding-inline: 22px;
 }
 
 .bakeryPage {
   background:
     radial-gradient(circle at 76% 16%, rgba(255, 126, 103, 0.16), transparent 28rem),
     linear-gradient(180deg, #fff8ef, #ffe7cf 58%, #fff8ef);
-  color: #3b1e16;
+  color: #32180f;
 }
 
 .bakeryPage h1,
 .bakeryPage h2,
 .bakeryPage h3 {
-  color: #321810;
+  color: #32180f;
 }
 
 .bakeryPage .kicker {
-  color: #9f2638;
+  color: #a1263a;
 }
 
 .bakeryHero,
@@ -461,51 +405,45 @@ p {
 .saasHero {
   align-items: center;
   display: grid;
-  gap: 52px;
-  grid-template-columns: minmax(0, 0.86fr) minmax(420px, 1fr);
-  min-height: calc(100svh - 80px);
-  padding-bottom: 76px;
-  padding-top: 78px;
+  gap: 50px;
+  grid-template-columns: minmax(0, 0.8fr) minmax(430px, 1fr);
+  min-height: calc(100svh - 78px);
+  padding-bottom: 74px;
+  padding-top: 76px;
 }
 
-.bakeryIntro p:not(.kicker),
-.featureCopy p,
-.menuCard p,
-.bakeryServices p,
-.bakeryStory p {
-  color: #75442e;
-}
-
-.cakeStage {
+.cakeStage,
+.ringStage {
   align-items: center;
-  aspect-ratio: 1.05;
+  aspect-ratio: 1;
   display: grid;
+  isolation: isolate;
   justify-items: center;
   position: relative;
 }
 
 .cakeStage::before {
   background:
-    radial-gradient(circle at 32% 28%, rgba(255, 255, 255, 0.9), transparent 17%),
-    radial-gradient(circle at 74% 64%, rgba(159, 38, 56, 0.15), transparent 26%),
+    radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.92), transparent 18%),
+    radial-gradient(circle at 76% 64%, rgba(161, 38, 58, 0.15), transparent 26%),
     #fff0dc;
-  border: 1px solid rgba(112, 62, 42, 0.12);
+  border: 1px solid rgba(119, 64, 44, 0.12);
   border-radius: 50%;
   content: '';
-  inset: 4%;
+  inset: 5%;
   position: absolute;
 }
 
 .cakePlate {
-  background: radial-gradient(ellipse, rgba(112, 62, 42, 0.22), transparent 64%);
+  background: radial-gradient(ellipse, rgba(119, 64, 44, 0.22), transparent 65%);
   bottom: 12%;
   height: 18%;
   position: absolute;
-  width: 72%;
+  width: 74%;
 }
 
 .cakeCutout {
-  filter: drop-shadow(0 34px 34px rgba(112, 62, 42, 0.26));
+  filter: drop-shadow(0 36px 34px rgba(119, 64, 44, 0.28));
   position: relative;
   width: min(86%, 640px);
   z-index: 2;
@@ -516,49 +454,48 @@ p {
 .metricPill {
   backdrop-filter: blur(18px);
   border-radius: 999px;
-  font-weight: 900;
+  font-weight: 950;
   padding: 12px 15px;
   position: absolute;
   z-index: 3;
 }
 
 .pastrySticker {
-  background: rgba(255, 248, 239, 0.86);
-  border: 1px solid rgba(112, 62, 42, 0.13);
-  color: #6b2f25;
+  background: rgba(255, 248, 239, 0.88);
+  border: 1px solid rgba(119, 64, 44, 0.13);
+  color: #693b2b;
 }
 
 .stickerOne {
   right: 7%;
-  top: 17%;
+  top: 16%;
 }
 
 .stickerTwo {
-  bottom: 16%;
-  left: 5%;
+  bottom: 15%;
+  left: 4%;
 }
 
 .bakeryInfoBar {
   display: grid;
   gap: 14px;
   grid-template-columns: repeat(3, 1fr);
-  padding-bottom: 36px;
-  padding-top: 18px;
+  padding-bottom: 46px;
 }
 
 .bakeryInfoBar article,
 .bakeryServices article {
-  background: rgba(255, 250, 244, 0.78);
-  border: 1px solid rgba(112, 62, 42, 0.12);
+  background: rgba(255, 250, 244, 0.84);
+  border: 1px solid rgba(119, 64, 44, 0.12);
   border-radius: 8px;
   padding: 20px;
 }
 
 .bakeryInfoBar span {
-  color: #9f2638;
+  color: #a1263a;
   display: block;
   font-size: 0.76rem;
-  font-weight: 900;
+  font-weight: 950;
   letter-spacing: 0.12em;
   margin-bottom: 18px;
   text-transform: uppercase;
@@ -570,131 +507,109 @@ p {
 .bakeryStory {
   align-items: center;
   display: grid;
-  gap: 48px;
-  grid-template-columns: minmax(360px, 0.78fr) minmax(0, 1fr);
-  padding-bottom: 96px;
-  padding-top: 96px;
+  gap: 44px;
+  grid-template-columns: minmax(340px, 0.8fr) minmax(0, 1fr);
+  padding-bottom: 84px;
+  padding-top: 84px;
 }
 
-.featureImage img,
-.editorialImage img,
-.platformVisual img,
+.featureImage,
+.editorialImage,
+.platformVisual,
 .bakeryStory img {
   border-radius: 8px;
   object-fit: cover;
   width: 100%;
 }
 
-.featureImage img,
+.featureImage,
 .bakeryStory img {
   aspect-ratio: 0.82;
 }
 
 .textLink {
-  color: #9f2638;
+  color: #a1263a;
   display: inline-flex;
-  font-weight: 900;
+  font-weight: 950;
   margin-top: 24px;
   text-decoration: none;
 }
 
-.bakeryMenu,
+.menuGrid,
 .bakeryServices,
-.luxuryServices {
-  padding-bottom: 96px;
-  padding-top: 70px;
+.luxuryServices,
+.collectionBand {
+  display: grid;
+  gap: 16px;
+  padding-bottom: 84px;
+  padding-top: 38px;
 }
 
 .menuGrid {
-  display: grid;
-  gap: 18px;
   grid-template-columns: repeat(3, 1fr);
-  margin-top: 36px;
 }
 
 .menuCard {
-  background: rgba(255, 250, 244, 0.88);
-  border: 1px solid rgba(112, 62, 42, 0.12);
+  background: rgba(255, 250, 244, 0.9);
+  border: 1px solid rgba(119, 64, 44, 0.12);
   border-radius: 8px;
   overflow: hidden;
+  transition: transform 180ms ease;
+}
+
+.menuCard:hover {
+  transform: translateY(-6px);
 }
 
 .menuCard img {
-  aspect-ratio: 1.12;
+  aspect-ratio: 1.04;
   object-fit: cover;
   width: 100%;
 }
 
 .menuCard div {
-  padding: 20px;
+  padding: 18px;
 }
 
 .menuCard span {
-  color: #9f2638;
-  font-weight: 900;
-}
-
-.menuCard small {
-  color: #9f2638;
-  display: block;
-  font-weight: 900;
-  margin-top: 16px;
+  color: #a1263a;
+  font-weight: 950;
 }
 
 .bakeryServices,
 .luxuryServices {
-  display: grid;
-  gap: 14px;
   grid-template-columns: repeat(4, 1fr);
 }
 
 .bakeryStory {
-  background: #321810;
+  background: #32180f;
   border-radius: 8px;
   color: #fff8ef;
   margin-bottom: 28px;
-  padding-bottom: 42px;
-  padding-top: 42px;
+  padding-bottom: 40px;
+  padding-top: 40px;
 }
 
 .bakeryStory h2,
-.bakeryStory .kicker,
-.bakeryStory p {
+.bakeryStory .kicker {
   color: #fff8ef;
 }
 
 .luxuryPage {
   background:
-    radial-gradient(circle at 74% 8%, rgba(222, 194, 124, 0.18), transparent 30rem),
-    linear-gradient(135deg, #0c0a07, #18130c 56%, #060504);
-  color: #f6ead2;
+    radial-gradient(circle at 74% 10%, rgba(228, 195, 116, 0.18), transparent 30rem),
+    linear-gradient(135deg, #0c0905, #18110a 56%, #060504);
 }
 
 .luxuryPage .kicker {
-  color: #dec27c;
-}
-
-.luxuryCopy p:not(.kicker),
-.editorialCopy p,
-.collectionCard p,
-.luxuryServices p {
-  color: #d9c79c;
-}
-
-.ringStage {
-  align-items: center;
-  aspect-ratio: 1;
-  display: grid;
-  isolation: isolate;
-  justify-items: center;
-  position: relative;
+  color: #e4c374;
 }
 
 .ringHalo {
   background:
-    conic-gradient(from 90deg, transparent, rgba(222, 194, 124, 0.74), transparent 34%, rgba(255, 255, 255, 0.38), transparent 68%),
-    radial-gradient(circle, rgba(222, 194, 124, 0.08), transparent 58%);
-  border: 1px solid rgba(222, 194, 124, 0.2);
+    conic-gradient(from 90deg, transparent, rgba(228, 195, 116, 0.75), transparent 34%, rgba(255, 255, 255, 0.38), transparent 68%),
+    radial-gradient(circle, rgba(228, 195, 116, 0.08), transparent 58%);
+  border: 1px solid rgba(228, 195, 116, 0.2);
   border-radius: 50%;
   inset: 6%;
   position: absolute;
@@ -703,16 +618,16 @@ p {
 
 .ringStage img {
   border-radius: 50%;
-  box-shadow: 0 42px 120px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 44px 120px rgba(0, 0, 0, 0.52);
   height: min(78%, 640px);
   object-fit: cover;
   width: min(78%, 640px);
 }
 
 .ringTag {
-  background: rgba(20, 16, 10, 0.72);
-  border: 1px solid rgba(222, 194, 124, 0.25);
-  color: #f5df9e;
+  background: rgba(18, 14, 8, 0.74);
+  border: 1px solid rgba(228, 195, 116, 0.28);
+  color: #f7df99;
 }
 
 .tagTop {
@@ -725,83 +640,79 @@ p {
   left: 7%;
 }
 
-.luxuryRibbon {
-  border-block: 1px solid rgba(222, 194, 124, 0.16);
+.luxuryRibbon,
+.saasLogos {
+  border-block: 1px solid rgba(248, 245, 239, 0.14);
   display: grid;
   gap: 12px;
   grid-template-columns: repeat(4, 1fr);
-  padding-bottom: 28px;
-  padding-top: 28px;
+  padding-bottom: 26px;
+  padding-top: 26px;
 }
 
-.luxuryRibbon span {
-  color: #f5df9e;
-  font-weight: 900;
+.luxuryRibbon span,
+.saasLogos span {
+  font-weight: 950;
   text-align: center;
 }
 
-.editorialImage img {
-  aspect-ratio: 0.86;
+.editorialImage {
+  aspect-ratio: 0.84;
 }
 
 .collectionBand {
-  display: grid;
-  gap: 16px;
   grid-template-columns: repeat(3, 1fr);
-  padding-bottom: 74px;
 }
 
 .collectionCard,
 .luxuryServices article {
   background: rgba(255, 248, 230, 0.06);
-  border: 1px solid rgba(222, 194, 124, 0.16);
+  border: 1px solid rgba(228, 195, 116, 0.16);
   border-radius: 8px;
-  min-height: 245px;
+  min-height: 230px;
   padding: 22px;
 }
 
 .collectionCard span {
-  color: #dec27c;
-  font-weight: 900;
+  color: #e4c374;
+  font-weight: 950;
 }
 
 .collectionCard h3 {
   margin-top: 68px;
 }
 
-.luxuryAppointment {
-  background: #ead48f;
+.luxuryAppointment,
+.saasCta {
+  align-items: center;
   border-radius: 8px;
-  color: #171006;
+  display: flex;
+  gap: 28px;
+  justify-content: space-between;
   margin-bottom: 28px;
-  padding-bottom: 42px;
-  padding-top: 42px;
+  padding-bottom: 38px;
+  padding-top: 38px;
 }
 
-.luxuryAppointment .kicker,
-.luxuryAppointment h2 {
-  color: #171006;
+.luxuryAppointment {
+  background: #ead48f;
+  color: #150f06;
 }
 
 .saasPage {
   background:
-    linear-gradient(120deg, rgba(120, 240, 255, 0.13), transparent 30rem),
+    linear-gradient(120deg, rgba(124, 242, 255, 0.13), transparent 30rem),
     radial-gradient(circle at 82% 18%, rgba(86, 94, 255, 0.22), transparent 31rem),
     #05101b;
 }
 
 .saasPage .kicker {
-  color: #78f0ff;
-}
-
-.saasCopy p:not(.kicker),
-.platformCard p {
-  color: #bad1e3;
+  color: #7cf2ff;
 }
 
 .dashboardShell {
-  background: rgba(8, 18, 34, 0.8);
-  border: 1px solid rgba(120, 240, 255, 0.2);
+  background: rgba(8, 18, 34, 0.82);
+  border: 1px solid rgba(124, 242, 255, 0.2);
   border-radius: 8px;
   box-shadow: 0 46px 120px rgba(0, 0, 0, 0.48);
   padding: 12px;
@@ -815,10 +726,9 @@ p {
 }
 
 .windowTop span {
-  background: #78f0ff;
+  background: #7cf2ff;
   border-radius: 50%;
   height: 10px;
-  opacity: 0.75;
   width: 10px;
 }
 
@@ -828,8 +738,8 @@ p {
 }
 
 .metricPill {
-  background: rgba(3, 10, 22, 0.78);
-  border: 1px solid rgba(120, 240, 255, 0.22);
+  background: rgba(3, 10, 22, 0.8);
+  border: 1px solid rgba(124, 242, 255, 0.22);
   color: #dffbff;
 }
 
@@ -844,21 +754,10 @@ p {
 }
 
 .saasLogos {
-  border-block: 1px solid rgba(120, 240, 255, 0.13);
-  display: grid;
-  gap: 12px;
   grid-template-columns: repeat(6, 1fr);
-  padding-bottom: 28px;
-  padding-top: 28px;
 }
 
-.saasLogos span {
-  color: #a5f8ff;
-  font-weight: 900;
-  text-align: center;
-}
-
-.platformVisual img {
+.platformVisual {
   aspect-ratio: 0.88;
 }
 
@@ -870,27 +769,14 @@ p {
 
 .platformCard {
   background: rgba(15, 30, 52, 0.78);
-  border: 1px solid rgba(120, 240, 255, 0.15);
+  border: 1px solid rgba(124, 242, 255, 0.15);
   border-radius: 8px;
   min-height: 210px;
   padding: 22px;
 }
 
 .saasCta {
-  align-items: center;
   background: #dffbff;
-  border-radius: 8px;
-  color: #06111f;
-  display: flex;
-  gap: 28px;
-  justify-content: space-between;
-  margin-bottom: 28px;
-  padding-bottom: 38px;
-  padding-top: 38px;
-}
-
-.saasCta .kicker,
-.saasCta h2 {
   color: #06111f;
 }
 
@@ -919,97 +805,104 @@ p {
   }
 
   .studioScene {
-    min-height: 420px;
+    min-height: 380px;
   }
 
-  .workRow {
-    grid-template-columns: 46px 1fr;
+  .workTile {
+    grid-template-columns: 38px 1fr;
   }
 
-  .workRow > p,
-  .workRow img {
+  .workTile img,
+  .workTile div {
     grid-column: 2;
   }
 
-  .capabilityGrid,
-  .processSection,
   .bakeryInfoBar,
   .menuGrid,
   .bakeryServices,
   .luxuryServices,
-  .collectionBand {
+  .collectionBand,
+  .platformGrid {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 720px) {
+  .topNav,
+  .brandPage .topNav {
+    bottom: 12px;
+    left: 12px;
+    margin: 0;
+    position: fixed;
+    right: 12px;
+    top: auto;
+    transform: none;
+    width: auto;
+  }
+
+  .navLinks {
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .navLinks::-webkit-scrollbar {
+    display: none;
+  }
+
+  .navLinks a {
+    font-size: 0.72rem;
+    padding: 9px 10px;
+  }
+
+  h1 {
+    font-size: clamp(3rem, 14vw, 4.7rem);
+    line-height: 0.96;
+  }
+
+  h2 {
+    font-size: clamp(2.1rem, 10vw, 3.55rem);
+  }
+
+  .studioHero,
+  .workWall,
+  .skillStrip,
+  .studioContact,
+  .brandPage section {
+    padding-inline: 18px;
+  }
+
+  .studioHero {
+    padding-top: 42px;
+  }
+
+  .brandPage {
+    padding-bottom: 76px;
+  }
+
+  .studioScene {
+    min-height: 320px;
+  }
+
+  .workTile {
+    min-height: 0;
+  }
+
+  .workTile img {
+    max-height: 330px;
+  }
+
+  .pastrySticker,
+  .ringTag,
+  .metricPill {
+    display: none;
   }
 
   .luxuryRibbon,
   .saasLogos {
     grid-template-columns: repeat(2, 1fr);
   }
-}
 
-@media (max-width: 720px) {
-  .topNav {
-    align-items: flex-start;
-    position: absolute;
-  }
-
-  .brandPage .topNav {
-    position: relative;
-  }
-
-  .navLinks a {
-    font-size: 0.74rem;
-    padding: 8px;
-  }
-
-  h1 {
-    font-size: clamp(2.8rem, 13.5vw, 4.7rem);
-    line-height: 0.98;
-  }
-
-  h2 {
-    font-size: clamp(2.1rem, 10vw, 3.6rem);
-  }
-
-  .studioHero,
-  .workIndex,
-  .capabilitySection,
-  .processSection,
-  .studioContact,
-  .brandPage section {
-    padding-inline: 18px;
-  }
-
-  .heroLabel {
-    display: grid;
-  }
-
-  .studioScene {
-    min-height: 340px;
-  }
-
-  .pastrySticker,
-  .ringTag,
-  .metricPill,
-  .sceneCaption {
-    display: none;
-  }
-
-  .workRow {
-    gap: 14px;
-    min-height: auto;
-  }
-
-  .workRow img {
-    max-height: 260px;
-  }
-
-  .luxuryRibbon,
-  .saasLogos,
-  .platformGrid {
-    grid-template-columns: 1fr;
-  }
-
+  .luxuryAppointment,
   .saasCta {
     align-items: stretch;
     flex-direction: column;
