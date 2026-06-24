@@ -4,6 +4,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import './App.css'
 
 const HeroScene = lazy(() => import('./HeroScene'))
+const RingScene = lazy(() => import('./RingScene'))
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -402,72 +403,121 @@ function BakeryAtelier() {
 }
 
 function LuxuryRings() {
+  const gemOptions = [
+    ['Diamond', '0.82ct', 'Brilliant cut center stone'],
+    ['Emerald', '0.64ct', 'Deep green heritage accent'],
+    ['Ruby', '0.58ct', 'Warm red ceremonial setting'],
+    ['Aqua', '0.71ct', 'Pale blue modern finish'],
+  ]
+
+  const storyFrames = [
+    ['01', 'Hero view', 'A large fixed 3D product moment introduces the ring before any sales copy competes with it.'],
+    ['02', 'Material close-up', 'Gold, rose gold, diamond light, and prong detail are separated into readable product moments.'],
+    ['03', 'Configurator', 'The customer sees metal, stone, size, service, and appointment options in one premium flow.'],
+  ]
+
   return (
     <main className="brandPage luxuryPage">
       <BrandNav tone="ivory" />
 
-      <section className="luxuryHero">
+      <section className="luxuryHero webgiHero">
         <div className="luxuryCopy motion-rise">
-          <p className="kicker">AURELIA</p>
-          <h1>Fine rings for private appointments.</h1>
+          <p className="kicker">AURELIA 3D</p>
+          <h1>Design the ring in cinematic 3D.</h1>
+          <p>
+            A luxury jewelry product page inspired by WebGi storytelling: large interactive ring render, scroll-reactive motion, material cards, gemstone options, and private appointment conversion.
+          </p>
           <div className="heroActions">
             <a className="button gold" href="#collections">
-              Collections
+              Explore ring
             </a>
-            <a className="button ghostGold" href="#service">
-              Services
+            <a className="button ghostGold" href="#configurator">
+              Configure
             </a>
           </div>
+          <div className="webgiSpecs">
+            <span><strong>18K</strong> gold</span>
+            <span><strong>3D</strong> product view</span>
+            <span><strong>4</strong> stone moods</span>
+          </div>
         </div>
-        <div className="ringStage motion-rise">
+        <div className="ringStage webgiRingStage motion-rise">
           <div className="ringHalo" />
-          <img src={asset('showcase-assets/luxury-ring.png')} alt="" />
-          <span className="ringTag tagTop">18K gold</span>
-          <span className="ringTag tagBottom">Diamond setting</span>
+          <Suspense fallback={<div className="ringCanvasFallback" />}>
+            <RingScene className="ringCanvas" />
+          </Suspense>
+          <span className="ringTag tagTop">Scroll reactive</span>
+          <span className="ringTag tagBottom">Procedural 3D ring</span>
         </div>
       </section>
 
       <section className="luxuryRibbon motion-rise">
-        <span>Engagement</span>
-        <span>Wedding</span>
-        <span>Gifts</span>
-        <span>Care</span>
+        <span>3D Viewer</span>
+        <span>Metal System</span>
+        <span>Gem Config</span>
+        <span>Private Sale</span>
       </section>
 
-      <section className="luxuryEditorial">
+      <section className="luxuryEditorial webgiEditorial">
         <img className="editorialImage motion-rise" src={asset('showcase-assets/ring-detail.png')} alt="" />
         <div className="editorialCopy motion-rise">
-          <p className="kicker">Craft</p>
-          <h2>Gold, diamond, setting, finish.</h2>
+          <p className="kicker">Craft camera</p>
+          <h2>From hero render to macro material story.</h2>
+          <p>
+            The page behaves like a guided product film: strong first screen, restrained copy, gold-on-black contrast, and each scroll section gives one reason to trust the purchase.
+          </p>
         </div>
       </section>
 
-      <section className="productGallery ringGallery">
-        <div className="galleryCopy motion-rise">
-          <p className="kicker">Campaign</p>
-          <h2>Large product focus, macro material detail, boutique service.</h2>
-        </div>
-        <img className="motion-rise" src={asset('showcase-assets/luxury-ring.png')} alt="" />
-        <img className="motion-rise" src={asset('showcase-assets/ring-detail.png')} alt="" />
+      <section className="webgiStoryRail">
+        {storyFrames.map(([number, title, detail]) => (
+          <article className="webgiStoryCard motion-rise" key={title}>
+            <span>{number}</span>
+            <h3>{title}</h3>
+            <p>{detail}</p>
+          </article>
+        ))}
       </section>
 
-      <section className="collectionBand" id="collections">
-        {['Solenne', 'Vela', 'Nocturne'].map((name, index) => (
+      <section className="webgiConfigurator" id="configurator">
+        <div className="motion-rise">
+          <p className="kicker">Configurator</p>
+          <h2>Choose stone, metal, size, and service without leaving the story.</h2>
+        </div>
+        <div className="gemGrid">
+          {gemOptions.map(([name, carat, detail]) => (
+            <article className="gemCard motion-rise" key={name}>
+              <span>{carat}</span>
+              <h3>{name}</h3>
+              <p>{detail}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="collectionBand webgiCollection" id="collections">
+        {['Solenne', 'Vela', 'Nocturne', 'Ellipse'].map((name, index) => (
           <article className="collectionCard motion-rise" key={name}>
             <span>0{index + 1}</span>
             <h3>{name}</h3>
+            <p>
+              {index === 0 && 'Classic solitaire with bright diamond crown.'}
+              {index === 1 && 'Slim architectural band with rose-gold warmth.'}
+              {index === 2 && 'Black-tie ring language with deep shadow contrast.'}
+              {index === 3 && 'Modern oval profile for editorial campaigns.'}
+            </p>
           </article>
         ))}
       </section>
 
       <section className="luxuryServices" id="service">
-        {['Sizing salon', 'Stone selection', 'Lifetime care', 'Gift concierge'].map((item) => (
+        {['Sizing salon', 'Stone selection', '3D inspection', 'Gift concierge'].map((item) => (
           <article className="motion-rise" key={item}>
             <h3>{item}</h3>
             <p>
               {item === 'Sizing salon' && 'Compare ring profiles and confirm the right fit.'}
               {item === 'Stone selection' && 'Review cut, clarity, carat, and setting options.'}
-              {item === 'Lifetime care' && 'Cleaning, inspection, resizing, and repair guidance.'}
+              {item === '3D inspection' && 'Inspect crown, prong, side stones, and metal finish before appointment.'}
               {item === 'Gift concierge' && 'Private pickup, packaging, and proposal timing.'}
             </p>
           </article>
@@ -477,21 +527,21 @@ function LuxuryRings() {
       <section className="luxuryShowcase motion-rise">
         <div>
           <p className="kicker">Boutique story</p>
-          <h2>From discovery to appointment.</h2>
+          <h2>Scroll, inspect, configure, book.</h2>
         </div>
         <div className="showcaseLines">
-          <span>Collection</span>
-          <span>Craft detail</span>
-          <span>Private service</span>
-          <span>Aftercare</span>
+          <span>Fixed 3D product canvas</span>
+          <span>Scroll-based camera language</span>
+          <span>Material and gemstone selection</span>
+          <span>Private viewing call-to-action</span>
         </div>
       </section>
 
       <section className="productDetailGrid ringDetailGrid">
         {[
-          ['Materials', 'Gold tone, diamond setting, macro detail, and care.'],
-          ['Appointment', 'Private viewing, sizing salon, and stone guidance.'],
-          ['Trust', 'Clear service blocks for a high-value purchase.'],
+          ['3D technique', 'Three.js procedural ring, physical materials, diamond refraction, prongs, side stones, and environment lighting.'],
+          ['WebGi learning', 'Adopts the WebGi idea of one premium object moving through a scroll story and configurator.'],
+          ['Commercial safety', 'No licensed WebGi model copied; the ring render is rebuilt for this portfolio demo.'],
         ].map(([title, detail]) => (
           <article className="motion-rise" key={title}>
             <span>{title}</span>

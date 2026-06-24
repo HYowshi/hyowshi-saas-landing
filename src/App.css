@@ -1418,6 +1418,39 @@ h3 {
   color: #e4c374;
 }
 
+.webgiHero {
+  grid-template-columns: minmax(0, 0.78fr) minmax(520px, 1.12fr);
+  min-height: calc(100svh - 78px);
+}
+
+.luxuryCopy > p:not(.kicker) {
+  color: rgba(248, 245, 239, 0.72);
+  font-size: clamp(1rem, 1.35vw, 1.18rem);
+  line-height: 1.7;
+  margin-top: 22px;
+  max-width: 650px;
+}
+
+.webgiSpecs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 30px;
+}
+
+.webgiSpecs span {
+  background: rgba(255, 248, 230, 0.07);
+  border: 1px solid rgba(228, 195, 116, 0.16);
+  border-radius: 999px;
+  color: rgba(248, 245, 239, 0.76);
+  padding: 10px 14px;
+}
+
+.webgiSpecs strong {
+  color: #e4c374;
+  margin-right: 6px;
+}
+
 .ringHalo {
   background:
     conic-gradient(from 90deg, transparent, rgba(228, 195, 116, 0.75), transparent 34%, rgba(255, 255, 255, 0.38), transparent 68%),
@@ -1427,6 +1460,42 @@ h3 {
   inset: 6%;
   position: absolute;
   z-index: -1;
+}
+
+.webgiRingStage {
+  background:
+    radial-gradient(circle at 50% 44%, rgba(228, 195, 116, 0.2), transparent 21rem),
+    radial-gradient(circle at 50% 64%, rgba(255, 255, 255, 0.12), transparent 16rem),
+    linear-gradient(135deg, rgba(255, 248, 230, 0.08), rgba(255, 248, 230, 0.02));
+  border: 1px solid rgba(228, 195, 116, 0.14);
+  border-radius: 50%;
+  box-shadow: inset 0 0 80px rgba(255, 255, 255, 0.04), 0 60px 140px rgba(0, 0, 0, 0.5);
+  min-height: 620px;
+  overflow: hidden;
+}
+
+.ringCanvas {
+  height: 100%;
+  inset: 0;
+  position: absolute;
+  width: 100%;
+  z-index: 2;
+}
+
+.ringCanvasFallback {
+  background:
+    radial-gradient(circle, rgba(228, 195, 116, 0.22), transparent 9rem),
+    radial-gradient(circle at 50% 64%, rgba(255, 255, 255, 0.1), transparent 14rem);
+  height: 100%;
+  inset: 0;
+  position: absolute;
+  width: 100%;
+}
+
+.ringCanvas canvas {
+  display: block;
+  height: 100%;
+  width: 100%;
 }
 
 .ringStage img {
@@ -1473,8 +1542,109 @@ h3 {
   aspect-ratio: 0.84;
 }
 
+.webgiEditorial {
+  align-items: center;
+  border-top: 1px solid rgba(228, 195, 116, 0.12);
+}
+
+.webgiEditorial p:not(.kicker) {
+  color: rgba(248, 245, 239, 0.66);
+  line-height: 1.7;
+  margin-top: 18px;
+  max-width: 680px;
+}
+
+.webgiStoryRail,
+.webgiConfigurator,
+.gemGrid {
+  display: grid;
+  gap: 16px;
+}
+
+.webgiStoryRail {
+  grid-template-columns: repeat(3, 1fr);
+  padding-bottom: 84px;
+  padding-top: 24px;
+}
+
+.webgiStoryCard,
+.gemCard {
+  background: linear-gradient(180deg, rgba(255, 248, 230, 0.09), rgba(255, 248, 230, 0.035));
+  border: 1px solid rgba(228, 195, 116, 0.16);
+  border-radius: 8px;
+  min-height: 260px;
+  padding: 22px;
+}
+
+.webgiStoryCard span,
+.gemCard span {
+  color: #e4c374;
+  font-weight: 950;
+}
+
+.webgiStoryCard h3,
+.gemCard h3 {
+  margin-top: 62px;
+}
+
+.webgiStoryCard p,
+.gemCard p,
+.webgiCollection p {
+  color: rgba(248, 245, 239, 0.66);
+  line-height: 1.58;
+  margin-top: 14px;
+}
+
+.webgiConfigurator {
+  align-items: end;
+  border-block: 1px solid rgba(228, 195, 116, 0.14);
+  grid-template-columns: minmax(0, 0.85fr) minmax(420px, 1fr);
+  padding-bottom: 84px;
+  padding-top: 84px;
+}
+
+.webgiConfigurator h2 {
+  max-width: 720px;
+}
+
+.gemGrid {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.gemCard {
+  min-height: 220px;
+}
+
+.gemCard:nth-child(1) {
+  background:
+    radial-gradient(circle at 82% 18%, rgba(255, 255, 255, 0.22), transparent 5rem),
+    linear-gradient(180deg, rgba(255, 248, 230, 0.1), rgba(255, 248, 230, 0.035));
+}
+
+.gemCard:nth-child(2) {
+  background:
+    radial-gradient(circle at 82% 18%, rgba(55, 212, 142, 0.28), transparent 5rem),
+    linear-gradient(180deg, rgba(255, 248, 230, 0.08), rgba(255, 248, 230, 0.035));
+}
+
+.gemCard:nth-child(3) {
+  background:
+    radial-gradient(circle at 82% 18%, rgba(218, 40, 67, 0.32), transparent 5rem),
+    linear-gradient(180deg, rgba(255, 248, 230, 0.08), rgba(255, 248, 230, 0.035));
+}
+
+.gemCard:nth-child(4) {
+  background:
+    radial-gradient(circle at 82% 18%, rgba(108, 210, 255, 0.28), transparent 5rem),
+    linear-gradient(180deg, rgba(255, 248, 230, 0.08), rgba(255, 248, 230, 0.035));
+}
+
 .collectionBand {
   grid-template-columns: repeat(3, 1fr);
+}
+
+.webgiCollection {
+  grid-template-columns: repeat(4, 1fr);
 }
 
 .collectionCard,
@@ -1493,6 +1663,10 @@ h3 {
 
 .collectionCard h3 {
   margin-top: 68px;
+}
+
+.webgiCollection .collectionCard h3 {
+  margin-top: 54px;
 }
 
 .luxuryAppointment,
@@ -1673,10 +1847,13 @@ h3 {
   .bedimHero,
   .bakeryHero,
   .luxuryHero,
+  .webgiHero,
   .saasHero,
   .bedimAbout,
   .bakeryFeature,
   .luxuryEditorial,
+  .webgiEditorial,
+  .webgiConfigurator,
   .platformSection,
   .bakeryStory {
     grid-template-columns: 1fr;
@@ -1701,7 +1878,10 @@ h3 {
   .bakeryServices,
   .luxuryServices,
   .collectionBand,
+  .webgiCollection,
   .newCakeRail,
+  .webgiStoryRail,
+  .gemGrid,
   .platformGrid,
   .saasOutcomes,
   .siteFooter,
@@ -1852,6 +2032,25 @@ h3 {
   .luxuryRibbon,
   .saasLogos {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .webgiRingStage {
+    min-height: 360px;
+  }
+
+  .webgiSpecs {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .webgiStoryCard,
+  .gemCard {
+    min-height: 0;
+  }
+
+  .webgiStoryCard h3,
+  .gemCard h3 {
+    margin-top: 36px;
   }
 
   .luxuryAppointment,
