@@ -33,6 +33,12 @@ function PortfolioHome() {
     ['AURELIA', 'Ring boutique', '#/luxury-rings', 'showcase-assets/luxury-ring.png'],
     ['NOVA', 'SaaS product', '#/saas-command', 'showcase-assets/saas-dashboard.png'],
   ]
+  const timeline = [
+    ['01', 'Brief', 'Audience, offer, references'],
+    ['02', 'Visual', 'Layout, imagery, motion mood'],
+    ['03', 'Build', 'React, CSS, GSAP, 3D'],
+    ['04', 'Ship', 'Build, test, GitHub deploy'],
+  ]
 
   return (
     <main className="portfolioPage">
@@ -82,6 +88,31 @@ function PortfolioHome() {
       <section className="skillStrip motion-rise">
         {['Landing pages', 'Ecommerce', 'Product UI', 'Animation', '3D hero', 'Deployment'].map((item) => (
           <span key={item}>{item}</span>
+        ))}
+      </section>
+
+      <section className="motionLab">
+        <div className="motionPanel motion-rise">
+          <p className="eyebrow">Motion system</p>
+          <h2>GSAP reveals, scroll movement, hover depth, and a real Three.js hero.</h2>
+        </div>
+        <div className="motionCards">
+          {['ScrollTrigger', 'Parallax', 'Timeline', '3D canvas'].map((item) => (
+            <article className="motionCard motion-rise" key={item}>
+              <span />
+              <h3>{item}</h3>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="buildTimeline">
+        {timeline.map(([number, title, detail]) => (
+          <article className="timelineStep motion-rise" key={title}>
+            <span>{number}</span>
+            <h3>{title}</h3>
+            <p>{detail}</p>
+          </article>
         ))}
       </section>
 
@@ -170,7 +201,21 @@ function BakeryAtelier() {
         {['Custom cakes', 'Local delivery', 'Dessert catering', 'Weekend boxes'].map((item) => (
           <article className="motion-rise" key={item}>
             <h3>{item}</h3>
+            <p>
+              {item === 'Custom cakes' && 'Sizes, flavors, message, finish, and pickup window.'}
+              {item === 'Local delivery' && 'Same-day city route for cakes and pastry boxes.'}
+              {item === 'Dessert catering' && 'Mini desserts, gift boxes, and event tables.'}
+              {item === 'Weekend boxes' && 'Limited drops with seasonal fruit and cream.'}
+            </p>
           </article>
+        ))}
+      </section>
+
+      <section className="orderFlow motion-rise">
+        {['Choose cake', 'Pick date', 'Add message', 'Pickup or delivery'].map((item, index) => (
+          <span key={item}>
+            {index + 1}. {item}
+          </span>
         ))}
       </section>
 
@@ -242,8 +287,27 @@ function LuxuryRings() {
         {['Sizing salon', 'Stone selection', 'Lifetime care', 'Gift concierge'].map((item) => (
           <article className="motion-rise" key={item}>
             <h3>{item}</h3>
+            <p>
+              {item === 'Sizing salon' && 'Compare ring profiles and confirm the right fit.'}
+              {item === 'Stone selection' && 'Review cut, clarity, carat, and setting options.'}
+              {item === 'Lifetime care' && 'Cleaning, inspection, resizing, and repair guidance.'}
+              {item === 'Gift concierge' && 'Private pickup, packaging, and proposal timing.'}
+            </p>
           </article>
         ))}
+      </section>
+
+      <section className="luxuryShowcase motion-rise">
+        <div>
+          <p className="kicker">Boutique story</p>
+          <h2>From discovery to appointment.</h2>
+        </div>
+        <div className="showcaseLines">
+          <span>Collection</span>
+          <span>Craft detail</span>
+          <span>Private service</span>
+          <span>Aftercare</span>
+        </div>
       </section>
 
       <section className="luxuryAppointment motion-rise">
@@ -298,9 +362,21 @@ function SaasCommand() {
           {['Signals', 'Automations', 'Reports', 'Permissions'].map((item) => (
             <article className="platformCard motion-rise" key={item}>
               <h3>{item}</h3>
+              <p>
+                {item === 'Signals' && 'Live alerts, revenue movement, and team activity.'}
+                {item === 'Automations' && 'Repeatable actions for sales and ops workflows.'}
+                {item === 'Reports' && 'Clear snapshots for leadership and weekly review.'}
+                {item === 'Permissions' && 'Roles, access, and safer team handoff.'}
+              </p>
             </article>
           ))}
         </div>
+      </section>
+
+      <section className="saasFlow motion-rise">
+        {['Connect tools', 'Read signals', 'Trigger actions', 'Review outcomes'].map((item) => (
+          <span key={item}>{item}</span>
+        ))}
       </section>
 
       <section className="saasCta motion-rise" id="demo">
@@ -354,6 +430,19 @@ function App() {
         })
 
       gsap.to('.ticker', { xPercent: -14, ease: 'none', scrollTrigger: { scrub: true, trigger: '.ticker' } })
+      gsap.to('.motionCard span', {
+        scaleX: 1,
+        transformOrigin: 'left',
+        stagger: 0.08,
+        duration: 1,
+        ease: 'power3.out',
+        scrollTrigger: { start: 'top 78%', trigger: '.motionCards' },
+      })
+      gsap.to('.timelineStep', {
+        borderColor: 'rgba(124, 242, 255, 0.42)',
+        stagger: 0.08,
+        scrollTrigger: { scrub: true, start: 'top 82%', end: 'bottom 38%', trigger: '.buildTimeline' },
+      })
       gsap.to('.cakeCutout, .ringStage, .dashboardShell, .studioScene', {
         yPercent: 5,
         ease: 'none',

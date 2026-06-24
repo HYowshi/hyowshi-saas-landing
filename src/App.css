@@ -276,6 +276,8 @@ h3 {
 
 .workWall,
 .skillStrip,
+.motionLab,
+.buildTimeline,
 .studioContact {
   margin: 0 auto;
   max-width: 1220px;
@@ -349,6 +351,87 @@ h3 {
   border-radius: 999px;
   font-weight: 850;
   padding: 12px 14px;
+}
+
+.motionLab {
+  align-items: stretch;
+  display: grid;
+  gap: 18px;
+  grid-template-columns: minmax(0, 0.86fr) minmax(360px, 1fr);
+  padding-top: 0;
+}
+
+.motionPanel {
+  background: #f8f5ef;
+  border-radius: 8px;
+  color: #070707;
+  display: grid;
+  min-height: 420px;
+  padding: 28px;
+}
+
+.motionPanel h2 {
+  align-self: end;
+}
+
+.motionCards {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.motionCard {
+  background:
+    radial-gradient(circle at 74% 18%, rgba(124, 242, 255, 0.14), transparent 45%),
+    rgba(248, 245, 239, 0.06);
+  border: 1px solid rgba(248, 245, 239, 0.13);
+  border-radius: 8px;
+  display: grid;
+  min-height: 203px;
+  overflow: hidden;
+  padding: 20px;
+}
+
+.motionCard span {
+  background: #7cf2ff;
+  border-radius: 999px;
+  display: block;
+  height: 7px;
+  transform: scaleX(0.12);
+  width: 100%;
+}
+
+.motionCard h3 {
+  align-self: end;
+}
+
+.buildTimeline {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(4, 1fr);
+  padding-top: 0;
+}
+
+.timelineStep {
+  border: 1px solid rgba(248, 245, 239, 0.14);
+  border-radius: 8px;
+  min-height: 260px;
+  padding: 20px;
+}
+
+.timelineStep span {
+  color: #7cf2ff;
+  font-weight: 950;
+}
+
+.timelineStep h3 {
+  margin-top: 74px;
+}
+
+.timelineStep p {
+  color: rgba(248, 245, 239, 0.66);
+  line-height: 1.55;
+  margin-top: 14px;
 }
 
 .studioContact {
@@ -581,6 +664,42 @@ h3 {
   grid-template-columns: repeat(4, 1fr);
 }
 
+.bakeryServices p,
+.luxuryServices p,
+.platformCard p {
+  color: rgba(50, 24, 15, 0.72);
+  line-height: 1.55;
+  margin-top: 18px;
+}
+
+.luxuryServices p,
+.platformCard p {
+  color: rgba(248, 245, 239, 0.66);
+}
+
+.orderFlow,
+.saasFlow,
+.luxuryShowcase {
+  margin-inline: auto;
+  max-width: 1220px;
+}
+
+.orderFlow,
+.saasFlow {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(4, 1fr);
+  padding: 0 22px 84px;
+}
+
+.orderFlow span,
+.saasFlow span {
+  border: 1px solid rgba(119, 64, 44, 0.16);
+  border-radius: 8px;
+  font-weight: 950;
+  padding: 18px;
+}
+
 .bakeryStory {
   background: #32180f;
   border-radius: 8px;
@@ -699,6 +818,28 @@ h3 {
   color: #150f06;
 }
 
+.luxuryShowcase {
+  align-items: end;
+  border-block: 1px solid rgba(228, 195, 116, 0.16);
+  display: grid;
+  gap: 36px;
+  grid-template-columns: minmax(0, 1fr) minmax(360px, 0.74fr);
+  padding: 76px 22px;
+}
+
+.showcaseLines {
+  display: grid;
+  gap: 10px;
+}
+
+.showcaseLines span {
+  border: 1px solid rgba(228, 195, 116, 0.18);
+  border-radius: 8px;
+  color: #f7df99;
+  font-weight: 950;
+  padding: 16px;
+}
+
 .saasPage {
   background:
     linear-gradient(120deg, rgba(124, 242, 255, 0.13), transparent 30rem),
@@ -780,6 +921,11 @@ h3 {
   color: #06111f;
 }
 
+.saasFlow span {
+  border-color: rgba(124, 242, 255, 0.2);
+  color: #dffbff;
+}
+
 @keyframes pulse {
   0%,
   100% {
@@ -822,7 +968,16 @@ h3 {
   .bakeryServices,
   .luxuryServices,
   .collectionBand,
-  .platformGrid {
+  .platformGrid,
+  .motionLab,
+  .buildTimeline,
+  .orderFlow,
+  .saasFlow,
+  .luxuryShowcase {
+    grid-template-columns: 1fr;
+  }
+
+  .motionCards {
     grid-template-columns: 1fr;
   }
 }
