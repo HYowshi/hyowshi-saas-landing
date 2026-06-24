@@ -214,32 +214,59 @@ function PortfolioHome() {
 
 function BakeryAtelier() {
   const products = [
-    ['Berry Cloud', '$48', 'showcase-assets/bakery-cakes.png'],
-    ['Cocoa Velvet', '$54', 'showcase-assets/bakery-detail.png'],
-    ['Citrus Garden', '$46', 'showcase-assets/bakery-detail.png'],
+    ['Strawberry cake', '$12', 'bedim-cake-assets/product-strawberry-1.png'],
+    ['Chocolate cake', '$15', 'bedim-cake-assets/product-chocolate-1.png'],
+    ['Vanilla cake', '$13', 'bedim-cake-assets/product-vanilla-1.png'],
+    ['Dried fruit cake', '$18', 'bedim-cake-assets/product-dried-fruit-1.png'],
+    ['Honey cupcake', '$9', 'bedim-cake-assets/product-others-1.png'],
+  ]
+
+  const newCakes = [
+    ['Pink velvet', 'Berry cream, vanilla sponge, rose sugar.', 'bedim-cake-assets/new-cake-1.png'],
+    ['Cocoa crown', 'Chocolate mousse, glossy ganache, almond crumb.', 'bedim-cake-assets/new-cake-2.png'],
+    ['Lemon cloud', 'Citrus curd, whipped cream, toasted meringue.', 'bedim-cake-assets/new-cake-3.png'],
+    ['Party slice', 'Confetti sponge, strawberry jam, soft buttercream.', 'bedim-cake-assets/new-cake-4.png'],
+    ['Dream roll', 'Swiss roll, cherry cream, ribbon finish.', 'bedim-cake-assets/new-cake-5.png'],
   ]
 
   return (
     <main className="brandPage bakeryPage">
       <BrandNav tone="light" />
 
-      <section className="bakeryHero">
-        <div className="bakeryIntro motion-rise">
-          <p className="kicker">Maison Miel</p>
-          <h1>Fresh cakes from a small pastry workshop.</h1>
+      <section className="bedimHero">
+        <div className="bedimHeroCopy motion-rise">
+          <p className="scriptKicker">Maison Cake</p>
+          <h1>Custom cakes for every celebration.</h1>
+          <p>
+            A soft, playful cake shop experience with layered hero art, product browsing, seasonal drops, and a clear order path for birthdays, weddings, and weekend dessert boxes.
+          </p>
           <div className="heroActions">
             <a className="button berry" href="#menu">
-              Order online
+              Order cake
             </a>
-            <a className="button cream" href="#visit">
-              Visit
+            <a className="button cream" href="#new-cakes">
+              New cakes
             </a>
           </div>
+          <div className="bakeryStats" aria-label="Bakery highlights">
+            <span><strong>24h</strong> custom quote</span>
+            <span><strong>5</strong> signature flavors</span>
+            <span><strong>4.9</strong> customer rating</span>
+          </div>
         </div>
-        <div className="cakeStage motion-rise">
-          <div className="cakePlate" />
-          <img className="cakeCutout" src={asset('showcase-assets/bakery-cake-cutout.png')} alt="" />
-          <span className="pastrySticker stickerOne">Today</span>
+        <div className="bedimHeroVisual motion-rise" aria-hidden="true">
+          <img className="heroBlob" src={asset('bedim-cake-assets/home-blob.svg')} alt="" />
+          <img className="homeBalloons" src={asset('bedim-cake-assets/home-balloons.png')} alt="" />
+          <img className="heroCake cakeOne" src={asset('bedim-cake-assets/home-cake-1.png')} alt="" />
+          <img className="heroCake cakeTwo" src={asset('bedim-cake-assets/home-cake-2.png')} alt="" />
+          <img className="heroCake cakeThree" src={asset('bedim-cake-assets/home-cake-3.png')} alt="" />
+          <img className="heroCake cakeFour" src={asset('bedim-cake-assets/home-cake-4.png')} alt="" />
+          <img className="heroSlice sliceOne" src={asset('bedim-cake-assets/home-slice-cake-1.png')} alt="" />
+          <img className="heroSlice sliceTwo" src={asset('bedim-cake-assets/home-slice-cake-2.png')} alt="" />
+          <img className="heroBase" src={asset('bedim-cake-assets/home-base.png')} alt="" />
+          <img className="cakeLeaf leafOne" src={asset('bedim-cake-assets/leaf-1.png')} alt="" />
+          <img className="cakeLeaf leafTwo" src={asset('bedim-cake-assets/leaf-2.png')} alt="" />
+          <span className="pastrySticker stickerOne">Fresh today</span>
           <span className="pastrySticker stickerTwo">Pickup + delivery</span>
         </div>
       </section>
@@ -259,48 +286,76 @@ function BakeryAtelier() {
         </article>
       </section>
 
-      <section className="bakeryFeature">
-        <img className="featureImage motion-rise" src={asset('showcase-assets/bakery-cakes.png')} alt="" />
+      <section className="bedimAbout">
+        <div className="aboutCakeVisual motion-rise">
+          <img className="aboutBlob" src={asset('bedim-cake-assets/about-blob.svg')} alt="" />
+          <img className="aboutMainCake" src={asset('bedim-cake-assets/about-img.png')} alt="Decorated strawberry cake on a cake stand." />
+          <img className="aboutCupcake cupOne" src={asset('bedim-cake-assets/about-cupcake-1.png')} alt="" />
+          <img className="aboutCupcake cupTwo" src={asset('bedim-cake-assets/about-cupcake-2.png')} alt="" />
+          <img className="aboutCupcake cupThree" src={asset('bedim-cake-assets/about-cupcake-3.png')} alt="" />
+        </div>
         <div className="featureCopy motion-rise">
-          <p className="kicker">Counter</p>
-          <h2>Pastries, cakes, and weekend boxes.</h2>
+          <p className="scriptKicker">About us</p>
+          <h2>Made by pastry chefs who care about the first photo and the last bite.</h2>
+          <p>
+            Every cake page needs to sell appetite fast: a clear hero product, visible flavors, emotional occasion copy, and a direct ordering flow. This concept uses cutout imagery, layered motion, warm typography, and focused conversion blocks.
+          </p>
           <a className="textLink" href="#menu">
-            See menu
+            Browse flavors
           </a>
         </div>
       </section>
 
-      <section className="productGallery bakeryGallery">
-        <img className="motion-rise" src={asset('showcase-assets/bakery-cakes.png')} alt="" />
-        <img className="motion-rise" src={asset('showcase-assets/bakery-detail.png')} alt="" />
-        <div className="galleryCopy motion-rise">
-          <p className="kicker">Daily drop</p>
-          <h2>Hero cake, counter photography, product cards, and order path.</h2>
+      <section className="bedimProducts" id="menu">
+        <div className="sectionHeader motion-rise">
+          <p className="scriptKicker">Popular cakes</p>
+          <h2>Choose the flavor, size, finish, and pickup date.</h2>
         </div>
+        <img className="productsBlob" src={asset('bedim-cake-assets/products-blob.svg')} alt="" aria-hidden="true" />
+        <img className="cakeLeaf productLeaf" src={asset('bedim-cake-assets/leaf-3.png')} alt="" aria-hidden="true" />
       </section>
 
-      <section className="menuGrid" id="menu">
+      <section className="menuGrid cakeMenuGrid">
         {products.map(([name, price, image]) => (
           <article className="menuCard motion-rise" key={name}>
             <img src={asset(image)} alt="" />
             <div>
               <span>{price}</span>
               <h3>{name}</h3>
+              <p>Soft sponge, balanced cream, boxed for pickup or delivery.</p>
             </div>
           </article>
         ))}
       </section>
 
-      <section className="bakeryServices">
-        {['Custom cakes', 'Local delivery', 'Dessert catering', 'Weekend boxes'].map((item) => (
+      <section className="bedimNewCakes" id="new-cakes">
+        <div className="sectionHeader motion-rise">
+          <p className="scriptKicker">Fresh arrivals</p>
+          <h2>Seasonal cakes styled for launches, birthdays, and social campaigns.</h2>
+        </div>
+        <div className="newCakeRail">
+          {newCakes.map(([name, detail, image], index) => (
+            <article className="newCakeCard motion-rise" key={name}>
+              <span>0{index + 1}</span>
+              <img src={asset(image)} alt="" />
+              <h3>{name}</h3>
+              <p>{detail}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="bakeryServices cakeServiceGrid">
+        {[
+          ['Custom cakes', 'Sizes, flavors, message, finish, candle kit, and pickup window.'],
+          ['Local delivery', 'Same-day city route with insulated packaging and handoff status.'],
+          ['Dessert catering', 'Mini desserts, gift boxes, and full event tables for private gatherings.'],
+          ['Weekend boxes', 'Limited drops with seasonal fruit, cream, and launch-ready visuals.'],
+        ].map(([item, detail]) => (
           <article className="motion-rise" key={item}>
+            <img src={asset(`bedim-cake-assets/sticker-${(item.length % 5) + 1}.svg`)} alt="" />
             <h3>{item}</h3>
-            <p>
-              {item === 'Custom cakes' && 'Sizes, flavors, message, finish, and pickup window.'}
-              {item === 'Local delivery' && 'Same-day city route for cakes and pastry boxes.'}
-              {item === 'Dessert catering' && 'Mini desserts, gift boxes, and event tables.'}
-              {item === 'Weekend boxes' && 'Limited drops with seasonal fruit and cream.'}
-            </p>
+            <p>{detail}</p>
           </article>
         ))}
       </section>
@@ -315,9 +370,9 @@ function BakeryAtelier() {
 
       <section className="productDetailGrid bakeryDetailGrid">
         {[
-          ['Popular', 'Berry Cloud cake for birthdays and weekend tables.'],
-          ['Events', 'Mini desserts and dessert tables for private gatherings.'],
-          ['Pickup', 'Clear date, time, message, and packaging flow.'],
+          ['Brand system', 'Soft pink palette, cake-script accents, rounded product cards, and joyful cutout imagery.'],
+          ['Conversion flow', 'Menu, new cakes, order process, service blocks, and one clear contact card.'],
+          ['Motion layer', 'Floating hero assets, hover lift, reveal timeline, and lightweight CSS animation.'],
         ].map(([title, detail]) => (
           <article className="motion-rise" key={title}>
             <span>{title}</span>
@@ -327,10 +382,14 @@ function BakeryAtelier() {
       </section>
 
       <section className="bakeryStory motion-rise">
-        <img src={asset('showcase-assets/bakery-detail.png')} alt="" />
+        <div className="storyCakeStack" aria-hidden="true">
+          <img src={asset('bedim-cake-assets/footer-blob.svg')} alt="" />
+          <img src={asset('bedim-cake-assets/new-cake-5.png')} alt="" />
+        </div>
         <div>
-          <p className="kicker">Maison Miel</p>
-          <h2>Order beautiful desserts without guessing.</h2>
+          <p className="scriptKicker">Maison Cake</p>
+          <h2>Ready to turn a cake shop into a brand people remember?</h2>
+          <p>Built as a complete product demo: emotional first screen, real food imagery, clear menu, micro-interactions, and a practical sales path.</p>
           <a className="button berry" href="#/">
             Portfolio
           </a>

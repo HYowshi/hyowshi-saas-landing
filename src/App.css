@@ -969,6 +969,445 @@ h3 {
   color: #fff8ef;
 }
 
+.bakeryPage {
+  background:
+    radial-gradient(circle at 18% 18%, rgba(255, 255, 255, 0.82), transparent 18rem),
+    radial-gradient(circle at 86% 22%, rgba(255, 121, 154, 0.18), transparent 24rem),
+    linear-gradient(180deg, #ffe5ea 0%, #fff5f7 44%, #ffd8e0 100%);
+  color: #4b1d28;
+}
+
+.bakeryPage .brandNav {
+  background: rgba(255, 245, 247, 0.78);
+  border-color: rgba(153, 48, 72, 0.12);
+}
+
+.bakeryPage h1,
+.bakeryPage h2,
+.bakeryPage h3 {
+  color: #37131c;
+}
+
+.scriptKicker {
+  color: #e65479;
+  display: block;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.55rem, 4vw, 3rem);
+  font-style: italic;
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: 18px;
+}
+
+.bedimHero {
+  align-items: center;
+  display: grid;
+  gap: 42px;
+  grid-template-columns: minmax(0, 0.86fr) minmax(430px, 1fr);
+  min-height: calc(100svh - 78px);
+  padding-bottom: 62px;
+  padding-top: 64px;
+}
+
+.bedimHeroCopy h1 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(3.4rem, 9vw, 7.7rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 0.9;
+  max-width: 820px;
+}
+
+.bedimHeroCopy > p {
+  color: rgba(75, 29, 40, 0.75);
+  font-size: clamp(1rem, 1.4vw, 1.18rem);
+  line-height: 1.7;
+  margin-top: 26px;
+  max-width: 680px;
+}
+
+.bakeryStats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 30px;
+}
+
+.bakeryStats span {
+  background: rgba(255, 255, 255, 0.58);
+  border: 1px solid rgba(153, 48, 72, 0.12);
+  border-radius: 999px;
+  color: rgba(75, 29, 40, 0.72);
+  padding: 10px 14px;
+}
+
+.bakeryStats strong {
+  color: #d73e67;
+  margin-right: 6px;
+}
+
+.bedimHeroVisual {
+  aspect-ratio: 1;
+  min-height: 520px;
+  position: relative;
+}
+
+.bedimHeroVisual img {
+  display: block;
+  position: absolute;
+  user-select: none;
+}
+
+.heroBlob {
+  inset: 9% 5% auto auto;
+  opacity: 0.95;
+  width: 80%;
+}
+
+.heroBase {
+  bottom: 4%;
+  filter: drop-shadow(0 24px 20px rgba(83, 30, 43, 0.22));
+  left: 17%;
+  width: 68%;
+  z-index: 4;
+}
+
+.heroCake {
+  filter: drop-shadow(0 24px 20px rgba(83, 30, 43, 0.16));
+  z-index: 5;
+}
+
+.cakeOne {
+  left: 20%;
+  top: 14%;
+  width: 24%;
+}
+
+.cakeTwo {
+  right: 19%;
+  top: 17%;
+  width: 22%;
+}
+
+.cakeThree {
+  left: 28%;
+  top: 34%;
+  width: 22%;
+}
+
+.cakeFour {
+  right: 28%;
+  top: 39%;
+  width: 22%;
+}
+
+.homeBalloons {
+  right: 2%;
+  top: 0;
+  width: 22%;
+  z-index: 2;
+}
+
+.heroSlice {
+  filter: drop-shadow(0 16px 16px rgba(83, 30, 43, 0.18));
+  width: 18%;
+  z-index: 6;
+}
+
+.sliceOne {
+  bottom: 21%;
+  left: 2%;
+}
+
+.sliceTwo {
+  bottom: 18%;
+  right: 4%;
+}
+
+.cakeLeaf {
+  animation: cakeFloat 5.6s ease-in-out infinite alternate;
+  opacity: 0.92;
+}
+
+.leafOne {
+  left: 5%;
+  top: 11%;
+  width: 9%;
+  z-index: 3;
+}
+
+.leafTwo {
+  bottom: 10%;
+  right: 12%;
+  width: 10%;
+  z-index: 7;
+}
+
+.bedimHeroVisual .heroCake,
+.bedimHeroVisual .heroSlice,
+.homeBalloons {
+  animation: cakeFloat 4.8s ease-in-out infinite alternate;
+}
+
+.cakeTwo,
+.sliceTwo,
+.homeBalloons {
+  animation-delay: -1.4s;
+}
+
+.cakeThree,
+.leafTwo {
+  animation-delay: -2.1s;
+}
+
+.bedimAbout {
+  align-items: center;
+  display: grid;
+  gap: 54px;
+  grid-template-columns: minmax(330px, 0.82fr) minmax(0, 1fr);
+  padding-bottom: 92px;
+  padding-top: 64px;
+}
+
+.aboutCakeVisual {
+  aspect-ratio: 1;
+  position: relative;
+}
+
+.aboutCakeVisual img {
+  position: absolute;
+}
+
+.aboutBlob {
+  inset: 8% auto auto 3%;
+  width: 90%;
+}
+
+.aboutMainCake {
+  filter: drop-shadow(0 34px 28px rgba(83, 30, 43, 0.22));
+  inset: 9% auto auto 12%;
+  width: 72%;
+  z-index: 2;
+}
+
+.aboutCupcake {
+  filter: drop-shadow(0 16px 16px rgba(83, 30, 43, 0.18));
+  z-index: 3;
+}
+
+.cupOne {
+  right: 4%;
+  top: 9%;
+  width: 18%;
+}
+
+.cupTwo {
+  bottom: 18%;
+  left: 0;
+  width: 18%;
+}
+
+.cupThree {
+  bottom: 7%;
+  right: 13%;
+  width: 17%;
+}
+
+.featureCopy p:not(.scriptKicker),
+.bakeryStory p {
+  color: rgba(75, 29, 40, 0.74);
+  line-height: 1.7;
+  margin-top: 18px;
+}
+
+.bedimProducts {
+  overflow: hidden;
+  padding-bottom: 26px;
+  padding-top: 44px;
+  position: relative;
+  text-align: center;
+}
+
+.sectionHeader {
+  margin-inline: auto;
+  max-width: 780px;
+}
+
+.sectionHeader h2 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2.1rem, 5vw, 4.8rem);
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 1;
+}
+
+.productsBlob {
+  margin: 18px auto 0;
+  max-width: 260px;
+  opacity: 0.8;
+}
+
+.productLeaf {
+  position: absolute;
+  right: 12%;
+  top: 22%;
+  width: 52px;
+}
+
+.cakeMenuGrid {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  padding-top: 18px;
+}
+
+.cakeMenuGrid .menuCard {
+  background: rgba(255, 255, 255, 0.62);
+  border: 1px solid rgba(153, 48, 72, 0.12);
+  box-shadow: 0 18px 50px rgba(153, 48, 72, 0.08);
+  overflow: visible;
+  padding: 18px 16px 20px;
+  text-align: center;
+}
+
+.cakeMenuGrid .menuCard img {
+  aspect-ratio: 1;
+  filter: drop-shadow(0 18px 18px rgba(83, 30, 43, 0.18));
+  margin: -40px auto 12px;
+  object-fit: contain;
+  width: min(170px, 88%);
+}
+
+.cakeMenuGrid .menuCard div {
+  padding: 0;
+}
+
+.cakeMenuGrid .menuCard h3 {
+  font-size: 1rem;
+  margin-top: 6px;
+}
+
+.cakeMenuGrid .menuCard p {
+  color: rgba(75, 29, 40, 0.62);
+  font-size: 0.84rem;
+  line-height: 1.45;
+  margin-top: 10px;
+}
+
+.bedimNewCakes {
+  padding-bottom: 82px;
+  padding-top: 58px;
+}
+
+.newCakeRail {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  margin-top: 44px;
+}
+
+.newCakeCard {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.76), rgba(255, 239, 243, 0.74));
+  border: 1px solid rgba(153, 48, 72, 0.12);
+  border-radius: 8px;
+  min-height: 330px;
+  padding: 18px;
+  position: relative;
+  text-align: center;
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.newCakeCard:hover {
+  box-shadow: 0 24px 60px rgba(153, 48, 72, 0.14);
+  transform: translateY(-8px) rotate(-1deg);
+}
+
+.newCakeCard span {
+  color: rgba(215, 62, 103, 0.38);
+  font-size: 2.3rem;
+  font-weight: 950;
+  left: 16px;
+  line-height: 1;
+  position: absolute;
+  top: 14px;
+}
+
+.newCakeCard img {
+  filter: drop-shadow(0 20px 18px rgba(83, 30, 43, 0.2));
+  height: 150px;
+  margin: 24px auto 12px;
+  object-fit: contain;
+}
+
+.newCakeCard p {
+  color: rgba(75, 29, 40, 0.66);
+  font-size: 0.9rem;
+  line-height: 1.48;
+  margin-top: 10px;
+}
+
+.cakeServiceGrid article {
+  min-height: 260px;
+}
+
+.cakeServiceGrid img {
+  height: 54px;
+  margin-bottom: 26px;
+  width: 54px;
+}
+
+.bakeryDetailGrid article {
+  background: rgba(255, 255, 255, 0.48);
+}
+
+.bakeryStory {
+  background:
+    radial-gradient(circle at 82% 20%, rgba(255, 122, 153, 0.28), transparent 22rem),
+    linear-gradient(135deg, #4b1827, #271017);
+  grid-template-columns: minmax(280px, 0.7fr) minmax(0, 1fr);
+  overflow: hidden;
+}
+
+.bakeryStory h2,
+.bakeryStory .scriptKicker {
+  color: #fff8ef;
+}
+
+.bakeryStory p {
+  color: rgba(255, 248, 239, 0.75);
+  max-width: 720px;
+}
+
+.storyCakeStack {
+  aspect-ratio: 1;
+  position: relative;
+}
+
+.storyCakeStack img {
+  border-radius: 0;
+  object-fit: contain;
+  position: absolute;
+}
+
+.storyCakeStack img:first-child {
+  inset: 10% auto auto 8%;
+  opacity: 0.78;
+  width: 80%;
+}
+
+.storyCakeStack img:last-child {
+  filter: drop-shadow(0 32px 28px rgba(0, 0, 0, 0.22));
+  inset: 12% auto auto 14%;
+  width: 72%;
+}
+
+@keyframes cakeFloat {
+  from {
+    transform: translate3d(0, 0, 0) rotate(-1.5deg);
+  }
+  to {
+    transform: translate3d(0, -14px, 0) rotate(2deg);
+  }
+}
+
 .luxuryPage {
   background:
     radial-gradient(circle at 74% 10%, rgba(228, 195, 116, 0.18), transparent 30rem),
@@ -1231,9 +1670,11 @@ h3 {
 
 @media (max-width: 1040px) {
   .studioHero,
+  .bedimHero,
   .bakeryHero,
   .luxuryHero,
   .saasHero,
+  .bedimAbout,
   .bakeryFeature,
   .luxuryEditorial,
   .platformSection,
@@ -1256,9 +1697,11 @@ h3 {
 
   .bakeryInfoBar,
   .menuGrid,
+  .cakeMenuGrid,
   .bakeryServices,
   .luxuryServices,
   .collectionBand,
+  .newCakeRail,
   .platformGrid,
   .saasOutcomes,
   .siteFooter,
@@ -1347,6 +1790,41 @@ h3 {
 
   .studioHero {
     padding-top: 42px;
+  }
+
+  .bedimHero {
+    gap: 12px;
+    min-height: auto;
+    padding-top: 42px;
+  }
+
+  .bedimHeroCopy h1 {
+    font-size: clamp(3.3rem, 18vw, 5.5rem);
+  }
+
+  .bedimHeroVisual {
+    min-height: 330px;
+  }
+
+  .bedimAbout {
+    gap: 12px;
+    padding-top: 38px;
+  }
+
+  .aboutCakeVisual {
+    min-height: 330px;
+  }
+
+  .cakeMenuGrid .menuCard {
+    margin-top: 34px;
+  }
+
+  .newCakeRail {
+    gap: 28px;
+  }
+
+  .newCakeCard {
+    min-height: 0;
   }
 
   .brandPage {
