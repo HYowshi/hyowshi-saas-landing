@@ -272,6 +272,34 @@ h3 {
   max-width: 850px;
 }
 
+.heroProfilePanel {
+  align-items: center;
+  background: rgba(248, 245, 239, 0.06);
+  border: 1px solid rgba(248, 245, 239, 0.14);
+  border-radius: 999px;
+  display: inline-flex;
+  gap: 12px;
+  margin-top: 28px;
+  max-width: 560px;
+  padding: 10px 14px;
+}
+
+.heroProfilePanel p {
+  color: rgba(248, 245, 239, 0.72);
+  font-size: 0.92rem;
+  line-height: 1.35;
+  margin: 0;
+}
+
+.statusDot {
+  background: #7cf2ff;
+  border-radius: 50%;
+  box-shadow: 0 0 22px rgba(124, 242, 255, 0.8);
+  flex: 0 0 10px;
+  height: 10px;
+  width: 10px;
+}
+
 .studioHeadline .eyebrow,
 .portfolioPage .eyebrow {
   color: #7cf2ff;
@@ -287,6 +315,37 @@ h3 {
   min-height: 530px;
   overflow: hidden;
   position: relative;
+}
+
+.sceneBadge {
+  backdrop-filter: blur(18px);
+  background: rgba(7, 7, 7, 0.62);
+  border: 1px solid rgba(248, 245, 239, 0.14);
+  border-radius: 8px;
+  color: #f8f5ef;
+  display: grid;
+  gap: 5px;
+  padding: 12px;
+  position: absolute;
+  z-index: 3;
+}
+
+.sceneBadge span {
+  color: #7cf2ff;
+  font-size: 0.68rem;
+  font-weight: 950;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.badgeTop {
+  right: 16px;
+  top: 16px;
+}
+
+.badgeBottom {
+  bottom: 16px;
+  left: 16px;
 }
 
 .heroCanvas,
@@ -329,6 +388,8 @@ h3 {
 .workflowSection,
 .aboutStudio,
 .skillMatrix,
+.portfolioBento,
+.portfolioCapability,
 .studioContact {
   margin: 0 auto;
   max-width: 1220px;
@@ -348,6 +409,164 @@ h3 {
   font-size: clamp(1.04rem, 1.55vw, 1.28rem);
   line-height: 1.68;
 }
+
+.portfolioBento {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(6, 1fr);
+  padding-bottom: 0;
+}
+
+.portfolioBento .tiltSurface {
+  background: rgba(248, 245, 239, 0.06);
+  border: 1px solid rgba(248, 245, 239, 0.13);
+  border-radius: 8px;
+  min-height: 270px;
+  padding: 22px;
+}
+
+.portfolioBento h3,
+.portfolioCapability h3 {
+  color: #f8f5ef;
+}
+
+.portfolioBento p:not(.eyebrow),
+.portfolioBento span,
+.portfolioCapability p {
+  color: rgba(248, 245, 239, 0.68);
+  line-height: 1.58;
+}
+
+.bentoProfile {
+  align-items: end;
+  background:
+    radial-gradient(circle at 78% 16%, rgba(124, 242, 255, 0.18), transparent 12rem),
+    rgba(248, 245, 239, 0.06);
+  display: flex;
+  grid-column: span 2;
+}
+
+.bentoCraft {
+  align-items: center;
+  display: grid;
+  grid-column: span 2;
+  justify-items: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.bentoCraft > p {
+  color: rgba(248, 245, 239, 0.24);
+  font-size: clamp(2.6rem, 7vw, 5rem);
+  font-weight: 950;
+  letter-spacing: -0.06em;
+  line-height: 0.86;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.craftChip {
+  background: rgba(7, 7, 7, 0.72);
+  border: 1px solid rgba(124, 242, 255, 0.22);
+  border-radius: 999px;
+  color: #dffbff;
+  font-size: 0.74rem;
+  font-weight: 950;
+  left: var(--chip-left, 50%);
+  padding: 9px 11px;
+  position: absolute;
+  top: var(--chip-top, 50%);
+  transform: translate(-50%, -50%) rotate(var(--chip-rotate, 0deg));
+}
+
+.chip1 { --chip-left: 20%; --chip-top: 22%; --chip-rotate: -12deg; }
+.chip2 { --chip-left: 72%; --chip-top: 24%; --chip-rotate: 16deg; }
+.chip3 { --chip-left: 25%; --chip-top: 72%; --chip-rotate: 8deg; }
+.chip4 { --chip-left: 78%; --chip-top: 70%; --chip-rotate: -10deg; }
+.chip5 { --chip-left: 50%; --chip-top: 14%; --chip-rotate: 4deg; }
+.chip6 { --chip-left: 50%; --chip-top: 84%; --chip-rotate: -4deg; }
+
+.bentoAvailability,
+.bentoContact {
+  grid-column: span 1;
+}
+
+.bentoContact {
+  background:
+    linear-gradient(135deg, rgba(124, 242, 255, 0.2), rgba(248, 245, 239, 0.06)),
+    rgba(248, 245, 239, 0.06);
+}
+
+.copyEmailButton {
+  background: #f8f5ef;
+  border: 0;
+  border-radius: 999px;
+  color: #070707;
+  cursor: pointer;
+  font-weight: 950;
+  margin-top: 26px;
+  padding: 13px 18px;
+  transition: transform 180ms ease;
+}
+
+.copyEmailButton:hover {
+  transform: translateY(-4px);
+}
+
+.bentoStack {
+  align-items: center;
+  display: grid;
+  grid-column: span 6;
+  grid-template-columns: minmax(0, 0.8fr) minmax(320px, 1fr);
+  min-height: 340px;
+  overflow: hidden;
+}
+
+.stackOrbit {
+  aspect-ratio: 1;
+  border: 1px solid rgba(124, 242, 255, 0.18);
+  border-radius: 50%;
+  justify-self: end;
+  max-width: 320px;
+  position: relative;
+  width: min(80%, 320px);
+}
+
+.stackOrbit::before,
+.stackOrbit::after {
+  border: 1px solid rgba(124, 242, 255, 0.12);
+  border-radius: 50%;
+  content: '';
+  inset: 18%;
+  position: absolute;
+}
+
+.stackOrbit::after {
+  inset: 34%;
+}
+
+.orbitItem {
+  align-items: center;
+  background: #dffbff;
+  border-radius: 50%;
+  color: #031019;
+  display: flex;
+  font-size: 0.82rem;
+  font-weight: 950;
+  height: 48px;
+  justify-content: center;
+  left: var(--orbit-left, 50%);
+  position: absolute;
+  top: var(--orbit-top, 50%);
+  transform: translate(-50%, -50%);
+  width: 48px;
+}
+
+.orbit1 { --orbit-left: 50%; --orbit-top: 0%; }
+.orbit2 { --orbit-left: 96%; --orbit-top: 42%; }
+.orbit3 { --orbit-left: 68%; --orbit-top: 92%; }
+.orbit4 { --orbit-left: 22%; --orbit-top: 82%; }
+.orbit5 { --orbit-left: 8%; --orbit-top: 34%; }
 
 .skillMatrix {
   display: grid;
@@ -424,6 +643,34 @@ h3 {
   color: rgba(248, 245, 239, 0.68);
   font-weight: 800;
   margin-bottom: 12px;
+}
+
+.portfolioCapability {
+  border-block: 1px solid rgba(248, 245, 239, 0.12);
+  display: grid;
+  gap: 36px;
+  grid-template-columns: minmax(0, 0.82fr) minmax(420px, 1fr);
+}
+
+.portfolioCapability .awardTitle {
+  color: #f8f5ef;
+}
+
+.capabilityGrid {
+  display: grid;
+  gap: 14px;
+}
+
+.capabilityCard {
+  background: rgba(248, 245, 239, 0.06);
+  border: 1px solid rgba(248, 245, 239, 0.13);
+  border-radius: 8px;
+  min-height: 190px;
+  padding: 22px;
+}
+
+.capabilityCard p {
+  margin-top: 34px;
 }
 
 .skillStrip {
@@ -2095,8 +2342,28 @@ h3 {
   .buildTimeline,
   .orderFlow,
   .saasFlow,
-  .luxuryShowcase {
+  .luxuryShowcase,
+  .portfolioBento,
+  .portfolioCapability {
     grid-template-columns: 1fr;
+  }
+
+  .bentoProfile,
+  .bentoCraft,
+  .bentoAvailability,
+  .bentoContact,
+  .bentoStack {
+    grid-column: auto;
+  }
+
+  .bentoStack {
+    grid-template-columns: 1fr;
+  }
+
+  .stackOrbit {
+    justify-self: center;
+    margin-top: 28px;
+    width: min(100%, 280px);
   }
 
   .motionCards {
@@ -2171,6 +2438,15 @@ h3 {
 
   .studioHero {
     padding-top: 42px;
+  }
+
+  .heroProfilePanel {
+    align-items: flex-start;
+    border-radius: 8px;
+  }
+
+  .sceneBadge {
+    display: none;
   }
 
   .bedimHero {

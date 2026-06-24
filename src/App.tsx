@@ -102,6 +102,7 @@ function TiltCard({ children, className = '' }: { children: ReactNode; className
 }
 
 function PortfolioHome() {
+  const [copiedEmail, setCopiedEmail] = useState(false)
   const work = [
     ['Maison Miel', 'Bakery website', '#/bakery-atelier', 'showcase-assets/bakery-cake-cutout.png'],
     ['AURELIA', 'Ring boutique', '#/luxury-rings', 'showcase-assets/luxury-ring.png'],
@@ -128,6 +129,18 @@ function PortfolioHome() {
     ['Develop', 'React build, responsive CSS, GSAP, 3D, and interactions.'],
     ['Deliver', 'Live link, GitHub repo, QA notes, and handoff.'],
   ]
+  const craftChips = ['React', 'GSAP', 'Three.js', 'Layout', 'Brand UI', 'Deploy']
+  const capabilityCards = [
+    ['Landing Page', 'Brand-first hero, scroll story, responsive conversion flow.'],
+    ['Product Demo', '3D/product visuals, catalog sections, proof, and CTA.'],
+    ['Portfolio Build', 'Case-study layout, skills wall, contact, and GitHub handoff.'],
+  ]
+
+  const copyEmail = async () => {
+    await navigator.clipboard.writeText('HarashiYowshi@gmail.com')
+    setCopiedEmail(true)
+    window.setTimeout(() => setCopiedEmail(false), 1800)
+  }
 
   return (
     <main className="portfolioPage">
@@ -145,11 +158,23 @@ function PortfolioHome() {
               Contact
             </a>
           </div>
+          <div className="heroProfilePanel motion-rise">
+            <span className="statusDot" />
+            <p>Available for freelance landing pages, product demos, and portfolio sites.</p>
+          </div>
         </div>
         <div className="studioScene motion-rise">
           <Suspense fallback={<div className="sceneFallback" />}>
             <HeroScene />
           </Suspense>
+          <div className="sceneBadge badgeTop">
+            <span>Role</span>
+            <strong>Visual Frontend</strong>
+          </div>
+          <div className="sceneBadge badgeBottom">
+            <span>Stack</span>
+            <strong>React / GSAP / 3D</strong>
+          </div>
         </div>
       </section>
 
@@ -172,6 +197,49 @@ function PortfolioHome() {
         </p>
       </section>
 
+      <section className="portfolioBento">
+        <TiltCard className="bentoProfile motion-rise">
+          <div>
+            <p className="eyebrow">Profile</p>
+            <h3>Harashi Yowshi</h3>
+            <p>Frontend builder for visual product websites with a strong taste for motion and layout.</p>
+          </div>
+        </TiltCard>
+        <TiltCard className="bentoCraft motion-rise">
+          <p>Code is craft</p>
+          {craftChips.map((chip, index) => (
+            <span className={`craftChip chip${index + 1}`} key={chip}>
+              {chip}
+            </span>
+          ))}
+        </TiltCard>
+        <TiltCard className="bentoAvailability motion-rise">
+          <p className="eyebrow">Remote</p>
+          <h3>Asia/Saigon timezone, online delivery.</h3>
+          <span>GitHub repo + live deploy + QA notes</span>
+        </TiltCard>
+        <TiltCard className="bentoContact motion-rise">
+          <p className="eyebrow">Contact</p>
+          <h3>Start a project together.</h3>
+          <button className="copyEmailButton" type="button" onClick={copyEmail}>
+            {copiedEmail ? 'Email copied' : 'Copy email'}
+          </button>
+        </TiltCard>
+        <TiltCard className="bentoStack motion-rise">
+          <div>
+            <p className="eyebrow">Technical stack</p>
+            <h3>React, TypeScript, GSAP, Three.js, Vite.</h3>
+          </div>
+          <div className="stackOrbit" aria-hidden="true">
+            {['R', 'TS', 'G', '3D', 'V'].map((item, index) => (
+              <span className={`orbitItem orbit${index + 1}`} key={item}>
+                {item}
+              </span>
+            ))}
+          </div>
+        </TiltCard>
+      </section>
+
       <section className="skillMatrix">
         {skills.map(([title, detail]) => (
           <article className="skillCard motion-rise" key={title}>
@@ -192,6 +260,21 @@ function PortfolioHome() {
             </div>
           </a>
         ))}
+      </section>
+
+      <section className="portfolioCapability">
+        <div className="motion-rise">
+          <p className="eyebrow">Services</p>
+          <AwardTitle text="Premium frontend work with enough polish to sell the idea." />
+        </div>
+        <div className="capabilityGrid">
+          {capabilityCards.map(([title, detail]) => (
+            <TiltCard className="capabilityCard motion-rise" key={title}>
+              <h3>{title}</h3>
+              <p>{detail}</p>
+            </TiltCard>
+          ))}
+        </div>
       </section>
 
       <section className="skillStrip motion-rise">
