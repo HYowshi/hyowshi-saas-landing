@@ -12,60 +12,59 @@ const asset = (path: string) => `${import.meta.env.BASE_URL}${path}`
 const routes = ['/luxury-rings', '/saas-command', '/bakery-atelier'] as const
 type Route = (typeof routes)[number]
 
-const projects = [
+const work = [
+  {
+    href: '#/bakery-atelier',
+    number: '01',
+    title: 'Maison Miel',
+    category: 'Patisserie commerce',
+    image: 'showcase-assets/bakery-cake-cutout.png',
+    summary: 'A bakery site with menu, pickup, local delivery, catering, workshop story, and a floating cake hero.',
+  },
   {
     href: '#/luxury-rings',
-    image: 'showcase-assets/luxury-ring.png',
+    number: '02',
     title: 'AURELIA',
-    label: 'Luxury jewelry brand',
-    body: 'An editorial commerce experience for a fine ring atelier: cinematic product focus, craft proof, private appointment flow.',
-    stack: ['Luxury ecommerce', 'Campaign layout', 'Product storytelling'],
+    category: 'Fine jewelry boutique',
+    image: 'showcase-assets/luxury-ring.png',
+    summary: 'A luxury ring experience with collection storytelling, boutique services, sizing, care, and private appointments.',
   },
   {
     href: '#/saas-command',
-    image: 'showcase-assets/saas-dashboard.png',
+    number: '03',
     title: 'NOVA Command',
-    label: 'AI SaaS launch',
-    body: 'A product-led SaaS site with sharp dashboard proof, feature flows, integrations, and demo conversion.',
-    stack: ['SaaS landing', 'Dashboard UI', 'Conversion sections'],
-  },
-  {
-    href: '#/bakery-atelier',
-    image: 'showcase-assets/bakery-cake-cutout.png',
-    title: 'Maison Miel',
-    label: 'Boutique patisserie',
-    body: 'A bright bakery brand site with a floating 3D cake hero, seasonal catalogue, custom order path, and warm product visuals.',
-    stack: ['Food commerce', '3D product hero', 'Order flow'],
+    category: 'AI SaaS launch',
+    image: 'showcase-assets/saas-dashboard.png',
+    summary: 'A product-led software page with dashboard proof, integration logic, outcomes, and demo conversion.',
   },
 ]
 
-const skills = [
-  ['Frontend', 'React, TypeScript, JavaScript, HTML, CSS'],
-  ['Motion', 'GSAP timelines, ScrollTrigger reveals, parallax, hover systems'],
-  ['3D / Visual', 'Three.js hero, product cutouts, generated assets, layered art direction'],
-  ['Brand Layout', 'Distinct visual systems for luxury, SaaS, food, portfolio, and product pages'],
-  ['Delivery', 'GitHub repo, README, live deploy, responsive checks, build verification'],
-  ['Freelance Fit', 'Landing pages, ecommerce concepts, frontend fixes, client-ready demos'],
+const capabilities = [
+  ['Art direction', 'Mood, brand tone, section rhythm, reference translation, and visual hierarchy.'],
+  ['Frontend build', 'React, TypeScript, Vite, responsive CSS, reusable sections, and source-code delivery.'],
+  ['Motion system', 'GSAP entrance timelines, parallax moments, product hover states, and scroll reveals.'],
+  ['Visual assets', 'Generated product imagery, transparent cutouts, image-led layouts, and WebGL hero staging.'],
+  ['Commercial pages', 'Landing pages, ecommerce, menus, boutiques, dashboards, portfolio sites, and fixes.'],
 ]
 
 const process = [
-  ['01', 'Brief', 'Audience, brand tone, product offer, assets, deliverables, and deadline.'],
-  ['02', 'Direction', 'Visual language, layout references, motion rhythm, and conversion path.'],
-  ['03', 'Build', 'React UI, responsive sections, imagery, animation, and clean source code.'],
-  ['04', 'Verify', 'Desktop, mobile, overflow, build, live links, README, and handoff message.'],
+  ['Brief', 'Understand customer, offer, references, conversion goal, assets, budget, and deadline.'],
+  ['Direction', 'Define brand mood, page structure, CTA path, content modules, and motion language.'],
+  ['Build', 'Implement responsive React pages with polished UI, imagery, animation, and readable code.'],
+  ['Verify', 'Run build, lint, desktop/mobile checks, live deploy, and final delivery notes.'],
 ]
 
-function BrandNav({ tone = 'dark' }: { tone?: 'dark' | 'light' }) {
+function BrandNav({ tone = 'dark' }: { tone?: 'dark' | 'light' | 'ivory' }) {
   return (
     <nav className={`topNav ${tone}`} aria-label="Primary navigation">
-      <a className="brand" href="#/" aria-label="Harashi Yowshi portfolio home">
+      <a className="brandMark" href="#/" aria-label="Harashi Yowshi portfolio home">
         HY
       </a>
       <div className="navLinks">
-        <a href="#/">Portfolio</a>
+        <a href="#/">Studio</a>
+        <a href="#/bakery-atelier">Maison Miel</a>
         <a href="#/luxury-rings">AURELIA</a>
         <a href="#/saas-command">NOVA</a>
-        <a href="#/bakery-atelier">Maison Miel</a>
       </div>
     </nav>
   )
@@ -76,116 +75,65 @@ function PortfolioHome() {
     <main className="portfolioPage">
       <BrandNav />
 
-      <section className="hero" id="top">
-        <div className="heroCopy">
-          <p className="eyebrow motion-rise">React frontend / GSAP / WebGL / client-ready delivery</p>
-          <h1 className="motion-rise">Premium websites with real brand direction, not template noise.</h1>
-          <p className="lead motion-rise">
-            I build landing pages, product websites, and frontend fixes with clear hierarchy, responsive
-            layout, strong imagery, motion direction, and clean GitHub handoff.
-          </p>
-          <div className="heroActions motion-rise">
-            <a className="button primary" href="#projects">
-              View brand demos
-            </a>
-            <a className="button secondary" href="mailto:HarashiYowshi@gmail.com">
-              Contact Harashi
-            </a>
-          </div>
+      <section className="studioHero">
+        <div className="heroLabel motion-rise">
+          <span>Harashi Yowshi</span>
+          <span>Frontend / Motion / Brand Sites</span>
         </div>
-
-        <div className="heroVisual motion-rise" aria-label="Animated 3D frontend showcase">
+        <div className="studioHeadline">
+          <h1 className="motion-rise">I build websites that feel like brands, not templates.</h1>
+          <p className="motion-rise">
+            Premium React frontend for founders and small businesses: strategy-led landing pages,
+            product websites, ecommerce concepts, motion, 3D, imagery, deployment, and clean GitHub handoff.
+          </p>
+        </div>
+        <div className="studioScene motion-rise" aria-label="Animated WebGL portfolio object">
           <Suspense fallback={<div className="sceneFallback" aria-hidden="true" />}>
             <HeroScene />
           </Suspense>
-          <div className="posterBadge badgeTop">
-            <span>Motion</span>
-            <strong>GSAP + ScrollTrigger</strong>
-          </div>
-          <div className="posterBadge badgeBottom">
-            <span>Build</span>
-            <strong>React + WebGL</strong>
+          <div className="sceneCaption">
+            <span>Live build</span>
+            <strong>React / GSAP / Three.js</strong>
           </div>
         </div>
       </section>
 
-      <section className="proofBand">
-        <div className="statCard motion-rise">
-          <strong>3</strong>
-          <span>separate brand demos</span>
-        </div>
-        <div className="statCard motion-rise">
-          <strong>6</strong>
-          <span>frontend skill areas</span>
-        </div>
-        <div className="statCard motion-rise">
-          <strong>Live</strong>
-          <span>GitHub Pages deployment</span>
-        </div>
+      <section className="ticker" aria-label="Services ticker">
+        <span>Landing pages</span>
+        <span>Brand systems</span>
+        <span>Product storytelling</span>
+        <span>Motion direction</span>
+        <span>Responsive cleanup</span>
       </section>
 
-      <section className="section" id="projects">
-        <div className="sectionHeader motion-rise">
-          <p className="eyebrow">Portfolio proof</p>
-          <h2>Three demos built like client products.</h2>
-          <p>
-            Each page has its own brand voice, art direction, section rhythm, imagery, CTA path,
-            and responsive behavior.
-          </p>
+      <section className="workIndex" id="work">
+        <div className="sectionLead motion-rise">
+          <p className="eyebrow">Selected work</p>
+          <h2>Three separate product worlds, each designed for its own customer.</h2>
         </div>
-
-        <div className="projectGrid">
-          {projects.map((project, index) => (
-            <a className="projectCard motion-rise" href={project.href} key={project.title}>
-              <div className="projectImage">
-                <img src={asset(project.image)} alt="" />
+        <div className="workRows">
+          {work.map((item) => (
+            <a className="workRow motion-rise" href={item.href} key={item.title}>
+              <span>{item.number}</span>
+              <div>
+                <h3>{item.title}</h3>
+                <p>{item.category}</p>
               </div>
-              <div className="projectContent">
-                <div className="projectMeta">
-                  <span>{String(index + 1).padStart(2, '0')}</span>
-                  <span>{project.label}</span>
-                </div>
-                <h3>{project.title}</h3>
-                <p>{project.body}</p>
-                <div className="tagList">
-                  {project.stack.map((item) => (
-                    <span key={item}>{item}</span>
-                  ))}
-                </div>
-              </div>
+              <p>{item.summary}</p>
+              <img src={asset(item.image)} alt="" />
             </a>
           ))}
         </div>
       </section>
 
-      <section className="section split" id="skills">
-        <div className="sectionHeader motion-rise">
-          <p className="eyebrow">Capabilities</p>
-          <h2>Design clarity plus implementation discipline.</h2>
-          <p>
-            The portfolio is positioned for real freelance work: product pages, landing pages,
-            UI cleanup, animation, responsive layout, and source-code handoff.
-          </p>
+      <section className="capabilitySection">
+        <div className="sectionLead motion-rise">
+          <p className="eyebrow">Capability stack</p>
+          <h2>Design taste plus engineering discipline.</h2>
         </div>
-        <div className="skillList">
-          {skills.map(([name, detail]) => (
-            <div className="skillRow" key={name}>
-              <strong>{name}</strong>
-              <span>{detail}</span>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section className="timeline" id="timeline">
-        <div className="timelineHeader motion-rise">
-          <p className="eyebrow">Process</p>
-          <h2>A predictable path from brief to polished link.</h2>
-        </div>
-        <div className="timelineGrid">
-          {process.map(([number, title, detail]) => (
-            <article className="timelineItem" key={number}>
-              <span>{number}</span>
+        <div className="capabilityGrid">
+          {capabilities.map(([title, detail]) => (
+            <article className="capabilityCard motion-rise" key={title}>
               <h3>{title}</h3>
               <p>{detail}</p>
             </article>
@@ -193,19 +141,141 @@ function PortfolioHome() {
         </div>
       </section>
 
-      <section className="section contact" id="contact">
-        <div className="motion-rise">
-          <p className="eyebrow">Available for fixed-scope frontend work</p>
-          <h2>Send the brief. I will turn it into a clean, reviewable web product.</h2>
-          <p>
-            Best fit: landing pages, product websites, portfolio websites, React UI fixes,
-            responsive cleanup, and animated frontend builds.
-          </p>
-        </div>
-        <div className="contactPanel motion-rise">
+      <section className="processSection">
+        {process.map(([title, detail], index) => (
+          <article className="processItem motion-rise" key={title}>
+            <span>{String(index + 1).padStart(2, '0')}</span>
+            <h3>{title}</h3>
+            <p>{detail}</p>
+          </article>
+        ))}
+      </section>
+
+      <section className="studioContact motion-rise">
+        <p className="eyebrow">Available for fixed-scope web work</p>
+        <h2>Send the brief. I will turn it into a live, reviewable product page.</h2>
+        <div className="contactLinks">
           <a href="mailto:HarashiYowshi@gmail.com">HarashiYowshi@gmail.com</a>
           <a href="https://github.com/HYowshi">github.com/HYowshi</a>
-          <a href="https://hyowshi.github.io/hyowshi-saas-landing/">Live portfolio demo</a>
+        </div>
+      </section>
+    </main>
+  )
+}
+
+function BakeryAtelier() {
+  const menu = [
+    ['Berry Cloud', 'Strawberry, vanilla sponge, mascarpone cream', 'Whole cake / 6 inch', '$48'],
+    ['Cocoa Velvet', 'Dark chocolate ganache, roasted hazelnut, cocoa soil', 'Whole cake / 8 inch', '$54'],
+    ['Citrus Garden', 'Lemon curd, pistachio crumb, cream petals', 'Tart / party size', '$46'],
+  ]
+
+  return (
+    <main className="brandPage bakeryPage">
+      <BrandNav tone="light" />
+
+      <section className="bakeryHero">
+        <div className="bakeryIntro motion-rise">
+          <p className="kicker">Maison Miel Patisserie</p>
+          <h1>Fresh cakes, viennoiserie, and workshop desserts made daily.</h1>
+          <p>
+            A complete bakery landing page inspired by premium pastry shops: strong brand hero,
+            online boutique, hours, location, seasonal menu, local delivery, catering, workshop story,
+            and newsletter capture.
+          </p>
+          <div className="heroActions">
+            <a className="button berry" href="#bakery-menu">
+              Order online
+            </a>
+            <a className="button cream" href="#bakery-visit">
+              Visit the workshop
+            </a>
+          </div>
+        </div>
+        <div className="cakeStage motion-rise" aria-label="Floating 3D strawberry cake">
+          <div className="cakePlate" />
+          <img className="cakeCutout" src={asset('showcase-assets/bakery-cake-cutout.png')} alt="" />
+          <span className="pastrySticker stickerOne">Baked today</span>
+          <span className="pastrySticker stickerTwo">Local delivery</span>
+        </div>
+      </section>
+
+      <section className="bakeryInfoBar" id="bakery-visit">
+        {[
+          ['Hours', 'Wed - Sun / 8:00 AM - 4:00 PM'],
+          ['Location', 'Workshop counter / 21 Orchard Lane'],
+          ['Order', 'Pickup, local delivery, and event catering'],
+        ].map(([title, detail]) => (
+          <article className="motion-rise" key={title}>
+            <span>{title}</span>
+            <strong>{detail}</strong>
+          </article>
+        ))}
+      </section>
+
+      <section className="bakeryFeature">
+        <div className="featureImage tall motion-rise">
+          <img src={asset('showcase-assets/bakery-cakes.png')} alt="" />
+        </div>
+        <div className="featureCopy motion-rise">
+          <p className="kicker">The counter</p>
+          <h2>Small-batch pastry, presented like a real shop front.</h2>
+          <p>
+            The page gives a customer immediate answers: what is available today, how to order,
+            where to pick up, and how to book custom cakes or catering.
+          </p>
+          <a className="textLink" href="#bakery-menu">
+            View seasonal menu
+          </a>
+        </div>
+      </section>
+
+      <section className="bakeryMenu" id="bakery-menu">
+        <div className="sectionLead motion-rise">
+          <p className="kicker">Online boutique</p>
+          <h2>Seasonal favorites for pickup and local delivery.</h2>
+        </div>
+        <div className="menuGrid">
+          {menu.map(([name, detail, size, price]) => (
+            <article className="menuCard motion-rise" key={name}>
+              <img src={asset(name === 'Berry Cloud' ? 'showcase-assets/bakery-cakes.png' : 'showcase-assets/bakery-detail.png')} alt="" />
+              <div>
+                <span>{price}</span>
+                <h3>{name}</h3>
+                <p>{detail}</p>
+                <small>{size}</small>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="bakeryServices">
+        {[
+          ['Custom cakes', 'Choose size, sponge, filling, finish, message, and pickup window.'],
+          ['Local delivery', 'Same-day city delivery window for selected cakes and pastry boxes.'],
+          ['Catering', 'Dessert tables, mini pastries, corporate gifting, and event consultation.'],
+          ['Newsletter', 'Weekly drops, seasonal boxes, and limited workshop releases.'],
+        ].map(([title, detail]) => (
+          <article className="motion-rise" key={title}>
+            <h3>{title}</h3>
+            <p>{detail}</p>
+          </article>
+        ))}
+      </section>
+
+      <section className="bakeryStory motion-rise">
+        <img src={asset('showcase-assets/bakery-detail.png')} alt="" />
+        <div>
+          <p className="kicker">Workshop story</p>
+          <h2>Designed to make people hungry, informed, and ready to order.</h2>
+          <p>
+            A bakery page needs warmth and utility at the same time: product photography, menu clarity,
+            ordering paths, shop details, custom work, and a calm editorial story.
+          </p>
+          <a className="button berry" href="#/">
+            Back to portfolio
+          </a>
         </div>
       </section>
     </main>
@@ -213,78 +283,90 @@ function PortfolioHome() {
 }
 
 function LuxuryRings() {
+  const collections = [
+    ['Solenne', 'Oval solitaire, hand-finished gold, discreet pave shoulder.'],
+    ['Vela', 'Architectural side stones with a brighter modern profile.'],
+    ['Nocturne', 'Evening campaign ring with deep contrast and high-polish finish.'],
+  ]
+
   return (
     <main className="brandPage luxuryPage">
-      <BrandNav />
+      <BrandNav tone="ivory" />
 
       <section className="luxuryHero">
         <div className="luxuryCopy motion-rise">
           <p className="kicker">AURELIA Fine Jewelry</p>
-          <h1>Rings made for the moment everything becomes permanent.</h1>
+          <h1>Private ring appointments for modern heirlooms.</h1>
           <p>
-            A private atelier for engagement rings, sculpted gold, and diamond settings.
-            The site frames the ring like a campaign object, then builds trust through craft,
-            consultation, and aftercare.
+            A jewelry site designed with Cartier-level restraint and Oura-style product clarity:
+            immediate brand impact, tactile product visuals, collections, services, sizing, care,
+            and an appointment-led conversion path.
           </p>
           <div className="heroActions">
-            <a className="button gold" href="mailto:HarashiYowshi@gmail.com">
-              Book a private viewing
+            <a className="button gold" href="#appointments">
+              Book an appointment
             </a>
-            <a className="button ghostGold" href="#aurelia-craft">
-              Explore craft
+            <a className="button ghostGold" href="#collections">
+              View collections
             </a>
           </div>
         </div>
-        <div className="ringStage motion-rise" aria-label="Aurelia ring product stage">
+        <div className="ringStage motion-rise">
           <div className="ringHalo" />
-          <img className="ringHeroImage" src={asset('showcase-assets/luxury-ring.png')} alt="" />
-          <div className="ringSpec topSpec">
-            <span>18K</span>
-            <strong>hand-finished gold</strong>
-          </div>
-          <div className="ringSpec bottomSpec">
-            <span>GIA</span>
-            <strong>certified diamond</strong>
-          </div>
+          <img src={asset('showcase-assets/luxury-ring.png')} alt="" />
+          <span className="ringTag tagTop">18K gold</span>
+          <span className="ringTag tagBottom">GIA stone selection</span>
         </div>
       </section>
 
-      <section className="luxuryEditorial" id="aurelia-craft">
+      <section className="luxuryRibbon motion-rise">
+        <span>Engagement</span>
+        <span>Wedding bands</span>
+        <span>Private boutique</span>
+        <span>Lifetime care</span>
+      </section>
+
+      <section className="luxuryEditorial">
         <div className="editorialImage motion-rise">
           <img src={asset('showcase-assets/ring-detail.png')} alt="" />
         </div>
         <div className="editorialCopy motion-rise">
-          <p className="kicker">Craft narrative</p>
-          <h2>Every detail earns trust before the appointment.</h2>
+          <p className="kicker">Craft and confidence</p>
+          <h2>Fine jewelry pages must reduce hesitation without becoming ordinary.</h2>
           <p>
-            Macro imagery, material notes, sizing guidance, warranty copy, and appointment
-            prompts make the purchase feel guided instead of rushed.
+            The design supports a high-value purchase through calm typography, macro detail,
+            material proof, boutique language, and service modules that answer real buyer questions.
           </p>
-          <div className="luxuryFacts">
-            <span>Diamond selection</span>
-            <span>Made-to-order sizing</span>
-            <span>Lifetime clean and care</span>
-          </div>
         </div>
       </section>
 
-      <section className="collectionBand">
-        {['Solenne', 'Vela', 'Nocturne'].map((name, index) => (
+      <section className="collectionBand" id="collections">
+        {collections.map(([name, detail], index) => (
           <article className="collectionCard motion-rise" key={name}>
             <span>0{index + 1}</span>
             <h3>{name}</h3>
-            <p>
-              {index === 0 && 'Oval solitaire setting with a thin gold band and quiet brilliance.'}
-              {index === 1 && 'Architectural side stones for a stronger editorial silhouette.'}
-              {index === 2 && 'Deep evening campaign styling for black-tie proposals.'}
-            </p>
+            <p>{detail}</p>
           </article>
         ))}
       </section>
 
-      <section className="luxuryAppointment motion-rise">
-        <p className="kicker">Client conversion path</p>
-        <h2>Private appointment, not a generic checkout.</h2>
+      <section className="luxuryServices">
+        {[
+          ['Sizing salon', 'Book a guided fitting, compare band profiles, and receive final sizing notes.'],
+          ['Stone selection', 'Review clarity, cut, color, carat, origin, and setting recommendations.'],
+          ['Care plan', 'Cleaning, inspection, resizing consultation, and long-term maintenance.'],
+          ['Gift concierge', 'Proposal timing, private pickup, packaging, and discreet communication.'],
+        ].map(([title, detail]) => (
+          <article className="motion-rise" key={title}>
+            <h3>{title}</h3>
+            <p>{detail}</p>
+          </article>
+        ))}
+      </section>
+
+      <section className="luxuryAppointment motion-rise" id="appointments">
+        <p className="kicker">Boutique conversion</p>
+        <h2>Luxury jewelry should lead to a private appointment, not a generic checkout.</h2>
         <a className="button gold" href="#/">
           Back to portfolio
         </a>
@@ -301,17 +383,17 @@ function SaasCommand() {
       <section className="saasHero">
         <div className="saasCopy motion-rise">
           <p className="kicker">NOVA Command OS</p>
-          <h1>One command layer for teams that run on data, alerts, and automation.</h1>
+          <h1>Operate your funnel, alerts, and team decisions from one command layer.</h1>
           <p>
-            A high-trust product launch page with dashboard proof first, then workflow clarity,
-            integrations, metrics, and a strong demo path.
+            A product-led SaaS page that opens with interface proof, then explains outcomes,
+            integrations, workflows, security, and the demo path without burying the product.
           </p>
           <div className="heroActions">
-            <a className="button cyan" href="mailto:HarashiYowshi@gmail.com">
-              Request product demo
+            <a className="button cyan" href="#nova-demo">
+              Request demo
             </a>
             <a className="button ghostCyan" href="#nova-platform">
-              See platform
+              View platform
             </a>
           </div>
         </div>
@@ -323,7 +405,7 @@ function SaasCommand() {
           </div>
           <img src={asset('showcase-assets/saas-dashboard.png')} alt="" />
           <div className="metricPill pillOne">+42% pipeline clarity</div>
-          <div className="metricPill pillTwo">12 automations live</div>
+          <div className="metricPill pillTwo">12 live automations</div>
         </div>
       </section>
 
@@ -339,10 +421,10 @@ function SaasCommand() {
         </div>
         <div className="platformGrid">
           {[
-            ['Signal', 'Unify metrics, alerts, and team activity into one command surface.'],
-            ['Automation', 'Turn common operating tasks into visible, trackable workflows.'],
-            ['Decision', 'Explain what changed, why it matters, and who should act next.'],
-            ['Handoff', 'Clear technical delivery with reusable React sections and deploy notes.'],
+            ['Signal', 'Unify metrics, alerts, and activity into one live operating surface.'],
+            ['Automation', 'Turn repeated decisions into visible workflows that teams can trust.'],
+            ['Context', 'Show what changed, why it matters, and who should act next.'],
+            ['Security', 'Position the product for serious teams with governance and access logic.'],
           ].map(([title, detail]) => (
             <article className="platformCard motion-rise" key={title}>
               <h3>{title}</h3>
@@ -352,91 +434,12 @@ function SaasCommand() {
         </div>
       </section>
 
-      <section className="saasCta motion-rise">
+      <section className="saasCta motion-rise" id="nova-demo">
         <div>
           <p className="kicker">Conversion-ready structure</p>
-          <h2>Hero proof, feature clarity, integrations, metrics, and demo CTA.</h2>
+          <h2>Dashboard proof, outcome language, integrations, modules, and a direct demo CTA.</h2>
         </div>
         <a className="button cyan" href="#/">
-          Back to portfolio
-        </a>
-      </section>
-    </main>
-  )
-}
-
-function BakeryAtelier() {
-  return (
-    <main className="brandPage bakeryPage">
-      <BrandNav tone="light" />
-
-      <section className="bakeryHero">
-        <div className="bakeryCopy motion-rise">
-          <p className="kicker">Maison Miel Patisserie</p>
-          <h1>Celebration cakes that look delicate, taste bright, and arrive beautifully.</h1>
-          <p>
-            A warm boutique bakery website with a floating 3D product hero, seasonal catalogue,
-            custom-order guidance, and a soft brand system built for food photography.
-          </p>
-          <div className="heroActions">
-            <a className="button berry" href="mailto:HarashiYowshi@gmail.com">
-              Start a custom cake
-            </a>
-            <a className="button cream" href="#menu">
-              View seasonal menu
-            </a>
-          </div>
-        </div>
-        <div className="cakeStage motion-rise" aria-label="Floating 3D strawberry cake">
-          <div className="cakePlate" />
-          <img className="cakeCutout" src={asset('showcase-assets/bakery-cake-cutout.png')} alt="" />
-          <div className="flavorNote noteOne">fresh strawberry</div>
-          <div className="flavorNote noteTwo">vanilla sponge</div>
-          <div className="flavorNote noteThree">cloud cream</div>
-        </div>
-      </section>
-
-      <section className="bakeryMenu" id="menu">
-        <div className="menuIntro motion-rise">
-          <p className="kicker">Seasonal counter</p>
-          <h2>Made for birthdays, weddings, and small sweet rituals.</h2>
-        </div>
-        <div className="menuGrid">
-          {[
-            ['Berry Cloud', 'Strawberry, vanilla sponge, mascarpone cream', '$48'],
-            ['Cocoa Velvet', 'Dark chocolate ganache, roasted hazelnut', '$54'],
-            ['Citrus Garden', 'Lemon curd, pistachio crumb, cream petals', '$46'],
-          ].map(([name, detail, price]) => (
-            <article className="menuCard motion-rise" key={name}>
-              <img src={asset(name === 'Berry Cloud' ? 'showcase-assets/bakery-cakes.png' : 'showcase-assets/bakery-detail.png')} alt="" />
-              <div>
-                <span>{price}</span>
-                <h3>{name}</h3>
-                <p>{detail}</p>
-              </div>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="bakeryOrder motion-rise">
-        <div>
-          <p className="kicker">Order flow</p>
-          <h2>Pick a size, choose a flavor, describe the event, then confirm pickup or delivery.</h2>
-        </div>
-        <div className="orderSteps">
-          {['Size', 'Flavor', 'Message', 'Delivery'].map((step, index) => (
-            <span key={step}>
-              {index + 1}. {step}
-            </span>
-          ))}
-        </div>
-      </section>
-
-      <section className="bakeryFinal motion-rise">
-        <p className="kicker">Brand site, not a generic demo</p>
-        <h2>Soft palette, cutout product hero, food catalogue, and clear custom order CTA.</h2>
-        <a className="button berry" href="#/">
           Back to portfolio
         </a>
       </section>
@@ -459,17 +462,12 @@ function App() {
       const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
       if (prefersReducedMotion) return
 
-      gsap.set('.motion-rise', { opacity: 0, y: 30 })
-      gsap.set('.skillRow, .timelineItem, .collectionCard, .platformCard, .menuCard', {
-        opacity: 0,
-        y: 24,
-      })
-
+      gsap.set('.motion-rise', { opacity: 0, y: 34 })
       gsap
         .timeline({ defaults: { ease: 'power3.out' } })
-        .from('.brand', { opacity: 0, scale: 0.86, duration: 0.5 })
+        .from('.brandMark', { opacity: 0, scale: 0.86, duration: 0.5 })
         .from('.navLinks a', { opacity: 0, y: -8, stagger: 0.045, duration: 0.38 }, '-=0.2')
-        .to('.hero .motion-rise, .luxuryHero .motion-rise, .saasHero .motion-rise, .bakeryHero .motion-rise', {
+        .to('.studioHero .motion-rise, .bakeryHero .motion-rise, .luxuryHero .motion-rise, .saasHero .motion-rise', {
           opacity: 1,
           y: 0,
           stagger: 0.08,
@@ -478,35 +476,25 @@ function App() {
 
       gsap.utils
         .toArray<HTMLElement>(
-          '.motion-rise:not(.hero .motion-rise):not(.luxuryHero .motion-rise):not(.saasHero .motion-rise):not(.bakeryHero .motion-rise)',
+          '.motion-rise:not(.studioHero .motion-rise):not(.bakeryHero .motion-rise):not(.luxuryHero .motion-rise):not(.saasHero .motion-rise)',
         )
         .forEach((element) => {
           gsap.to(element, {
             opacity: 1,
             y: 0,
-            duration: 0.72,
+            duration: 0.7,
             ease: 'power3.out',
             scrollTrigger: { start: 'top 84%', trigger: element },
           })
         })
 
-      gsap.to('.heroVisual, .ringStage, .dashboardShell, .cakeCutout', {
+      gsap.to('.studioScene, .ringStage, .dashboardShell, .cakeCutout', {
         yPercent: 4,
         ease: 'none',
         scrollTrigger: { scrub: true, start: 'top top', end: 'bottom top', trigger: 'main' },
       })
-
-      gsap.to('.ringHalo', { rotate: 360, duration: 28, ease: 'none', repeat: -1 })
+      gsap.to('.ringHalo', { rotate: 360, duration: 32, ease: 'none', repeat: -1 })
       gsap.to('.cakeCutout', { y: -14, rotate: 1.5, duration: 3.8, ease: 'sine.inOut', yoyo: true, repeat: -1 })
-
-      gsap.to('.skillRow, .timelineItem, .collectionCard, .platformCard, .menuCard', {
-        opacity: 1,
-        y: 0,
-        stagger: 0.06,
-        duration: 0.62,
-        ease: 'power3.out',
-        scrollTrigger: { start: 'top 78%', trigger: root.current },
-      })
     }, root)
 
     return () => context.revert()
@@ -514,9 +502,9 @@ function App() {
 
   return (
     <div ref={root}>
+      {route === '/bakery-atelier' && <BakeryAtelier />}
       {route === '/luxury-rings' && <LuxuryRings />}
       {route === '/saas-command' && <SaasCommand />}
-      {route === '/bakery-atelier' && <BakeryAtelier />}
       {!routes.includes(route as Route) && <PortfolioHome />}
     </div>
   )
