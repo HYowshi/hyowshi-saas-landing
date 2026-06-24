@@ -261,14 +261,21 @@ h3 {
 
 .ticker {
   border-block: 1px solid rgba(248, 245, 239, 0.12);
-  display: flex;
-  gap: 24px;
   overflow: hidden;
-  padding: 18px 22px;
+  padding: 0;
   white-space: nowrap;
 }
 
-.ticker span {
+.tickerTrack {
+  animation: marquee 26s linear infinite;
+  display: flex;
+  gap: 28px;
+  min-width: max-content;
+  padding: 18px 22px;
+  width: max-content;
+}
+
+.tickerTrack span {
   color: rgba(248, 245, 239, 0.78);
   font-size: clamp(1.7rem, 4.6vw, 5rem);
   font-weight: 900;
@@ -278,10 +285,48 @@ h3 {
 .skillStrip,
 .motionLab,
 .buildTimeline,
+.aboutStudio,
+.skillMatrix,
 .studioContact {
   margin: 0 auto;
   max-width: 1220px;
   padding: 88px 22px;
+}
+
+.aboutStudio {
+  align-items: end;
+  border-bottom: 1px solid rgba(248, 245, 239, 0.12);
+  display: grid;
+  gap: 36px;
+  grid-template-columns: minmax(0, 0.88fr) minmax(360px, 0.74fr);
+}
+
+.aboutStudio p:not(.eyebrow) {
+  color: rgba(248, 245, 239, 0.7);
+  font-size: clamp(1.04rem, 1.55vw, 1.28rem);
+  line-height: 1.68;
+}
+
+.skillMatrix {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(3, 1fr);
+  padding-bottom: 0;
+  padding-top: 44px;
+}
+
+.skillCard {
+  background: rgba(248, 245, 239, 0.06);
+  border: 1px solid rgba(248, 245, 239, 0.13);
+  border-radius: 8px;
+  min-height: 180px;
+  padding: 20px;
+}
+
+.skillCard p {
+  color: rgba(248, 245, 239, 0.66);
+  line-height: 1.55;
+  margin-top: 28px;
 }
 
 .workWall {
@@ -587,6 +632,7 @@ h3 {
 .bakeryFeature,
 .luxuryEditorial,
 .platformSection,
+.productGallery,
 .bakeryStory {
   align-items: center;
   display: grid;
@@ -599,6 +645,7 @@ h3 {
 .featureImage,
 .editorialImage,
 .platformVisual,
+.productGallery img,
 .bakeryStory img {
   border-radius: 8px;
   object-fit: cover;
@@ -606,8 +653,39 @@ h3 {
 }
 
 .featureImage,
+.productGallery img,
 .bakeryStory img {
   aspect-ratio: 0.82;
+}
+
+.productGallery {
+  grid-template-columns: minmax(280px, 0.72fr) minmax(280px, 0.72fr) minmax(0, 1fr);
+  padding-top: 0;
+}
+
+.ringGallery,
+.saasGallery {
+  grid-template-columns: minmax(0, 0.95fr) minmax(280px, 0.72fr) minmax(280px, 0.72fr);
+}
+
+.galleryCopy {
+  border: 1px solid rgba(119, 64, 44, 0.14);
+  border-radius: 8px;
+  display: grid;
+  min-height: 360px;
+  padding: 22px;
+}
+
+.galleryCopy h2 {
+  align-self: end;
+}
+
+.ringGallery .galleryCopy {
+  border-color: rgba(228, 195, 116, 0.18);
+}
+
+.saasGallery .galleryCopy {
+  border-color: rgba(124, 242, 255, 0.18);
 }
 
 .textLink {
@@ -938,6 +1016,15 @@ h3 {
   }
 }
 
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
 @media (max-width: 1040px) {
   .studioHero,
   .bakeryHero,
@@ -969,6 +1056,9 @@ h3 {
   .luxuryServices,
   .collectionBand,
   .platformGrid,
+  .aboutStudio,
+  .skillMatrix,
+  .productGallery,
   .motionLab,
   .buildTimeline,
   .orderFlow,
@@ -1021,6 +1111,8 @@ h3 {
   .studioHero,
   .workWall,
   .skillStrip,
+  .aboutStudio,
+  .skillMatrix,
   .studioContact,
   .brandPage section {
     padding-inline: 18px;

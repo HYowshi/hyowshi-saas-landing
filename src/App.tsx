@@ -39,6 +39,15 @@ function PortfolioHome() {
     ['03', 'Build', 'React, CSS, GSAP, 3D'],
     ['04', 'Ship', 'Build, test, GitHub deploy'],
   ]
+  const tickerItems = ['React', 'GSAP', 'Three.js', 'Responsive UI', 'GitHub Pages', 'Visual Systems']
+  const skills = [
+    ['Frontend', 'React / TypeScript / Vite'],
+    ['Motion', 'GSAP / ScrollTrigger / hover states'],
+    ['3D', 'Three.js canvas / product staging'],
+    ['Layout', 'Responsive grids / campaign sections'],
+    ['Delivery', 'GitHub repo / live deploy / handoff'],
+    ['Commerce', 'Menus / catalogues / product CTAs'],
+  ]
 
   return (
     <main className="portfolioPage">
@@ -65,11 +74,31 @@ function PortfolioHome() {
       </section>
 
       <section className="ticker">
-        <span>React</span>
-        <span>GSAP</span>
-        <span>Three.js</span>
-        <span>Responsive UI</span>
-        <span>GitHub Pages</span>
+        <div className="tickerTrack">
+          {[...tickerItems, ...tickerItems].map((item, index) => (
+            <span key={`${item}-${index}`}>{item}</span>
+          ))}
+        </div>
+      </section>
+
+      <section className="aboutStudio motion-rise">
+        <div>
+          <p className="eyebrow">About</p>
+          <h2>Frontend developer focused on premium visual websites.</h2>
+        </div>
+        <p>
+          I build polished React websites for product launches, small shops, portfolios, and sales pages.
+          The work combines layout, imagery, motion, responsive behavior, and clean source-code handoff.
+        </p>
+      </section>
+
+      <section className="skillMatrix">
+        {skills.map(([title, detail]) => (
+          <article className="skillCard motion-rise" key={title}>
+            <h3>{title}</h3>
+            <p>{detail}</p>
+          </article>
+        ))}
       </section>
 
       <section className="workWall" id="work">
@@ -185,6 +214,15 @@ function BakeryAtelier() {
         </div>
       </section>
 
+      <section className="productGallery bakeryGallery">
+        <img className="motion-rise" src={asset('showcase-assets/bakery-cakes.png')} alt="" />
+        <img className="motion-rise" src={asset('showcase-assets/bakery-detail.png')} alt="" />
+        <div className="galleryCopy motion-rise">
+          <p className="kicker">Daily drop</p>
+          <h2>Hero cake, counter photography, product cards, and order path.</h2>
+        </div>
+      </section>
+
       <section className="menuGrid" id="menu">
         {products.map(([name, price, image]) => (
           <article className="menuCard motion-rise" key={name}>
@@ -272,6 +310,15 @@ function LuxuryRings() {
           <p className="kicker">Craft</p>
           <h2>Gold, diamond, setting, finish.</h2>
         </div>
+      </section>
+
+      <section className="productGallery ringGallery">
+        <div className="galleryCopy motion-rise">
+          <p className="kicker">Campaign</p>
+          <h2>Large product focus, macro material detail, boutique service.</h2>
+        </div>
+        <img className="motion-rise" src={asset('showcase-assets/luxury-ring.png')} alt="" />
+        <img className="motion-rise" src={asset('showcase-assets/ring-detail.png')} alt="" />
       </section>
 
       <section className="collectionBand" id="collections">
@@ -373,6 +420,15 @@ function SaasCommand() {
         </div>
       </section>
 
+      <section className="productGallery saasGallery">
+        <img className="motion-rise" src={asset('showcase-assets/saas-dashboard.png')} alt="" />
+        <div className="galleryCopy motion-rise">
+          <p className="kicker">Product story</p>
+          <h2>Dashboard, integrations, workflow cards, and demo conversion.</h2>
+        </div>
+        <img className="motion-rise" src={asset('showcase-assets/saas-device.png')} alt="" />
+      </section>
+
       <section className="saasFlow motion-rise">
         {['Connect tools', 'Read signals', 'Trigger actions', 'Review outcomes'].map((item) => (
           <span key={item}>{item}</span>
@@ -429,7 +485,6 @@ function App() {
           })
         })
 
-      gsap.to('.ticker', { xPercent: -14, ease: 'none', scrollTrigger: { scrub: true, trigger: '.ticker' } })
       gsap.to('.motionCard span', {
         scaleX: 1,
         transformOrigin: 'left',
