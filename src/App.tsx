@@ -1,24 +1,43 @@
+import { Suspense, lazy } from 'react'
 import './App.css'
 
-const features = [
-  'Responsive React sections for desktop, tablet, and mobile',
-  'Conversion-focused copy blocks with clear calls to action',
-  'SEO-friendly structure and fast Vite production build',
+const HeroScene = lazy(() => import('./HeroScene'))
+
+const projects = [
+  {
+    title: 'Luxury Product Experience',
+    type: 'Premium ecommerce concept',
+    body: 'High-end product storytelling with cinematic hero sections, conversion-focused CTA flow, responsive product detail blocks, and room for WebGL or video.',
+    stack: ['React', 'TypeScript', 'Motion', '3D-ready UI'],
+  },
+  {
+    title: 'SaaS Landing System',
+    type: 'Startup MVP landing page',
+    body: 'Fast landing page structure for founders: hero, feature proof, pricing-ready sections, FAQ, contact CTA, clean GitHub handoff, and production build.',
+    stack: ['React', 'Vite', 'SEO basics', 'GitHub Pages'],
+  },
+  {
+    title: 'Frontend Rescue Sprint',
+    type: 'Bug fix and polish',
+    body: 'Focused repair for broken React pages, layout issues, mobile bugs, build errors, unused components, and maintainability cleanup.',
+    stack: ['Debugging', 'Responsive CSS', 'Build checks', 'README'],
+  },
 ]
 
-const services = [
-  {
-    title: 'Landing Pages',
-    body: 'Clean hero sections, trust blocks, pricing, FAQ, forms, and launch-ready layouts.',
-  },
-  {
-    title: 'UI Fixes',
-    body: 'Spacing, typography, responsiveness, broken layouts, and cross-browser polish.',
-  },
-  {
-    title: 'Frontend Builds',
-    body: 'React components from brief, reference site, or Figma-style direction.',
-  },
+const skills = [
+  ['Frontend', 'React, TypeScript, JavaScript, HTML, CSS'],
+  ['Visual UI', 'Responsive layout, typography, spacing, component polish'],
+  ['Effects', 'WebGL/Three.js, CSS animation, transitions, micro-interactions'],
+  ['Delivery', 'GitHub repo, README, deployment notes, clean commits'],
+  ['Quality', 'Build checks, linting, accessibility basics, performance basics'],
+  ['Tools', 'Vite, Git, GitHub CLI, Vercel/Netlify/GitHub Pages'],
+]
+
+const process = [
+  'Clarify the business goal and visible deliverables.',
+  'Build the core product first, then add premium polish.',
+  'Verify responsive behavior, build output, and handoff docs.',
+  'Deliver a clean repo, demo link, and concise client update.',
 ]
 
 function App() {
@@ -29,101 +48,139 @@ function App() {
           HY
         </a>
         <div className="navLinks">
-          <a href="#services">Services</a>
-          <a href="#work">Work</a>
+          <a href="#projects">Products</a>
+          <a href="#skills">Skills</a>
+          <a href="#technical">Technical</a>
           <a href="#contact">Contact</a>
         </div>
       </nav>
 
       <section className="hero" id="top">
         <div className="heroCopy">
-          <p className="eyebrow">React frontend developer</p>
-          <h1>Fast, polished landing pages for founders and small teams.</h1>
+          <p className="eyebrow">Frontend developer for premium web experiences</p>
+          <h1>React websites that look sharp, move well, and ship clean.</h1>
           <p className="lead">
-            I build responsive React websites with clean code, strong visual hierarchy,
-            and practical handoff through GitHub.
+            I build portfolio-worthy landing pages, product sites, and frontend fixes
+            with polished UI, responsive behavior, WebGL-ready visuals, and professional
+            GitHub handoff.
           </p>
           <div className="heroActions">
             <a className="button primary" href="mailto:HarashiYowshi@gmail.com">
-              Hire Harashi
+              Contact Harashi
             </a>
             <a className="button secondary" href="https://github.com/HYowshi">
-              View GitHub
+              GitHub Profile
             </a>
           </div>
+          <div className="heroStats" aria-label="Portfolio strengths">
+            <span>React + TypeScript</span>
+            <span>3D/WebGL capable</span>
+            <span>Deploy-ready repos</span>
+          </div>
         </div>
 
-        <aside className="proofPanel" aria-label="Project highlights">
-          <div>
-            <span className="metric">3-5d</span>
-            <span className="label">typical landing page delivery</span>
+        <div className="heroVisual" aria-label="Animated 3D frontend showcase">
+          <Suspense fallback={<div className="sceneFallback" aria-hidden="true" />}>
+            <HeroScene />
+          </Suspense>
+          <div className="floatingCard cardTop">
+            <strong>Build</strong>
+            <span>production-ready React</span>
           </div>
-          <div>
-            <span className="metric">React</span>
-            <span className="label">Vite, TypeScript, HTML, CSS</span>
+          <div className="floatingCard cardBottom">
+            <strong>Polish</strong>
+            <span>motion, layout, speed</span>
           </div>
-          <div>
-            <span className="metric">GitHub</span>
-            <span className="label">clean repo, README, deployment notes</span>
-          </div>
-        </aside>
+        </div>
       </section>
 
-      <section className="featureStrip" aria-label="Capabilities">
-        {features.map((feature) => (
-          <p key={feature}>{feature}</p>
-        ))}
+      <section className="ticker" aria-label="Capabilities">
+        <span>Landing pages</span>
+        <span>Luxury product sites</span>
+        <span>Frontend bug fixes</span>
+        <span>Responsive rebuilds</span>
+        <span>Three.js/WebGL effects</span>
       </section>
 
-      <section className="section" id="services">
+      <section className="section" id="projects">
         <div className="sectionHeader">
-          <p className="eyebrow">What I can deliver</p>
-          <h2>Focused frontend work clients can review quickly.</h2>
+          <p className="eyebrow">Products and project types</p>
+          <h2>Work that gives clients something they can actually show.</h2>
+          <p>
+            Each project is shaped around the client outcome: credibility, conversion,
+            clear browsing, or a repaired frontend that is easier to maintain.
+          </p>
         </div>
-        <div className="serviceGrid">
-          {services.map((service) => (
-            <article className="serviceCard" key={service.title}>
-              <h3>{service.title}</h3>
-              <p>{service.body}</p>
+        <div className="projectGrid">
+          {projects.map((project) => (
+            <article className="projectCard" key={project.title}>
+              <div className="projectPreview" aria-hidden="true">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+              <p className="projectType">{project.type}</p>
+              <h3>{project.title}</h3>
+              <p>{project.body}</p>
+              <div className="tagList">
+                {project.stack.map((item) => (
+                  <span key={item}>{item}</span>
+                ))}
+              </div>
             </article>
           ))}
         </div>
       </section>
 
-      <section className="section work" id="work">
+      <section className="section split" id="skills">
         <div className="sectionHeader">
-          <p className="eyebrow">Sample project</p>
-          <h2>Modern SaaS MVP landing page.</h2>
+          <p className="eyebrow">Skills</p>
+          <h2>Clear technical coverage, not vague promises.</h2>
           <p>
-            This repository is a reusable example for freelance proposals: fast setup,
-            responsive layout, CTA sections, and clear handoff instructions.
+            I focus on the stack clients request most often for small web projects:
+            React builds, UI polish, responsive behavior, and clean delivery.
           </p>
         </div>
-        <div className="mockup" aria-label="Landing page preview">
-          <div className="mockupBar">
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-          <div className="mockupBody">
-            <div className="mockHero"></div>
-            <div className="mockLines">
-              <span></span>
-              <span></span>
-              <span></span>
+        <div className="skillList">
+          {skills.map(([name, detail]) => (
+            <div className="skillRow" key={name}>
+              <strong>{name}</strong>
+              <span>{detail}</span>
             </div>
-          </div>
+          ))}
         </div>
       </section>
 
-      <section className="cta" id="contact">
-        <div>
-          <p className="eyebrow">Available for small fixed-price projects</p>
-          <h2>Need a clean landing page or frontend fix?</h2>
+      <section className="technical" id="technical">
+        <div className="technicalInner">
+          <div>
+            <p className="eyebrow">Technical workflow</p>
+            <h2>From brief to demo link without messy handoff.</h2>
+          </div>
+          <ol className="processList">
+            {process.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ol>
         </div>
-        <a className="button primary" href="mailto:HarashiYowshi@gmail.com">
-          Contact Harashi
-        </a>
+      </section>
+
+      <section className="section contact" id="contact">
+        <div>
+          <p className="eyebrow">Available for fixed-scope frontend work</p>
+          <h2>Send the brief. I will turn it into a clean, reviewable web product.</h2>
+          <p>
+            Best fit: landing pages, portfolio websites, premium product pages, React
+            UI fixes, and frontend cleanup tasks.
+          </p>
+        </div>
+        <div className="contactPanel">
+          <a href="mailto:HarashiYowshi@gmail.com">HarashiYowshi@gmail.com</a>
+          <a href="https://github.com/HYowshi">github.com/HYowshi</a>
+          <a href="https://hyowshi.github.io/hyowshi-saas-landing/">
+            Live portfolio demo
+          </a>
+        </div>
       </section>
     </main>
   )

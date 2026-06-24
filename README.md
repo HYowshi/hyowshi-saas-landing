@@ -1,28 +1,26 @@
-# HYowshi SaaS Landing Page
+# Harashi Yowshi Frontend Portfolio
 
-Modern React landing page sample for freelance frontend proposals.
+Premium React portfolio for freelance frontend work.
 
-## Overview
+Live demo: https://hyowshi.github.io/hyowshi-saas-landing/
 
-This project demonstrates a clean, responsive landing page suitable for SaaS MVPs,
-startup websites, service businesses, and one-page portfolios.
+## What It Shows
 
-Built by Harashi Yowshi as a reusable example for client work.
+- Animated Three.js/WebGL hero
+- Product and project-type case studies
+- Frontend skill matrix
+- Technical workflow section
+- Contact links and GitHub handoff
+- Responsive desktop and mobile layout
 
-## Features
-
-- React + TypeScript + Vite
-- Responsive desktop, tablet, and mobile layout
-- Hero, capability strip, service cards, sample work preview, and CTA
-- Clean CSS with accessible semantic structure
-- Ready for Vercel, Netlify, or static hosting
-
-## Tech Stack
+## Stack
 
 - React
 - TypeScript
 - Vite
+- Three.js
 - CSS
+- GitHub Pages
 
 ## Run Locally
 
@@ -36,6 +34,13 @@ npm run dev
 ```bash
 npm run build
 npm run preview
+```
+
+## Quality Checks
+
+```bash
+npm run build
+npm run lint
 ```
 
 ## Contact
