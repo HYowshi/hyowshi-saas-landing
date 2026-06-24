@@ -483,7 +483,7 @@ h3 {
   background: #f8f5ef;
   border-radius: 8px;
   color: #070707;
-  margin-bottom: 24px;
+  margin-bottom: 0;
 }
 
 .contactLinks {
@@ -509,6 +509,44 @@ h3 {
   margin-inline: auto;
   max-width: 1220px;
   padding-inline: 22px;
+}
+
+.siteFooter {
+  align-items: end;
+  border-top: 1px solid rgba(248, 245, 239, 0.14);
+  display: grid;
+  gap: 34px;
+  grid-template-columns: minmax(0, 1fr) minmax(360px, 0.78fr);
+  margin: 0 auto;
+  max-width: 1220px;
+  padding: 58px 22px 82px;
+}
+
+.siteFooter.light {
+  border-color: rgba(119, 64, 44, 0.16);
+  color: #32180f;
+}
+
+.siteFooter.light .eyebrow {
+  color: #a1263a;
+}
+
+.footerLinks {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.footerLinks a {
+  border: 1px solid rgba(248, 245, 239, 0.14);
+  border-radius: 8px;
+  font-weight: 900;
+  padding: 14px;
+  text-decoration: none;
+}
+
+.siteFooter.light .footerLinks a {
+  border-color: rgba(119, 64, 44, 0.16);
 }
 
 .bakeryPage {
@@ -640,6 +678,10 @@ h3 {
   grid-template-columns: minmax(340px, 0.8fr) minmax(0, 1fr);
   padding-bottom: 84px;
   padding-top: 84px;
+}
+
+.saasPage .platformSection {
+  align-items: stretch;
 }
 
 .featureImage,
@@ -978,6 +1020,7 @@ h3 {
 
 .platformVisual {
   aspect-ratio: 0.88;
+  height: 100%;
 }
 
 .platformGrid {
@@ -992,6 +1035,32 @@ h3 {
   border-radius: 8px;
   min-height: 210px;
   padding: 22px;
+}
+
+.saasOutcomes {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(3, 1fr);
+  padding-bottom: 84px;
+}
+
+.outcomeCard {
+  background: rgba(15, 30, 52, 0.74);
+  border: 1px solid rgba(124, 242, 255, 0.15);
+  border-radius: 8px;
+  min-height: 220px;
+  padding: 22px;
+}
+
+.outcomeCard span {
+  color: #7cf2ff;
+  font-weight: 950;
+}
+
+.outcomeCard p {
+  color: rgba(248, 245, 239, 0.68);
+  line-height: 1.6;
+  margin-top: 92px;
 }
 
 .saasCta {
@@ -1056,6 +1125,8 @@ h3 {
   .luxuryServices,
   .collectionBand,
   .platformGrid,
+  .saasOutcomes,
+  .siteFooter,
   .aboutStudio,
   .skillMatrix,
   .productGallery,
@@ -1114,8 +1185,13 @@ h3 {
   .aboutStudio,
   .skillMatrix,
   .studioContact,
+  .siteFooter,
   .brandPage section {
     padding-inline: 18px;
+  }
+
+  .footerLinks {
+    grid-template-columns: 1fr;
   }
 
   .studioHero {

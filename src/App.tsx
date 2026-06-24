@@ -27,6 +27,25 @@ function BrandNav({ tone = 'dark' }: { tone?: 'dark' | 'light' | 'ivory' }) {
   )
 }
 
+function SiteFooter({ tone = 'dark' }: { tone?: 'dark' | 'light' }) {
+  return (
+    <footer className={`siteFooter ${tone}`}>
+      <div>
+        <p className="eyebrow">Harashi Yowshi</p>
+        <h2>Visual frontend portfolio.</h2>
+      </div>
+      <div className="footerLinks">
+        <a href="#/">Work</a>
+        <a href="#/bakery-atelier">Bakery</a>
+        <a href="#/luxury-rings">Rings</a>
+        <a href="#/saas-command">SaaS</a>
+        <a href="mailto:HarashiYowshi@gmail.com">Email</a>
+        <a href="https://github.com/HYowshi">GitHub</a>
+      </div>
+    </footer>
+  )
+}
+
 function PortfolioHome() {
   const work = [
     ['Maison Miel', 'Bakery website', '#/bakery-atelier', 'showcase-assets/bakery-cake-cutout.png'],
@@ -152,6 +171,8 @@ function PortfolioHome() {
           <a href="https://github.com/HYowshi">GitHub</a>
         </div>
       </section>
+
+      <SiteFooter />
     </main>
   )
 }
@@ -267,6 +288,8 @@ function BakeryAtelier() {
           </a>
         </div>
       </section>
+
+      <SiteFooter tone="light" />
     </main>
   )
 }
@@ -363,6 +386,8 @@ function LuxuryRings() {
           Portfolio
         </a>
       </section>
+
+      <SiteFooter />
     </main>
   )
 }
@@ -420,6 +445,19 @@ function SaasCommand() {
         </div>
       </section>
 
+      <section className="saasOutcomes">
+        {[
+          ['Pipeline', 'Revenue movement, account risk, and sales activity in one screen.'],
+          ['Ops', 'Automated follow-ups, task routing, and weekly operating review.'],
+          ['Leadership', 'Readable dashboards for decisions without spreadsheet hunting.'],
+        ].map(([title, detail]) => (
+          <article className="outcomeCard motion-rise" key={title}>
+            <span>{title}</span>
+            <p>{detail}</p>
+          </article>
+        ))}
+      </section>
+
       <section className="productGallery saasGallery">
         <img className="motion-rise" src={asset('showcase-assets/saas-dashboard.png')} alt="" />
         <div className="galleryCopy motion-rise">
@@ -436,11 +474,16 @@ function SaasCommand() {
       </section>
 
       <section className="saasCta motion-rise" id="demo">
-        <h2>Dashboard-first SaaS landing page.</h2>
+        <div>
+          <p className="kicker">Launch page</p>
+          <h2>Dashboard-first SaaS landing page.</h2>
+        </div>
         <a className="button cyan" href="#/">
           Portfolio
         </a>
       </section>
+
+      <SiteFooter />
     </main>
   )
 }
