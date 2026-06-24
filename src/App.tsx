@@ -6,6 +6,7 @@ import './App.css'
 
 const HeroScene = lazy(() => import('./HeroScene'))
 const RingScene = lazy(() => import('./RingScene'))
+const SaasScene = lazy(() => import('./SaasScene'))
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -51,10 +52,23 @@ function SiteFooter({ tone = 'dark' }: { tone?: 'dark' | 'light' }) {
 function SplashScreen() {
   return (
     <div className="splashScreen" aria-hidden="true">
-      <div className="splashGrid">
-        <span>HY</span>
-        <span>Portfolio</span>
-        <span>React / GSAP / 3D</span>
+      <div className="splashAura splashAuraOne" />
+      <div className="splashAura splashAuraTwo" />
+      <div className="splashShell">
+        <div className="splashGrid">
+          <span>HY</span>
+          <span>Visual Frontend Studio</span>
+          <span>React / GSAP / Three.js</span>
+        </div>
+        <div className="splashSystem">
+          <span>Loading product scenes</span>
+          <strong>Portfolio / Cake / Ring / SaaS</strong>
+        </div>
+        <div className="splashOrbit">
+          <span />
+          <span />
+          <span />
+        </div>
       </div>
       <div className="splashBar" />
     </div>
@@ -712,14 +726,23 @@ function LuxuryRings() {
 }
 
 function SaasCommand() {
+  const storyFrames = [
+    ['01', 'Signal intake', 'Connect tools, normalize events, and turn scattered updates into a live operating feed.'],
+    ['02', 'Workflow layer', 'Automations route tasks, follow-ups, approvals, and internal handoffs.'],
+    ['03', 'Decision room', 'Leadership sees revenue, risk, and accountability without spreadsheet hunting.'],
+  ]
+
   return (
     <main className="brandPage saasPage">
       <BrandNav />
 
-      <section className="saasHero">
+      <section className="saasHero saas3dHero">
         <div className="saasCopy motion-rise">
           <p className="kicker">NOVA</p>
-          <h1>Command center for sales and ops teams.</h1>
+          <h1>Command center with a living 3D dashboard.</h1>
+          <p>
+            Built like a product story: one interactive command object, signal cards, workflow layers, and a demo path that makes the SaaS feel operational before the call.
+          </p>
           <div className="heroActions">
             <a className="button cyan" href="#platform">
               View product
@@ -728,16 +751,19 @@ function SaasCommand() {
               Demo
             </a>
           </div>
-        </div>
-        <div className="dashboardShell motion-rise">
-          <div className="windowTop">
-            <span />
-            <span />
-            <span />
+          <div className="saasHeroStats">
+            <span><strong>3D</strong> command object</span>
+            <span><strong>12</strong> automations</span>
+            <span><strong>42%</strong> faster review</span>
           </div>
-          <img src={asset('showcase-assets/saas-dashboard.png')} alt="" />
+        </div>
+        <div className="dashboardShell saasSceneShell motion-rise">
+          <Suspense fallback={<div className="saasSceneFallback" />}>
+            <SaasScene className="saasCanvas" />
+          </Suspense>
           <div className="metricPill pillOne">+42% clarity</div>
           <div className="metricPill pillTwo">12 automations</div>
+          <div className="metricPill pillThree">Live graph</div>
         </div>
       </section>
 
@@ -762,6 +788,29 @@ function SaasCommand() {
             </TiltCard>
           ))}
         </div>
+      </section>
+
+      <section className="awardClipScene saasClipScene">
+        <div className="clipCopy motion-rise">
+          <p className="kicker">Product film</p>
+          <AwardTitle text="Turn SaaS screenshots into a system people can feel." />
+        </div>
+        <div className="clipFrame saasClipFrame motion-rise">
+          <Suspense fallback={<div className="saasSceneFallback" />}>
+            <SaasScene className="saasCanvas miniSaasCanvas" />
+          </Suspense>
+          <span>Scroll reactive command layer</span>
+        </div>
+      </section>
+
+      <section className="saasStoryRail">
+        {storyFrames.map(([number, title, detail]) => (
+          <TiltCard className="saasStoryCard motion-rise" key={title}>
+            <span>{number}</span>
+            <h3>{title}</h3>
+            <p>{detail}</p>
+          </TiltCard>
+        ))}
       </section>
 
       <section className="saasBentoLab">
@@ -934,7 +983,7 @@ function App() {
         stagger: 0.08,
         scrollTrigger: { scrub: true, start: 'top 82%', end: 'bottom 38%', trigger: '.buildTimeline' },
       })
-      gsap.to('.cakeCutout, .ringStage, .dashboardShell, .studioScene, .clipFrame', {
+      gsap.to('.cakeCutout, .ringStage, .dashboardShell, .studioScene, .clipFrame, .saasSceneShell', {
         yPercent: 5,
         ease: 'none',
         scrollTrigger: { scrub: true, start: 'top top', end: 'bottom top', trigger: 'main' },

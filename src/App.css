@@ -210,9 +210,10 @@ h3 {
 }
 
 .splashScreen {
-  align-items: end;
+  align-items: center;
   background:
-    radial-gradient(circle at 72% 26%, rgba(124, 242, 255, 0.16), transparent 32rem),
+    radial-gradient(circle at 72% 26%, rgba(124, 242, 255, 0.18), transparent 32rem),
+    radial-gradient(circle at 18% 80%, rgba(86, 94, 255, 0.16), transparent 28rem),
     #070707;
   color: #f8f5ef;
   display: grid;
@@ -220,7 +221,56 @@ h3 {
   padding: 28px;
   pointer-events: none;
   position: fixed;
+  overflow: hidden;
   z-index: 100;
+}
+
+.splashAura {
+  border: 1px solid rgba(124, 242, 255, 0.2);
+  border-radius: 50%;
+  filter: blur(0.2px);
+  position: absolute;
+}
+
+.splashAuraOne {
+  animation: splashSpin 14s linear infinite;
+  height: 54vmin;
+  right: -10vmin;
+  top: -12vmin;
+  width: 54vmin;
+}
+
+.splashAuraTwo {
+  animation: splashSpin 18s linear infinite reverse;
+  bottom: -18vmin;
+  height: 66vmin;
+  left: -18vmin;
+  width: 66vmin;
+}
+
+.splashShell {
+  align-items: end;
+  border: 1px solid rgba(248, 245, 239, 0.12);
+  border-radius: 8px;
+  display: grid;
+  gap: 32px;
+  grid-template-columns: minmax(0, 1fr) minmax(260px, 0.38fr);
+  isolation: isolate;
+  min-height: min(68svh, 720px);
+  padding: clamp(22px, 4vw, 48px);
+  position: relative;
+}
+
+.splashShell::before {
+  background:
+    linear-gradient(rgba(124, 242, 255, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(124, 242, 255, 0.08) 1px, transparent 1px);
+  background-size: 42px 42px;
+  content: '';
+  inset: 0;
+  mask-image: radial-gradient(circle at 54% 50%, black, transparent 74%);
+  position: absolute;
+  z-index: -1;
 }
 
 .splashGrid {
@@ -229,9 +279,10 @@ h3 {
 }
 
 .splashGrid span:first-child {
-  font-size: clamp(5rem, 16vw, 14rem);
+  font-size: clamp(6rem, 18vw, 17rem);
   font-weight: 950;
   line-height: 0.8;
+  text-shadow: 0 0 48px rgba(124, 242, 255, 0.2);
 }
 
 .splashGrid span:not(:first-child) {
@@ -240,14 +291,69 @@ h3 {
   font-weight: 850;
 }
 
-.splashBar {
+.splashSystem {
+  align-self: end;
+  background: rgba(248, 245, 239, 0.06);
+  border: 1px solid rgba(248, 245, 239, 0.13);
+  border-radius: 8px;
+  display: grid;
+  gap: 10px;
+  padding: 18px;
+}
+
+.splashSystem span {
+  color: #7cf2ff;
+  font-size: 0.72rem;
+  font-weight: 950;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.splashSystem strong {
+  color: rgba(248, 245, 239, 0.78);
+  line-height: 1.4;
+}
+
+.splashOrbit {
+  aspect-ratio: 1;
+  border: 1px solid rgba(124, 242, 255, 0.2);
+  border-radius: 50%;
+  height: 190px;
+  position: absolute;
+  right: 8%;
+  top: 12%;
+}
+
+.splashOrbit span {
   background: #7cf2ff;
+  border-radius: 50%;
+  height: 12px;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: rotate(var(--orbit-angle)) translateX(95px);
+  transform-origin: 0 0;
+  width: 12px;
+}
+
+.splashOrbit span:nth-child(1) { --orbit-angle: 0deg; }
+.splashOrbit span:nth-child(2) { --orbit-angle: 120deg; }
+.splashOrbit span:nth-child(3) { --orbit-angle: 240deg; }
+
+.splashBar {
+  background: linear-gradient(90deg, #7cf2ff, #5875ff, #f8f5ef);
   border-radius: 999px;
   bottom: 24px;
   height: 6px;
   left: 28px;
   position: absolute;
   right: 28px;
+}
+
+@keyframes splashSpin {
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .portfolioPage {
@@ -2114,6 +2220,38 @@ h3 {
   color: #7cf2ff;
 }
 
+.saas3dHero {
+  grid-template-columns: minmax(0, 0.78fr) minmax(520px, 1.12fr);
+}
+
+.saasCopy > p:not(.kicker) {
+  color: rgba(248, 245, 239, 0.68);
+  font-size: clamp(1rem, 1.35vw, 1.16rem);
+  line-height: 1.7;
+  margin-top: 22px;
+  max-width: 680px;
+}
+
+.saasHeroStats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.saasHeroStats span {
+  background: rgba(124, 242, 255, 0.08);
+  border: 1px solid rgba(124, 242, 255, 0.18);
+  border-radius: 999px;
+  color: rgba(248, 245, 239, 0.75);
+  padding: 10px 14px;
+}
+
+.saasHeroStats strong {
+  color: #7cf2ff;
+  margin-right: 6px;
+}
+
 .dashboardShell {
   background: rgba(8, 18, 34, 0.82);
   border: 1px solid rgba(124, 242, 255, 0.2);
@@ -2121,6 +2259,39 @@ h3 {
   box-shadow: 0 46px 120px rgba(0, 0, 0, 0.48);
   padding: 12px;
   position: relative;
+}
+
+.saasSceneShell {
+  aspect-ratio: 1.05;
+  background:
+    radial-gradient(circle at 48% 45%, rgba(124, 242, 255, 0.18), transparent 19rem),
+    radial-gradient(circle at 70% 20%, rgba(86, 94, 255, 0.22), transparent 18rem),
+    linear-gradient(135deg, rgba(124, 242, 255, 0.08), rgba(8, 18, 34, 0.72));
+  min-height: 590px;
+  overflow: hidden;
+  padding: 0;
+}
+
+.saasCanvas,
+.saasSceneFallback {
+  inset: 0;
+  position: absolute;
+}
+
+.saasCanvas,
+.saasCanvas canvas,
+.saasSceneFallback {
+  height: 100%;
+  width: 100%;
+}
+
+.saasCanvas canvas {
+  display: block;
+}
+
+.saasSceneFallback {
+  animation: pulse 1.8s ease-in-out infinite;
+  background: radial-gradient(circle, rgba(124, 242, 255, 0.26), transparent 52%);
 }
 
 .windowTop {
@@ -2157,6 +2328,11 @@ h3 {
   right: 28px;
 }
 
+.pillThree {
+  left: 42%;
+  top: 20px;
+}
+
 .saasLogos {
   grid-template-columns: repeat(6, 1fr);
 }
@@ -2170,6 +2346,65 @@ h3 {
   display: grid;
   gap: 14px;
   grid-template-columns: repeat(2, 1fr);
+}
+
+.saasClipScene {
+  border-block: 1px solid rgba(124, 242, 255, 0.14);
+}
+
+.saasClipScene .awardTitle {
+  color: #dffbff;
+}
+
+.saasClipFrame {
+  background:
+    radial-gradient(circle at 50% 44%, rgba(124, 242, 255, 0.22), transparent 16rem),
+    linear-gradient(145deg, #06111f, #102644 58%, #030912);
+  border: 1px solid rgba(124, 242, 255, 0.18);
+  box-shadow: 0 42px 110px rgba(0, 0, 0, 0.42);
+}
+
+.miniSaasCanvas {
+  position: absolute;
+}
+
+.saasClipFrame span {
+  background: rgba(3, 10, 22, 0.76);
+  border: 1px solid rgba(124, 242, 255, 0.24);
+  color: #dffbff;
+}
+
+.saasStoryRail {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(3, 1fr);
+  padding-bottom: 84px;
+  padding-top: 24px;
+}
+
+.saasStoryCard {
+  background:
+    linear-gradient(180deg, rgba(124, 242, 255, 0.09), rgba(124, 242, 255, 0.025)),
+    rgba(15, 30, 52, 0.74);
+  border: 1px solid rgba(124, 242, 255, 0.16);
+  border-radius: 8px;
+  min-height: 260px;
+  padding: 22px;
+}
+
+.saasStoryCard span {
+  color: #7cf2ff;
+  font-weight: 950;
+}
+
+.saasStoryCard h3 {
+  margin-top: 62px;
+}
+
+.saasStoryCard p {
+  color: rgba(248, 245, 239, 0.68);
+  line-height: 1.58;
+  margin-top: 14px;
 }
 
 .platformCard {
@@ -2294,6 +2529,7 @@ h3 {
   .luxuryHero,
   .webgiHero,
   .saasHero,
+  .saas3dHero,
   .bedimAbout,
   .bakeryFeature,
   .luxuryEditorial,
@@ -2329,6 +2565,7 @@ h3 {
   .newCakeRail,
   .webgiStoryRail,
   .gemGrid,
+  .saasStoryRail,
   .saasBentoGrid,
   .platformGrid,
   .saasOutcomes,
@@ -2425,6 +2662,22 @@ h3 {
 
   .splashScreen {
     padding: 18px;
+  }
+
+  .splashShell {
+    grid-template-columns: 1fr;
+    min-height: 68svh;
+  }
+
+  .splashOrbit {
+    height: 120px;
+    opacity: 0.65;
+    right: 18px;
+    top: 18px;
+  }
+
+  .splashOrbit span {
+    transform: rotate(var(--orbit-angle)) translateX(60px);
   }
 
   .splashBar {
@@ -2532,17 +2785,23 @@ h3 {
     min-height: 360px;
   }
 
+  .saasSceneShell {
+    min-height: 360px;
+  }
+
   .webgiSpecs {
     align-items: stretch;
     flex-direction: column;
   }
 
   .webgiStoryCard,
+  .saasStoryCard,
   .gemCard {
     min-height: 0;
   }
 
   .webgiStoryCard h3,
+  .saasStoryCard h3,
   .gemCard h3 {
     margin-top: 36px;
   }
