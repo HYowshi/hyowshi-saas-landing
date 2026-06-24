@@ -2221,7 +2221,15 @@ h3 {
 }
 
 .saas3dHero {
-  grid-template-columns: minmax(0, 0.78fr) minmax(520px, 1.12fr);
+  align-items: center;
+  gap: clamp(48px, 6vw, 110px);
+  grid-template-columns: minmax(460px, 0.95fr) minmax(560px, 1.05fr);
+}
+
+.saasCopy h1 {
+  font-size: clamp(5.2rem, 7vw, 8rem);
+  line-height: 0.88;
+  max-width: 780px;
 }
 
 .saasCopy > p:not(.kicker) {
@@ -2262,12 +2270,12 @@ h3 {
 }
 
 .saasSceneShell {
-  aspect-ratio: 1.05;
+  aspect-ratio: 1.08;
   background:
     radial-gradient(circle at 48% 45%, rgba(124, 242, 255, 0.18), transparent 19rem),
     radial-gradient(circle at 70% 20%, rgba(86, 94, 255, 0.22), transparent 18rem),
     linear-gradient(135deg, rgba(124, 242, 255, 0.08), rgba(8, 18, 34, 0.72));
-  min-height: 590px;
+  min-height: clamp(480px, 46vw, 680px);
   overflow: hidden;
   padding: 0;
 }
