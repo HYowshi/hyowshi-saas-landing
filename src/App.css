@@ -1399,6 +1399,127 @@ h3 {
   width: 72%;
 }
 
+.awardTitle {
+  display: flex;
+  flex-wrap: wrap;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2.6rem, 7vw, 6.2rem);
+  font-weight: 900;
+  gap: 0.12em 0.18em;
+  letter-spacing: -0.055em;
+  line-height: 0.9;
+  margin: 0;
+  max-width: 1020px;
+  perspective: 700px;
+}
+
+.awardWord {
+  display: inline-block;
+  transform-origin: 50% 100%;
+  will-change: opacity, transform;
+}
+
+.awardClipScene {
+  align-items: center;
+  display: grid;
+  gap: 42px;
+  grid-template-columns: minmax(0, 1fr) minmax(420px, 0.76fr);
+  padding-bottom: 96px;
+  padding-top: 72px;
+}
+
+.clipCopy {
+  align-self: center;
+}
+
+.clipFrame {
+  aspect-ratio: 0.86;
+  border-radius: 34px;
+  isolation: isolate;
+  overflow: hidden;
+  position: relative;
+  transform-style: preserve-3d;
+}
+
+.clipFrame::before {
+  background: radial-gradient(circle at var(--spot-x, 50%) var(--spot-y, 42%), rgba(255, 255, 255, 0.34), transparent 15rem);
+  content: '';
+  inset: 0;
+  mix-blend-mode: screen;
+  position: absolute;
+  z-index: 3;
+}
+
+.clipFrame img {
+  filter: drop-shadow(0 26px 24px rgba(83, 30, 43, 0.2));
+  position: absolute;
+  z-index: 2;
+}
+
+.clipFrame span {
+  backdrop-filter: blur(18px);
+  border-radius: 999px;
+  bottom: 18px;
+  font-size: 0.8rem;
+  font-weight: 950;
+  left: 18px;
+  letter-spacing: 0.08em;
+  padding: 11px 14px;
+  position: absolute;
+  text-transform: uppercase;
+  z-index: 4;
+}
+
+.cakeClipScene {
+  background:
+    radial-gradient(circle at 78% 24%, rgba(255, 255, 255, 0.8), transparent 18rem),
+    rgba(255, 255, 255, 0.26);
+  border-block: 1px solid rgba(153, 48, 72, 0.12);
+}
+
+.cakeClipScene .clipFrame {
+  background: linear-gradient(135deg, #fff7f9, #ffd0db);
+}
+
+.cakeClipScene .clipFrame img:first-child {
+  left: 4%;
+  top: 8%;
+  width: 62%;
+}
+
+.cakeClipScene .clipFrame img:nth-child(2) {
+  bottom: 7%;
+  right: 3%;
+  width: 58%;
+}
+
+.cakeClipScene .clipFrame span {
+  background: rgba(255, 255, 255, 0.72);
+  color: #a1263a;
+}
+
+.tiltSurface {
+  overflow: hidden;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 220ms ease, box-shadow 220ms ease;
+  will-change: transform;
+}
+
+.tiltSurface::after {
+  background: radial-gradient(180px circle at var(--spot-x, 50%) var(--spot-y, 40%), rgba(255, 255, 255, 0.2), transparent 56%);
+  content: '';
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  transition: opacity 180ms ease;
+}
+
+.tiltSurface:hover::after {
+  opacity: 1;
+}
+
 @keyframes cakeFloat {
   from {
     transform: translate3d(0, 0, 0) rotate(-1.5deg);
@@ -1639,6 +1760,33 @@ h3 {
     linear-gradient(180deg, rgba(255, 248, 230, 0.08), rgba(255, 248, 230, 0.035));
 }
 
+.ringClipScene {
+  border-block: 1px solid rgba(228, 195, 116, 0.14);
+}
+
+.ringClipScene .awardTitle {
+  color: #fff8ef;
+}
+
+.ringClipFrame {
+  background:
+    radial-gradient(circle at 50% 44%, rgba(228, 195, 116, 0.26), transparent 16rem),
+    linear-gradient(145deg, #110c08, #2b1a0b 58%, #070503);
+  border: 1px solid rgba(228, 195, 116, 0.18);
+  box-shadow: 0 42px 110px rgba(0, 0, 0, 0.42);
+}
+
+.miniRingCanvas {
+  inset: 0;
+  position: absolute;
+}
+
+.ringClipFrame span {
+  background: rgba(15, 10, 6, 0.72);
+  border: 1px solid rgba(228, 195, 116, 0.22);
+  color: #f7df99;
+}
+
 .collectionBand {
   grid-template-columns: repeat(3, 1fr);
 }
@@ -1785,6 +1933,56 @@ h3 {
   padding: 22px;
 }
 
+.saasBentoLab {
+  border-block: 1px solid rgba(124, 242, 255, 0.14);
+  display: grid;
+  gap: 36px;
+  grid-template-columns: minmax(0, 0.78fr) minmax(420px, 1fr);
+  padding-bottom: 84px;
+  padding-top: 84px;
+}
+
+.saasBentoLab .awardTitle {
+  color: #dffbff;
+}
+
+.saasBentoGrid {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.saasBentoCard {
+  background:
+    linear-gradient(135deg, rgba(124, 242, 255, 0.13), transparent),
+    rgba(15, 30, 52, 0.78);
+  border: 1px solid rgba(124, 242, 255, 0.16);
+  border-radius: 8px;
+  min-height: 240px;
+  padding: 22px;
+}
+
+.saasBentoCard:first-child {
+  grid-column: span 2;
+  min-height: 300px;
+}
+
+.saasBentoCard span {
+  color: #7cf2ff;
+  font-weight: 950;
+}
+
+.saasBentoCard h3 {
+  margin-top: 72px;
+}
+
+.saasBentoCard p {
+  color: rgba(248, 245, 239, 0.68);
+  line-height: 1.58;
+  margin-top: 14px;
+  max-width: 420px;
+}
+
 .saasOutcomes {
   display: grid;
   gap: 14px;
@@ -1854,6 +2052,8 @@ h3 {
   .luxuryEditorial,
   .webgiEditorial,
   .webgiConfigurator,
+  .awardClipScene,
+  .saasBentoLab,
   .platformSection,
   .bakeryStory {
     grid-template-columns: 1fr;
@@ -1882,6 +2082,7 @@ h3 {
   .newCakeRail,
   .webgiStoryRail,
   .gemGrid,
+  .saasBentoGrid,
   .platformGrid,
   .saasOutcomes,
   .siteFooter,
@@ -2005,6 +2206,23 @@ h3 {
 
   .newCakeCard {
     min-height: 0;
+  }
+
+  .awardTitle {
+    font-size: clamp(2.45rem, 13vw, 4rem);
+  }
+
+  .clipFrame {
+    aspect-ratio: 1;
+  }
+
+  .saasBentoCard:first-child {
+    grid-column: auto;
+    min-height: 0;
+  }
+
+  .saasBentoCard h3 {
+    margin-top: 42px;
   }
 
   .brandPage {

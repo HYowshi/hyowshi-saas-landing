@@ -1,4 +1,5 @@
 import { Suspense, lazy, useEffect, useLayoutEffect, useRef, useState } from 'react'
+import type { CSSProperties, ReactNode } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import './App.css'
@@ -56,6 +57,46 @@ function SplashScreen() {
         <span>React / GSAP / 3D</span>
       </div>
       <div className="splashBar" />
+    </div>
+  )
+}
+
+function AwardTitle({ text, className = '' }: { text: string; className?: string }) {
+  return (
+    <h2 className={`awardTitle ${className}`}>
+      {text.split(' ').map((word, index) => (
+        <span className="awardWord" key={`${word}-${index}`}>
+          {word}
+        </span>
+      ))}
+    </h2>
+  )
+}
+
+function TiltCard({ children, className = '' }: { children: ReactNode; className?: string }) {
+  const [style, setStyle] = useState<CSSProperties>({})
+
+  const onMove = (event: React.PointerEvent<HTMLDivElement>) => {
+    const rect = event.currentTarget.getBoundingClientRect()
+    const x = (event.clientX - rect.left) / rect.width
+    const y = (event.clientY - rect.top) / rect.height
+    const rotateX = (y - 0.5) * -7
+    const rotateY = (x - 0.5) * 7
+    setStyle({
+      '--spot-x': `${x * 100}%`,
+      '--spot-y': `${y * 100}%`,
+      transform: `perspective(900px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`,
+    } as CSSProperties)
+  }
+
+  return (
+    <div
+      className={`tiltSurface ${className}`}
+      onPointerMove={onMove}
+      onPointerLeave={() => setStyle({})}
+      style={style}
+    >
+      {children}
     </div>
   )
 }
@@ -307,6 +348,18 @@ function BakeryAtelier() {
         </div>
       </section>
 
+      <section className="awardClipScene cakeClipScene">
+        <div className="clipCopy motion-rise">
+          <p className="scriptKicker">Flavor film</p>
+          <AwardTitle text="A cake page should feel edible before it explains anything." />
+        </div>
+        <div className="clipFrame motion-rise">
+          <img src={asset('bedim-cake-assets/new-cake-1.png')} alt="" />
+          <img src={asset('bedim-cake-assets/new-cake-3.png')} alt="" />
+          <span>Limited weekend drop</span>
+        </div>
+      </section>
+
       <section className="bedimProducts" id="menu">
         <div className="sectionHeader motion-rise">
           <p className="scriptKicker">Popular cakes</p>
@@ -479,6 +532,19 @@ function LuxuryRings() {
         ))}
       </section>
 
+      <section className="awardClipScene ringClipScene">
+        <div className="clipCopy motion-rise">
+          <p className="kicker">Cinematic reveal</p>
+          <AwardTitle text="Luxury needs fewer words and a stronger object." />
+        </div>
+        <div className="clipFrame ringClipFrame motion-rise">
+          <Suspense fallback={<div className="ringCanvasFallback" />}>
+            <RingScene className="ringCanvas miniRingCanvas" />
+          </Suspense>
+          <span>3D inspection mode</span>
+        </div>
+      </section>
+
       <section className="webgiConfigurator" id="configurator">
         <div className="motion-rise">
           <p className="kicker">Configurator</p>
@@ -602,7 +668,7 @@ function SaasCommand() {
         <img className="platformVisual motion-rise" src={asset('showcase-assets/saas-device.png')} alt="" />
         <div className="platformGrid">
           {['Signals', 'Automations', 'Reports', 'Permissions'].map((item) => (
-            <article className="platformCard motion-rise" key={item}>
+            <TiltCard className="platformCard motion-rise" key={item}>
               <h3>{item}</h3>
               <p>
                 {item === 'Signals' && 'Live alerts, revenue movement, and team activity.'}
@@ -610,7 +676,27 @@ function SaasCommand() {
                 {item === 'Reports' && 'Clear snapshots for leadership and weekly review.'}
                 {item === 'Permissions' && 'Roles, access, and safer team handoff.'}
               </p>
-            </article>
+            </TiltCard>
+          ))}
+        </div>
+      </section>
+
+      <section className="saasBentoLab">
+        <div className="motion-rise">
+          <p className="kicker">Interactive product map</p>
+          <AwardTitle text="Make the dashboard feel alive before the demo call." />
+        </div>
+        <div className="saasBentoGrid">
+          {[
+            ['Live command', 'Signal stream, account risk, revenue pulse.', '01'],
+            ['Workflow engine', 'Routing, playbooks, triggers, audit trail.', '02'],
+            ['Executive view', 'Board-ready snapshots without spreadsheet work.', '03'],
+          ].map(([title, detail, number]) => (
+            <TiltCard className="saasBentoCard motion-rise" key={title}>
+              <span>{number}</span>
+              <h3>{title}</h3>
+              <p>{detail}</p>
+            </TiltCard>
           ))}
         </div>
       </section>
@@ -703,11 +789,13 @@ function App() {
         .to('.splashScreen', { opacity: 0, yPercent: -6, duration: 0.42, ease: 'power2.inOut' }, '+=0.08')
 
       gsap.set('.motion-rise', { opacity: 0, y: 38 })
+      gsap.set('.awardWord', { opacity: 0, rotateX: 42, rotateY: 18, yPercent: 80, transformPerspective: 700 })
+      gsap.set('.clipFrame', { clipPath: 'polygon(10% 0, 88% 8%, 100% 86%, 0 100%)' })
       gsap
         .timeline({ defaults: { ease: 'power3.out' } })
         .from('.brandMark', { opacity: 0, scale: 0.82, duration: 0.45 })
         .from('.navLinks a', { opacity: 0, y: -10, stagger: 0.05, duration: 0.35 }, '-=0.15')
-        .to('.studioHero .motion-rise, .bakeryHero .motion-rise, .luxuryHero .motion-rise, .saasHero .motion-rise', {
+        .to('.studioHero .motion-rise, .bedimHero .motion-rise, .bakeryHero .motion-rise, .luxuryHero .motion-rise, .saasHero .motion-rise', {
           opacity: 1,
           y: 0,
           stagger: 0.09,
@@ -716,7 +804,7 @@ function App() {
 
       gsap.utils
         .toArray<HTMLElement>(
-          '.motion-rise:not(.studioHero .motion-rise):not(.bakeryHero .motion-rise):not(.luxuryHero .motion-rise):not(.saasHero .motion-rise)',
+          '.motion-rise:not(.studioHero .motion-rise):not(.bedimHero .motion-rise):not(.bakeryHero .motion-rise):not(.luxuryHero .motion-rise):not(.saasHero .motion-rise)',
         )
         .forEach((element) => {
           gsap.to(element, {
@@ -727,6 +815,28 @@ function App() {
             scrollTrigger: { start: 'top 84%', trigger: element },
           })
         })
+
+      gsap.utils.toArray<HTMLElement>('.awardTitle').forEach((title) => {
+        gsap.to(title.querySelectorAll('.awardWord'), {
+          opacity: 1,
+          rotateX: 0,
+          rotateY: 0,
+          yPercent: 0,
+          stagger: 0.035,
+          duration: 0.85,
+          ease: 'power3.out',
+          scrollTrigger: { start: 'top 82%', trigger: title },
+        })
+      })
+
+      gsap.utils.toArray<HTMLElement>('.clipFrame').forEach((frame) => {
+        gsap.to(frame, {
+          clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 100%)',
+          borderRadius: '8px',
+          ease: 'none',
+          scrollTrigger: { scrub: 0.6, start: 'top 86%', end: 'bottom 46%', trigger: frame },
+        })
+      })
 
       gsap.to('.motionCard span', {
         scaleX: 1,
@@ -741,7 +851,7 @@ function App() {
         stagger: 0.08,
         scrollTrigger: { scrub: true, start: 'top 82%', end: 'bottom 38%', trigger: '.buildTimeline' },
       })
-      gsap.to('.cakeCutout, .ringStage, .dashboardShell, .studioScene', {
+      gsap.to('.cakeCutout, .ringStage, .dashboardShell, .studioScene, .clipFrame', {
         yPercent: 5,
         ease: 'none',
         scrollTrigger: { scrub: true, start: 'top top', end: 'bottom top', trigger: 'main' },
