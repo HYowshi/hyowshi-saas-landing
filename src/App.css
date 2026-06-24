@@ -331,6 +331,7 @@ h3 {
   overflow: hidden;
   padding: 16px;
   position: relative;
+  text-decoration: none;
 }
 
 .projectPoster:nth-child(2) {
@@ -521,6 +522,180 @@ h3 {
   text-decoration: none;
 }
 
+.showcasePage {
+  --accent: #67e8f9;
+  color: #f8fafc;
+  min-height: 100svh;
+}
+
+.showcaseNav {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  max-width: 1240px;
+  padding: 22px 24px;
+  position: relative;
+  z-index: 5;
+}
+
+.showcaseHero {
+  align-items: center;
+  display: grid;
+  gap: 36px;
+  grid-template-columns: minmax(0, 0.85fr) minmax(420px, 1fr);
+  margin: 0 auto;
+  max-width: 1240px;
+  min-height: calc(100svh - 88px);
+  padding: 44px 24px 78px;
+}
+
+.showcaseCopy h1 {
+  font-size: clamp(3.2rem, 7.5vw, 8rem);
+}
+
+.showcaseImageWrap {
+  aspect-ratio: 0.92;
+  border: 1px solid rgba(226, 232, 240, 0.16);
+  border-radius: 8px;
+  box-shadow: 0 48px 120px rgba(0, 0, 0, 0.42);
+  overflow: hidden;
+  position: relative;
+}
+
+.showcaseImageWrap::after {
+  background:
+    linear-gradient(180deg, transparent 52%, rgba(2, 6, 23, 0.76)),
+    radial-gradient(circle at 50% 30%, transparent 42%, rgba(2, 6, 23, 0.18));
+  content: "";
+  inset: 0;
+  pointer-events: none;
+  position: absolute;
+}
+
+.showcaseImage {
+  display: block;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.03);
+  width: 100%;
+}
+
+.imageCaption {
+  backdrop-filter: blur(16px);
+  background: rgba(2, 6, 23, 0.72);
+  border: 1px solid rgba(226, 232, 240, 0.16);
+  border-radius: 8px;
+  bottom: 22px;
+  display: grid;
+  gap: 3px;
+  left: 22px;
+  padding: 14px 16px;
+  position: absolute;
+  z-index: 2;
+}
+
+.imageCaption span {
+  color: var(--accent);
+  font-size: 0.72rem;
+  font-weight: 950;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.showcaseTags {
+  border-block: 1px solid rgba(226, 232, 240, 0.12);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  padding: 24px;
+}
+
+.showcaseTags span {
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(226, 232, 240, 0.14);
+  border-radius: 999px;
+  color: #f8fafc;
+  font-weight: 850;
+  padding: 10px 13px;
+}
+
+.showcaseStats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin: 0 auto;
+  max-width: 1240px;
+  padding: 28px 24px 0;
+}
+
+.showcaseStats .proofItem strong {
+  color: var(--accent);
+}
+
+.showcaseSections {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(3, 1fr);
+  margin: 0 auto;
+  max-width: 1240px;
+  padding: 86px 24px;
+}
+
+.showcasePanel {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.04)),
+    rgba(15, 23, 42, 0.74);
+  border: 1px solid rgba(226, 232, 240, 0.13);
+  border-radius: 8px;
+  min-height: 360px;
+  padding: 22px;
+}
+
+.showcasePanel span {
+  color: var(--accent);
+  font-weight: 950;
+}
+
+.showcasePanel h2 {
+  font-size: clamp(2rem, 3vw, 3.4rem);
+  margin-top: 120px;
+}
+
+.showcasePanel p {
+  color: #cbd5e1;
+  line-height: 1.7;
+}
+
+.showcaseFinal {
+  background: #f8fafc;
+  border-radius: 8px;
+  color: #020617;
+  margin: 0 auto 24px;
+  max-width: 1192px;
+  padding: 44px;
+}
+
+.showcaseFinal .eyebrow,
+.showcaseFinal h2 {
+  color: #020617;
+}
+
+.showcaseFinal h2 {
+  max-width: 980px;
+}
+
+.showcaseFinal .primary {
+  background: #020617;
+  color: #f8fafc;
+}
+
+.showcaseFinal .secondary {
+  background: rgba(2, 6, 23, 0.08);
+  border-color: rgba(2, 6, 23, 0.18);
+  color: #020617;
+}
+
 @keyframes floatOrb {
   0%,
   100% {
@@ -546,7 +721,8 @@ h3 {
 @media (max-width: 980px) {
   .hero,
   .split,
-  .contact {
+  .contact,
+  .showcaseHero {
     grid-template-columns: 1fr;
   }
 
@@ -561,7 +737,9 @@ h3 {
 
   .proofBand,
   .projectWall,
-  .timelineGrid {
+  .timelineGrid,
+  .showcaseStats,
+  .showcaseSections {
     grid-template-columns: 1fr;
   }
 
@@ -570,6 +748,10 @@ h3 {
   .projectPoster:nth-child(3) {
     margin-top: 0;
     min-height: 580px;
+  }
+
+  .showcaseImageWrap {
+    aspect-ratio: 1.15;
   }
 }
 
@@ -591,7 +773,9 @@ h3 {
 
   .hero,
   .section,
-  .timeline {
+  .timeline,
+  .showcaseHero,
+  .showcaseSections {
     padding-inline: 18px;
   }
 
@@ -618,5 +802,15 @@ h3 {
 
   .skillRow {
     grid-template-columns: 1fr;
+  }
+
+  .showcaseNav {
+    align-items: flex-start;
+    padding-inline: 18px;
+  }
+
+  .showcaseFinal {
+    margin-inline: 18px;
+    padding: 24px;
   }
 }
