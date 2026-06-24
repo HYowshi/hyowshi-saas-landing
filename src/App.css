@@ -209,6 +209,47 @@ h3 {
   text-transform: uppercase;
 }
 
+.splashScreen {
+  align-items: end;
+  background:
+    radial-gradient(circle at 72% 26%, rgba(124, 242, 255, 0.16), transparent 32rem),
+    #070707;
+  color: #f8f5ef;
+  display: grid;
+  inset: 0;
+  padding: 28px;
+  pointer-events: none;
+  position: fixed;
+  z-index: 100;
+}
+
+.splashGrid {
+  display: grid;
+  gap: 12px;
+}
+
+.splashGrid span:first-child {
+  font-size: clamp(5rem, 16vw, 14rem);
+  font-weight: 950;
+  line-height: 0.8;
+}
+
+.splashGrid span:not(:first-child) {
+  color: rgba(248, 245, 239, 0.72);
+  font-size: clamp(1rem, 2vw, 1.4rem);
+  font-weight: 850;
+}
+
+.splashBar {
+  background: #7cf2ff;
+  border-radius: 999px;
+  bottom: 24px;
+  height: 6px;
+  left: 28px;
+  position: absolute;
+  right: 28px;
+}
+
 .portfolioPage {
   background:
     radial-gradient(circle at 82% 18%, rgba(124, 242, 255, 0.16), transparent 32rem),
@@ -285,6 +326,7 @@ h3 {
 .skillStrip,
 .motionLab,
 .buildTimeline,
+.workflowSection,
 .aboutStudio,
 .skillMatrix,
 .studioContact {
@@ -455,6 +497,52 @@ h3 {
   gap: 14px;
   grid-template-columns: repeat(4, 1fr);
   padding-top: 0;
+}
+
+.workflowSection {
+  display: grid;
+  gap: 34px;
+  grid-template-columns: minmax(0, 0.8fr) minmax(360px, 1fr);
+  padding-top: 0;
+}
+
+.workflowIntro {
+  background: rgba(248, 245, 239, 0.06);
+  border: 1px solid rgba(248, 245, 239, 0.13);
+  border-radius: 8px;
+  display: grid;
+  min-height: 420px;
+  padding: 24px;
+}
+
+.workflowIntro h2 {
+  align-self: end;
+}
+
+.workflowGrid {
+  display: grid;
+  gap: 12px;
+}
+
+.workflowCard {
+  align-items: center;
+  border: 1px solid rgba(248, 245, 239, 0.13);
+  border-radius: 8px;
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 54px minmax(130px, 0.36fr) 1fr;
+  min-height: 92px;
+  padding: 18px;
+}
+
+.workflowCard span {
+  color: #7cf2ff;
+  font-weight: 950;
+}
+
+.workflowCard p {
+  color: rgba(248, 245, 239, 0.66);
+  line-height: 1.55;
 }
 
 .timelineStep {
@@ -799,7 +887,8 @@ h3 {
 
 .orderFlow,
 .saasFlow,
-.luxuryShowcase {
+.luxuryShowcase,
+.productDetailGrid {
   margin-inline: auto;
   max-width: 1220px;
 }
@@ -818,6 +907,52 @@ h3 {
   border-radius: 8px;
   font-weight: 950;
   padding: 18px;
+}
+
+.productDetailGrid {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(3, 1fr);
+  padding: 0 22px 84px;
+}
+
+.productDetailGrid article {
+  border: 1px solid rgba(119, 64, 44, 0.16);
+  border-radius: 8px;
+  min-height: 220px;
+  padding: 20px;
+}
+
+.productDetailGrid span {
+  color: #a1263a;
+  font-weight: 950;
+}
+
+.productDetailGrid p {
+  color: rgba(50, 24, 15, 0.72);
+  line-height: 1.58;
+  margin-top: 86px;
+}
+
+.ringDetailGrid article {
+  border-color: rgba(228, 195, 116, 0.16);
+}
+
+.ringDetailGrid span {
+  color: #e4c374;
+}
+
+.ringDetailGrid p,
+.saasDetailGrid p {
+  color: rgba(248, 245, 239, 0.66);
+}
+
+.saasDetailGrid article {
+  border-color: rgba(124, 242, 255, 0.18);
+}
+
+.saasDetailGrid span {
+  color: #7cf2ff;
 }
 
 .bakeryStory {
@@ -1131,6 +1266,8 @@ h3 {
   .skillMatrix,
   .productGallery,
   .motionLab,
+  .workflowSection,
+  .productDetailGrid,
   .buildTimeline,
   .orderFlow,
   .saasFlow,
@@ -1139,6 +1276,11 @@ h3 {
   }
 
   .motionCards {
+    grid-template-columns: 1fr;
+  }
+
+  .workflowCard {
+    align-items: start;
     grid-template-columns: 1fr;
   }
 }
@@ -1188,6 +1330,15 @@ h3 {
   .siteFooter,
   .brandPage section {
     padding-inline: 18px;
+  }
+
+  .splashScreen {
+    padding: 18px;
+  }
+
+  .splashBar {
+    left: 18px;
+    right: 18px;
   }
 
   .footerLinks {

@@ -46,6 +46,19 @@ function SiteFooter({ tone = 'dark' }: { tone?: 'dark' | 'light' }) {
   )
 }
 
+function SplashScreen() {
+  return (
+    <div className="splashScreen" aria-hidden="true">
+      <div className="splashGrid">
+        <span>HY</span>
+        <span>Portfolio</span>
+        <span>React / GSAP / 3D</span>
+      </div>
+      <div className="splashBar" />
+    </div>
+  )
+}
+
 function PortfolioHome() {
   const work = [
     ['Maison Miel', 'Bakery website', '#/bakery-atelier', 'showcase-assets/bakery-cake-cutout.png'],
@@ -66,6 +79,12 @@ function PortfolioHome() {
     ['Layout', 'Responsive grids / campaign sections'],
     ['Delivery', 'GitHub repo / live deploy / handoff'],
     ['Commerce', 'Menus / catalogues / product CTAs'],
+  ]
+  const workflow = [
+    ['Discover', 'Brief, audience, references, content, and product goal.'],
+    ['Design', 'Visual direction, section plan, imagery, and motion rhythm.'],
+    ['Develop', 'React build, responsive CSS, GSAP, 3D, and interactions.'],
+    ['Deliver', 'Live link, GitHub repo, QA notes, and handoff.'],
   ]
 
   return (
@@ -162,6 +181,22 @@ function PortfolioHome() {
             <p>{detail}</p>
           </article>
         ))}
+      </section>
+
+      <section className="workflowSection">
+        <div className="workflowIntro motion-rise">
+          <p className="eyebrow">Workflow</p>
+          <h2>From client brief to live portfolio-ready website.</h2>
+        </div>
+        <div className="workflowGrid">
+          {workflow.map(([title, detail], index) => (
+            <article className="workflowCard motion-rise" key={title}>
+              <span>{String(index + 1).padStart(2, '0')}</span>
+              <h3>{title}</h3>
+              <p>{detail}</p>
+            </article>
+          ))}
+        </div>
       </section>
 
       <section className="studioContact motion-rise">
@@ -278,6 +313,19 @@ function BakeryAtelier() {
         ))}
       </section>
 
+      <section className="productDetailGrid bakeryDetailGrid">
+        {[
+          ['Popular', 'Berry Cloud cake for birthdays and weekend tables.'],
+          ['Events', 'Mini desserts and dessert tables for private gatherings.'],
+          ['Pickup', 'Clear date, time, message, and packaging flow.'],
+        ].map(([title, detail]) => (
+          <article className="motion-rise" key={title}>
+            <span>{title}</span>
+            <p>{detail}</p>
+          </article>
+        ))}
+      </section>
+
       <section className="bakeryStory motion-rise">
         <img src={asset('showcase-assets/bakery-detail.png')} alt="" />
         <div>
@@ -380,6 +428,19 @@ function LuxuryRings() {
         </div>
       </section>
 
+      <section className="productDetailGrid ringDetailGrid">
+        {[
+          ['Materials', 'Gold tone, diamond setting, macro detail, and care.'],
+          ['Appointment', 'Private viewing, sizing salon, and stone guidance.'],
+          ['Trust', 'Clear service blocks for a high-value purchase.'],
+        ].map(([title, detail]) => (
+          <article className="motion-rise" key={title}>
+            <span>{title}</span>
+            <p>{detail}</p>
+          </article>
+        ))}
+      </section>
+
       <section className="luxuryAppointment motion-rise">
         <h2>Book a private viewing.</h2>
         <a className="button gold" href="#/">
@@ -473,6 +534,19 @@ function SaasCommand() {
         ))}
       </section>
 
+      <section className="productDetailGrid saasDetailGrid">
+        {[
+          ['Hero proof', 'Dashboard first so visitors understand the product immediately.'],
+          ['Feature map', 'Signals, automations, reports, and permissions are separated clearly.'],
+          ['Demo path', 'CTA, outcome cards, integrations, and launch-ready footer.'],
+        ].map(([title, detail]) => (
+          <article className="motion-rise" key={title}>
+            <span>{title}</span>
+            <p>{detail}</p>
+          </article>
+        ))}
+      </section>
+
       <section className="saasCta motion-rise" id="demo">
         <div>
           <p className="kicker">Launch page</p>
@@ -491,6 +565,12 @@ function SaasCommand() {
 function App() {
   const root = useRef<HTMLDivElement>(null)
   const [route, setRoute] = useState(window.location.hash.replace('#', '') || '/')
+  const [showSplash, setShowSplash] = useState(true)
+
+  useEffect(() => {
+    const splashTimer = window.setTimeout(() => setShowSplash(false), 1900)
+    return () => window.clearTimeout(splashTimer)
+  }, [])
 
   useEffect(() => {
     const syncRoute = () => setRoute(window.location.hash.replace('#', '') || '/')
@@ -500,7 +580,18 @@ function App() {
 
   useLayoutEffect(() => {
     const context = gsap.context(() => {
-      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        setShowSplash(false)
+        return
+      }
+
+      gsap
+        .timeline({
+          onComplete: () => setShowSplash(false),
+        })
+        .from('.splashGrid span', { opacity: 0, y: 18, stagger: 0.08, duration: 0.45, ease: 'power3.out' })
+        .fromTo('.splashBar', { scaleX: 0 }, { scaleX: 1, transformOrigin: 'left', duration: 0.55, ease: 'power3.inOut' }, '-=0.12')
+        .to('.splashScreen', { opacity: 0, yPercent: -6, duration: 0.42, ease: 'power2.inOut' }, '+=0.08')
 
       gsap.set('.motion-rise', { opacity: 0, y: 38 })
       gsap
@@ -555,6 +646,7 @@ function App() {
 
   return (
     <div ref={root}>
+      {showSplash && <SplashScreen />}
       {route === '/bakery-atelier' && <BakeryAtelier />}
       {route === '/luxury-rings' && <LuxuryRings />}
       {route === '/saas-command' && <SaasCommand />}
