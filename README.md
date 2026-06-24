@@ -1,15 +1,17 @@
 # Harashi Yowshi Frontend Portfolio
 
-Premium React portfolio for freelance frontend work.
+Premium React portfolio for freelance frontend work with WebGL, GSAP motion,
+poster-style layout, and deploy-ready handoff.
 
 Live demo: https://hyowshi.github.io/hyowshi-saas-landing/
 
 ## What It Shows
 
 - Animated Three.js/WebGL hero
-- Product and project-type case studies
+- GSAP intro timeline, scroll reveals, parallax, and marquee motion
+- Poster-inspired product and project-type case studies
 - Frontend skill matrix
-- Technical workflow section
+- Delivery timeline section
 - Contact links and GitHub handoff
 - Responsive desktop and mobile layout
 
@@ -19,6 +21,7 @@ Live demo: https://hyowshi.github.io/hyowshi-saas-landing/
 - TypeScript
 - Vite
 - Three.js
+- GSAP
 - CSS
 - GitHub Pages
 
