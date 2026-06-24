@@ -909,20 +909,23 @@ function App() {
 
   useLayoutEffect(() => {
     const context = gsap.context(() => {
+      if (skipSplash) {
+        ScrollTrigger.refresh()
+        return
+      }
+
       if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
         setShowSplash(false)
         return
       }
 
-      if (!skipSplash) {
-        gsap
-          .timeline({
-            onComplete: () => setShowSplash(false),
-          })
-          .from('.splashGrid span', { opacity: 0, y: 18, stagger: 0.08, duration: 0.45, ease: 'power3.out' })
-          .fromTo('.splashBar', { scaleX: 0 }, { scaleX: 1, transformOrigin: 'left', duration: 0.55, ease: 'power3.inOut' }, '-=0.12')
-          .to('.splashScreen', { opacity: 0, yPercent: -6, duration: 0.42, ease: 'power2.inOut' }, '+=0.08')
-      }
+      gsap
+        .timeline({
+          onComplete: () => setShowSplash(false),
+        })
+        .from('.splashGrid span', { opacity: 0, y: 18, stagger: 0.08, duration: 0.45, ease: 'power3.out' })
+        .fromTo('.splashBar', { scaleX: 0 }, { scaleX: 1, transformOrigin: 'left', duration: 0.55, ease: 'power3.inOut' }, '-=0.12')
+        .to('.splashScreen', { opacity: 0, yPercent: -6, duration: 0.42, ease: 'power2.inOut' }, '+=0.08')
 
       gsap.set('.motion-rise', { opacity: 0, y: 38 })
       gsap.set('.awardWord', { opacity: 0, rotateX: 42, rotateY: 18, yPercent: 80, transformPerspective: 700 })
