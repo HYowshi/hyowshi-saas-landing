@@ -10,7 +10,7 @@ Live demo: https://hyowshi.github.io/hyowshi-saas-landing/
 - Animated Three.js/WebGL hero
 - GSAP intro timeline, scroll reveals, parallax, and marquee motion
 - Poster-inspired product and project-type case studies
-- Three linked showcase pages for Protein Caffeine, bakery, and jewelry concepts
+- Four linked showcase pages for Protein Caffeine, barbershop, bakery, and jewelry concepts
 - Frontend skill matrix
 - Delivery timeline section
 - Contact links and GitHub handoff
@@ -21,6 +21,7 @@ Live demo: https://hyowshi.github.io/hyowshi-saas-landing/
 - Bakery atelier concept: https://hyowshi.github.io/hyowshi-saas-landing/#/bakery-atelier
 - Luxury rings concept: https://hyowshi.github.io/hyowshi-saas-landing/#/luxury-rings
 - Protein Caffeine concept: https://hyowshi.github.io/hyowshi-saas-landing/#/protein-caffeine
+- Barbershop concept: https://hyowshi.github.io/hyowshi-saas-landing/#/barbershop-studio
 
 ## Stack
 

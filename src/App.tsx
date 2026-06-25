@@ -10,7 +10,7 @@ const RingScene = lazy(() => import('./RingScene'))
 gsap.registerPlugin(ScrollTrigger)
 
 const asset = (path: string) => `${import.meta.env.BASE_URL}${path}`
-const routes = ['/luxury-rings', '/protein-caffeine', '/bakery-atelier'] as const
+const routes = ['/luxury-rings', '/protein-caffeine', '/bakery-atelier', '/barbershop-studio'] as const
 type Route = (typeof routes)[number]
 
 function BrandNav({ tone = 'dark' }: { tone?: 'dark' | 'light' | 'ivory' }) {
@@ -22,6 +22,7 @@ function BrandNav({ tone = 'dark' }: { tone?: 'dark' | 'light' | 'ivory' }) {
       <div className="navLinks">
         <a href="#/">Work</a>
         <a href="#/protein-caffeine">Protein</a>
+        <a href="#/barbershop-studio">Barber</a>
         <a href="#/bakery-atelier">Bakery</a>
         <a href="#/luxury-rings">Rings</a>
       </div>
@@ -39,6 +40,7 @@ function SiteFooter({ tone = 'dark' }: { tone?: 'dark' | 'light' }) {
       <div className="footerLinks">
         <a href="#/">Work</a>
         <a href="#/protein-caffeine">Protein</a>
+        <a href="#/barbershop-studio">Barber</a>
         <a href="#/bakery-atelier">Bakery</a>
         <a href="#/luxury-rings">Rings</a>
         <a href="mailto:HarashiYowshi@gmail.com">Email</a>
@@ -61,7 +63,7 @@ function SplashScreen() {
         </div>
         <div className="splashSystem">
           <span>Loading product scenes</span>
-          <strong>Portfolio / Protein / Cake / Ring</strong>
+          <strong>Portfolio / Protein / Barber / Cake / Ring</strong>
         </div>
         <div className="splashOrbit">
           <span />
@@ -118,6 +120,7 @@ function PortfolioHome() {
   const [copiedEmail, setCopiedEmail] = useState(false)
   const work = [
     ['Protein Caffeine', 'Primary brand campaign', '#/protein-caffeine', 'awwwards-assets/images/Final.png'],
+    ['Barber House', 'Barbershop booking site', '#/barbershop-studio', 'barbershop-assets/home-bg.png'],
     ['Maison Miel', 'Bakery website', '#/bakery-atelier', 'showcase-assets/bakery-cake-cutout.png'],
     ['AURELIA', 'Ring boutique', '#/luxury-rings', 'showcase-assets/luxury-ring.png'],
   ]
@@ -165,7 +168,7 @@ function PortfolioHome() {
           <h1 className="motion-rise">Portfolio</h1>
           <p className="portfolioHeroText motion-rise">
             Visual frontend portfolio built around one flagship product: Protein Caffeine,
-            supported by Cake and Ring demos for brand, product, motion, and responsive layout work.
+            supported by Barber, Cake, and Ring demos for brand, product, motion, and responsive layout work.
           </p>
           <div className="heroActions motion-rise">
             <a className="button primary" href="#work">
@@ -233,7 +236,7 @@ function PortfolioHome() {
 
       <section className="portfolioAboutAwwwards">
         <div className="aboutPortrait motion-rise">
-          <img src={asset('portfolio-assets/images/man.jpg')} alt="" />
+          <img src={asset('avatar.png')} alt="Harashi Yowshi portrait." />
         </div>
         <div className="aboutCopyAwwwards motion-rise">
           <p className="eyebrow">Profile</p>
@@ -905,6 +908,127 @@ function ProteinCaffeine() {
   )
 }
 
+function BarbershopStudio() {
+  const services = [
+    ['Signature cut', '$32', 'Consultation, precision cut, wash, and texture finish.'],
+    ['Skin fade', '$38', 'Clean gradient fade, razor line-up, and styling product.'],
+    ['Beard ritual', '$24', 'Hot towel, shape, razor edge, oil, and aftercare.'],
+    ['Groom package', '$58', 'Cut, beard, shampoo, scalp massage, and finish photo.'],
+  ]
+  const gallery = ['work-img-1.png', 'work-img-3.png', 'work-img-5.png', 'work-img-8.png', 'work-img-10.png']
+  const experts = [
+    ['Marco', 'Fade specialist', 'expert-img-1.png'],
+    ['Leo', 'Classic cuts', 'expert-img-2.png'],
+    ['Andre', 'Beard ritual', 'expert-img-3.png'],
+    ['Noah', 'Texture styling', 'expert-img-4.png'],
+  ]
+
+  return (
+    <main className="brandPage barberPage">
+      <BrandNav tone="ivory" />
+
+      <section className="barberHero">
+        <div className="barberHeroBg" aria-hidden="true">
+          <img src={asset('barbershop-assets/home-bg.png')} alt="" />
+        </div>
+        <div className="barberHeroCopy motion-rise">
+          <p className="barberKicker">Barber House / Booking website</p>
+          <h1>Precision cuts with a cinematic booking flow.</h1>
+          <p>
+            A premium barbershop landing page using Bedimcode assets upgraded with stronger product storytelling,
+            GSAP reveals, editorial image rhythm, clear services, team trust, and a direct appointment CTA.
+          </p>
+          <div className="heroActions">
+            <a className="button amberButton" href="#barber-services">
+              Book a chair
+            </a>
+            <a className="button darkAmberButton" href="#barber-gallery">
+              View cuts
+            </a>
+          </div>
+        </div>
+        <div className="barberSeal motion-rise">
+          <img src={asset('barbershop-assets/home-logo.svg')} alt="" />
+          <span>Since 2026</span>
+        </div>
+      </section>
+
+      <section className="barberTicker">
+        <div>
+          {[...['Fade', 'Classic cut', 'Beard ritual', 'Hot towel', 'Booking', 'Style'], ...['Fade', 'Classic cut', 'Beard ritual', 'Hot towel', 'Booking', 'Style']].map((item, index) => (
+            <span key={`${item}-${index}`}>{item}</span>
+          ))}
+        </div>
+      </section>
+
+      <section className="barberAbout">
+        <div className="barberAboutImage motion-rise">
+          <img src={asset('barbershop-assets/about-img.png')} alt="Barbershop chair and interior." />
+        </div>
+        <div className="barberAboutCopy motion-rise">
+          <p className="barberKicker">The experience</p>
+          <AwardTitle text="A shop website should sell trust before the booking form." />
+          <p>
+            The page structure makes the brand feel established: a strong first image, service pricing, recent work,
+            expert profiles, testimonials-style proof, and a booking footer that stays simple.
+          </p>
+        </div>
+      </section>
+
+      <section className="barberServices" id="barber-services">
+        {services.map(([name, price, detail], index) => (
+          <TiltCard className="barberServiceCard motion-rise" key={name}>
+            <span>0{index + 1}</span>
+            <h3>{name}</h3>
+            <strong>{price}</strong>
+            <p>{detail}</p>
+          </TiltCard>
+        ))}
+      </section>
+
+      <section className="barberGallery" id="barber-gallery">
+        <div className="barberGalleryIntro motion-rise">
+          <p className="barberKicker">Recent work</p>
+          <h2>Cut gallery built like an editorial rail.</h2>
+        </div>
+        <div className="barberImageRail">
+          {gallery.map((image, index) => (
+            <img className={`motion-rise barberGalleryImage galleryImage${index + 1}`} src={asset(`barbershop-assets/${image}`)} alt="" key={image} />
+          ))}
+        </div>
+      </section>
+
+      <section className="barberExperts">
+        <div className="motion-rise">
+          <p className="barberKicker">Experts</p>
+          <h2>Four barber profiles so the shop feels real.</h2>
+        </div>
+        <div className="expertGrid">
+          {experts.map(([name, role, image]) => (
+            <article className="expertCard motion-rise" key={name}>
+              <img src={asset(`barbershop-assets/${image}`)} alt="" />
+              <h3>{name}</h3>
+              <p>{role}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="barberBooking motion-rise">
+        <div>
+          <p className="barberKicker">Appointment</p>
+          <h2>Choose service, barber, time, and walk in sharp.</h2>
+        </div>
+        <a className="button amberButton" href="#/">
+          Portfolio
+        </a>
+      </section>
+
+      <SiteFooter />
+    </main>
+  )
+}
+
 function App() {
   const root = useRef<HTMLDivElement>(null)
   const skipSplash = new URLSearchParams(window.location.search).has('nosplash')
@@ -950,7 +1074,7 @@ function App() {
         .timeline({ defaults: { ease: 'power3.out' } })
         .from('.brandMark', { opacity: 0, scale: 0.82, duration: 0.45 })
         .from('.navLinks a', { opacity: 0, y: -10, stagger: 0.05, duration: 0.35 }, '-=0.15')
-        .to('.studioHero .motion-rise, .bedimHero .motion-rise, .bakeryHero .motion-rise, .luxuryHero .motion-rise, .motionCampaignHero .motion-rise', {
+        .to('.studioHero .motion-rise, .bedimHero .motion-rise, .bakeryHero .motion-rise, .luxuryHero .motion-rise, .motionCampaignHero .motion-rise, .barberHero .motion-rise', {
           opacity: 1,
           y: 0,
           stagger: 0.09,
@@ -959,7 +1083,7 @@ function App() {
 
       gsap.utils
         .toArray<HTMLElement>(
-          '.motion-rise:not(.studioHero .motion-rise):not(.bedimHero .motion-rise):not(.bakeryHero .motion-rise):not(.luxuryHero .motion-rise):not(.motionCampaignHero .motion-rise)',
+          '.motion-rise:not(.studioHero .motion-rise):not(.bedimHero .motion-rise):not(.bakeryHero .motion-rise):not(.luxuryHero .motion-rise):not(.motionCampaignHero .motion-rise):not(.barberHero .motion-rise)',
         )
         .forEach((element) => {
           gsap.to(element, {
@@ -1033,7 +1157,7 @@ function App() {
           scrollTrigger: { start: 'top 78%', trigger: '.portfolioAboutAwwwards' },
         },
       )
-      gsap.to('.cakeCutout, .ringStage, .studioScene, .clipFrame, .campaignHeroBottle, .videoPinFrame', {
+      gsap.to('.cakeCutout, .ringStage, .studioScene, .clipFrame, .campaignHeroBottle, .videoPinFrame, .barberHeroBg img', {
         yPercent: 5,
         ease: 'none',
         scrollTrigger: { scrub: true, start: 'top top', end: 'bottom top', trigger: 'main' },
@@ -1051,6 +1175,7 @@ function App() {
       {route === '/bakery-atelier' && <BakeryAtelier />}
       {route === '/luxury-rings' && <LuxuryRings />}
       {route === '/protein-caffeine' && <ProteinCaffeine />}
+      {route === '/barbershop-studio' && <BarbershopStudio />}
       {!routes.includes(route as Route) && <PortfolioHome />}
     </div>
   )
