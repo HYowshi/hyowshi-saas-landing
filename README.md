@@ -1,7 +1,7 @@
-# Harashi Yowshi Frontend Portfolio
+# Portfolio
 
 Premium React portfolio for freelance frontend work with WebGL, GSAP motion,
-poster-style layout, and deploy-ready handoff.
+poster-style layout, video-led campaign pages, and deploy-ready handoff. The lead product demo is Protein Caffeine.
 
 Live demo: https://hyowshi.github.io/hyowshi-saas-landing/
 
@@ -10,7 +10,7 @@ Live demo: https://hyowshi.github.io/hyowshi-saas-landing/
 - Animated Three.js/WebGL hero
 - GSAP intro timeline, scroll reveals, parallax, and marquee motion
 - Poster-inspired product and project-type case studies
-- Three linked showcase pages for luxury product, SaaS, and bakery ecommerce concepts
+- Three linked showcase pages for Protein Caffeine, bakery, and jewelry concepts
 - Frontend skill matrix
 - Delivery timeline section
 - Contact links and GitHub handoff
@@ -18,9 +18,9 @@ Live demo: https://hyowshi.github.io/hyowshi-saas-landing/
 
 ## Showcase Links
 
-- Luxury rings concept: https://hyowshi.github.io/hyowshi-saas-landing/#/luxury-rings
-- SaaS command center concept: https://hyowshi.github.io/hyowshi-saas-landing/#/saas-command
 - Bakery atelier concept: https://hyowshi.github.io/hyowshi-saas-landing/#/bakery-atelier
+- Luxury rings concept: https://hyowshi.github.io/hyowshi-saas-landing/#/luxury-rings
+- Protein Caffeine concept: https://hyowshi.github.io/hyowshi-saas-landing/#/protein-caffeine
 
 ## Stack
 

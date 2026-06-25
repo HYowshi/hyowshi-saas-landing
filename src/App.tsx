@@ -6,12 +6,11 @@ import './App.css'
 
 const HeroScene = lazy(() => import('./HeroScene'))
 const RingScene = lazy(() => import('./RingScene'))
-const SaasScene = lazy(() => import('./SaasScene'))
 
 gsap.registerPlugin(ScrollTrigger)
 
 const asset = (path: string) => `${import.meta.env.BASE_URL}${path}`
-const routes = ['/luxury-rings', '/saas-command', '/bakery-atelier'] as const
+const routes = ['/luxury-rings', '/protein-caffeine', '/bakery-atelier'] as const
 type Route = (typeof routes)[number]
 
 function BrandNav({ tone = 'dark' }: { tone?: 'dark' | 'light' | 'ivory' }) {
@@ -22,9 +21,9 @@ function BrandNav({ tone = 'dark' }: { tone?: 'dark' | 'light' | 'ivory' }) {
       </a>
       <div className="navLinks">
         <a href="#/">Work</a>
+        <a href="#/protein-caffeine">Protein</a>
         <a href="#/bakery-atelier">Bakery</a>
         <a href="#/luxury-rings">Rings</a>
-        <a href="#/saas-command">SaaS</a>
       </div>
     </nav>
   )
@@ -39,9 +38,9 @@ function SiteFooter({ tone = 'dark' }: { tone?: 'dark' | 'light' }) {
       </div>
       <div className="footerLinks">
         <a href="#/">Work</a>
+        <a href="#/protein-caffeine">Protein</a>
         <a href="#/bakery-atelier">Bakery</a>
         <a href="#/luxury-rings">Rings</a>
-        <a href="#/saas-command">SaaS</a>
         <a href="mailto:HarashiYowshi@gmail.com">Email</a>
         <a href="https://github.com/HYowshi">GitHub</a>
       </div>
@@ -62,7 +61,7 @@ function SplashScreen() {
         </div>
         <div className="splashSystem">
           <span>Loading product scenes</span>
-          <strong>Portfolio / Cake / Ring / SaaS</strong>
+          <strong>Portfolio / Protein / Cake / Ring</strong>
         </div>
         <div className="splashOrbit">
           <span />
@@ -118,9 +117,9 @@ function TiltCard({ children, className = '' }: { children: ReactNode; className
 function PortfolioHome() {
   const [copiedEmail, setCopiedEmail] = useState(false)
   const work = [
+    ['Protein Caffeine', 'Primary brand campaign', '#/protein-caffeine', 'awwwards-assets/images/Final.png'],
     ['Maison Miel', 'Bakery website', '#/bakery-atelier', 'showcase-assets/bakery-cake-cutout.png'],
     ['AURELIA', 'Ring boutique', '#/luxury-rings', 'showcase-assets/luxury-ring.png'],
-    ['NOVA', 'SaaS product', '#/saas-command', 'showcase-assets/saas-dashboard.png'],
   ]
   const timeline = [
     ['01', 'Brief', 'Audience, offer, references'],
@@ -128,10 +127,10 @@ function PortfolioHome() {
     ['03', 'Build', 'React, CSS, GSAP, 3D'],
     ['04', 'Ship', 'Build, test, GitHub deploy'],
   ]
-  const tickerItems = ['React', 'GSAP', 'Three.js', 'Responsive UI', 'GitHub Pages', 'Visual Systems']
+  const tickerItems = ['Portfolio', 'Protein Caffeine', 'GSAP', 'Three.js', 'React', 'Brand Motion']
   const skills = [
     ['Frontend', 'React / TypeScript / Vite'],
-    ['Motion', 'GSAP / ScrollTrigger / hover states'],
+    ['Motion', 'GSAP / ScrollTrigger / clip-path'],
     ['3D', 'Three.js canvas / product staging'],
     ['Layout', 'Responsive grids / campaign sections'],
     ['Delivery', 'GitHub repo / live deploy / handoff'],
@@ -160,21 +159,25 @@ function PortfolioHome() {
     <main className="portfolioPage">
       <BrandNav />
 
-      <section className="studioHero">
+      <section className="studioHero portfolioHeroPrime">
         <div className="studioHeadline">
-          <p className="eyebrow motion-rise">Harashi Yowshi / Frontend portfolio</p>
-          <h1 className="motion-rise">Visual websites for products, shops, and brands.</h1>
+          <p className="eyebrow motion-rise">Portfolio / Harashi Yowshi</p>
+          <h1 className="motion-rise">Portfolio</h1>
+          <p className="portfolioHeroText motion-rise">
+            Visual frontend portfolio built around one flagship product: Protein Caffeine,
+            supported by Cake and Ring demos for brand, product, motion, and responsive layout work.
+          </p>
           <div className="heroActions motion-rise">
             <a className="button primary" href="#work">
               View work
             </a>
-            <a className="button secondary" href="mailto:HarashiYowshi@gmail.com">
-              Contact
+            <a className="button secondary" href="#/protein-caffeine">
+              Protein Caffeine
             </a>
           </div>
           <div className="heroProfilePanel motion-rise">
             <span className="statusDot" />
-            <p>Available for freelance landing pages, product demos, and portfolio sites.</p>
+            <p>Flagship: Protein Caffeine. Role: React, GSAP, visual layout, responsive delivery.</p>
           </div>
         </div>
         <div className="studioScene motion-rise">
@@ -200,15 +203,46 @@ function PortfolioHome() {
         </div>
       </section>
 
+      <section className="portfolioServiceSummary">
+        <div className="serviceLine serviceLineOne motion-rise">Strategy</div>
+        <div className="serviceLine serviceLineTwo motion-rise">
+          <span>Motion</span>
+          <i />
+          <span>Frontend</span>
+        </div>
+        <div className="serviceLine serviceLineThree motion-rise">
+          <span>Product</span>
+          <i />
+          <span>Campaign</span>
+          <i />
+          <span>Deploy</span>
+        </div>
+        <div className="serviceLine serviceLineFour motion-rise">Portfolio</div>
+      </section>
+
       <section className="aboutStudio motion-rise">
         <div>
           <p className="eyebrow">About</p>
-          <h2>Frontend developer focused on premium visual websites.</h2>
+          <h2>A portfolio built like a product presentation, not a resume page.</h2>
         </div>
         <p>
-          I build polished React websites for product launches, small shops, portfolios, and sales pages.
-          The work combines layout, imagery, motion, responsive behavior, and clean source-code handoff.
+          The main proof is Protein Caffeine: a video-led GSAP campaign page with product assets,
+          clip-path titles, flavor system, responsive layout, and launch-style storytelling.
         </p>
+      </section>
+
+      <section className="portfolioAboutAwwwards">
+        <div className="aboutPortrait motion-rise">
+          <img src={asset('portfolio-assets/images/man.jpg')} alt="" />
+        </div>
+        <div className="aboutCopyAwwwards motion-rise">
+          <p className="eyebrow">Profile</p>
+          <h2>Designer-minded frontend developer for product websites.</h2>
+          <p>
+            I focus on the visible quality clients judge first: hierarchy, spacing, scroll rhythm,
+            product imagery, animation restraint, mobile fit, and a clean deployed handoff.
+          </p>
+        </div>
       </section>
 
       <section className="portfolioBento">
@@ -265,7 +299,7 @@ function PortfolioHome() {
 
       <section className="workWall" id="work">
         {work.map(([title, label, href, image], index) => (
-          <a className="workTile motion-rise" href={href} key={title}>
+          <a className={`workTile portfolioWorkTile workTile${index + 1} motion-rise`} href={href} key={title}>
             <span>{String(index + 1).padStart(2, '0')}</span>
             <img src={asset(image)} alt="" />
             <div>
@@ -339,10 +373,11 @@ function PortfolioHome() {
       </section>
 
       <section className="studioContact motion-rise">
-        <h2>Need a polished frontend demo?</h2>
+        <h2>Need a polished product website?</h2>
         <div className="contactLinks">
           <a href="mailto:HarashiYowshi@gmail.com">HarashiYowshi@gmail.com</a>
           <a href="https://github.com/HYowshi">GitHub</a>
+          <a href="#/protein-caffeine">Protein Caffeine</a>
         </div>
       </section>
 
@@ -725,163 +760,144 @@ function LuxuryRings() {
   )
 }
 
-function SaasCommand() {
-  const storyFrames = [
-    ['01', 'Signal intake', 'Connect tools, normalize events, and turn scattered updates into a live operating feed.'],
-    ['02', 'Workflow layer', 'Automations route tasks, follow-ups, approvals, and internal handoffs.'],
-    ['03', 'Decision room', 'Leadership sees revenue, risk, and accountability without spreadsheet hunting.'],
+function ProteinCaffeine() {
+  const flavors = [
+    ['Chocolate Milk', 'brown', 'Protein, caffeine, cocoa punch.'],
+    ['Strawberry Rush', 'red', 'Berry energy with a soft creamy finish.'],
+    ['Cookies & Cream', 'blue', 'Nostalgic dessert flavor for launch buzz.'],
+    ['Peanut Butter', 'orange', 'Bold snack mood with campaign-ready color.'],
+    ['Vanilla Shake', 'white', 'Clean bright pack shot for lifestyle scenes.'],
+    ['Max Chocolate', 'black', 'Dark high-contrast bottle for hero moments.'],
+  ]
+  const benefits = [
+    ['Clip-path titles', 'Awwwards-style text bands reveal on scroll with staggered motion.'],
+    ['Pinned video', 'A circular video mask expands into a full editorial product film.'],
+    ['Product rail', 'Cutout bottle assets, flavor cards, tilted layouts, and layered graphics.'],
+    ['Responsive art', 'Mobile keeps the campaign readable without breaking the composition.'],
   ]
 
   return (
-    <main className="brandPage saasPage">
+    <main className="brandPage campaignPage">
       <BrandNav />
 
-      <section className="saasHero saas3dHero">
-        <div className="saasCopy motion-rise">
-          <p className="kicker">NOVA</p>
-          <h1>Command center with a living 3D dashboard.</h1>
+      <section className="motionCampaignHero">
+        <video className="campaignHeroVideo" src={asset('awwwards-assets/videos/hero-bg.mp4')} autoPlay muted loop playsInline />
+        <div className="campaignHeroOverlay" />
+        <div className="campaignHeroContent motion-rise">
+          <p className="campaignKicker">Protein Caffeine / Flagship product</p>
+          <div className="campaignTitleMask">
+            <h1>Freaking Delicious</h1>
+          </div>
+          <div className="campaignTitleBand">
+            <span>Protein + Caffeine</span>
+          </div>
           <p>
-            Built like a product story: one interactive command object, signal cards, workflow layers, and a demo path that makes the SaaS feel operational before the call.
+            A flagship brand campaign landing page inspired by the GSAP Awwwards repo: bold product staging,
+            video background, clip-path reveals, scroll story, and a flavor rail that feels made for a real launch.
           </p>
           <div className="heroActions">
-            <a className="button cyan" href="#platform">
-              View product
+            <a className="button milkButton" href="#flavors">
+              Explore flavors
             </a>
-            <a className="button ghostCyan" href="#demo">
-              Demo
+            <a className="button brownButton" href="#film">
+              Watch motion
             </a>
-          </div>
-          <div className="saasHeroStats">
-            <span><strong>3D</strong> command object</span>
-            <span><strong>12</strong> automations</span>
-            <span><strong>42%</strong> faster review</span>
           </div>
         </div>
-        <div className="dashboardShell saasSceneShell motion-rise">
-          <Suspense fallback={<div className="saasSceneFallback" />}>
-            <SaasScene className="saasCanvas" />
-          </Suspense>
-          <div className="metricPill pillOne">+42% clarity</div>
-          <div className="metricPill pillTwo">12 automations</div>
-          <div className="metricPill pillThree">Live graph</div>
+        <img className="campaignHeroBottle motion-rise" src={asset('awwwards-assets/images/hero-img.png')} alt="SPYLT product bottle." />
+      </section>
+
+      <section className="campaignTicker">
+        <div>
+          {[...['Protein Caffeine', 'GSAP', 'Clip Path', 'Pinned Video', 'Product Rail', 'ScrollTrigger'], ...['Protein Caffeine', 'GSAP', 'Clip Path', 'Pinned Video', 'Product Rail', 'ScrollTrigger']].map((item, index) => (
+            <span key={`${item}-${index}`}>{item}</span>
+          ))}
         </div>
       </section>
 
-      <section className="saasLogos motion-rise">
-        {['Slack', 'Stripe', 'HubSpot', 'Linear', 'Notion', 'GitHub'].map((logo) => (
-          <span key={logo}>{logo}</span>
-        ))}
+      <section className="campaignMessage">
+        <p className="motion-rise">Built for a drink brand that needs to feel loud, tactile, and memorable before the visitor reads the full story.</p>
+        <AwardTitle text="Stir up the product story with motion, color, and appetite." />
       </section>
 
-      <section className="platformSection" id="platform">
-        <img className="platformVisual motion-rise" src={asset('showcase-assets/saas-device.png')} alt="" />
-        <div className="platformGrid">
-          {['Signals', 'Automations', 'Reports', 'Permissions'].map((item) => (
-            <TiltCard className="platformCard motion-rise" key={item}>
-              <h3>{item}</h3>
-              <p>
-                {item === 'Signals' && 'Live alerts, revenue movement, and team activity.'}
-                {item === 'Automations' && 'Repeatable actions for sales and ops workflows.'}
-                {item === 'Reports' && 'Clear snapshots for leadership and weekly review.'}
-                {item === 'Permissions' && 'Roles, access, and safer team handoff.'}
-              </p>
+      <section className="flavorShowcase" id="flavors">
+        <div className="flavorIntro motion-rise">
+          <p className="campaignKicker">Flavor system</p>
+          <h2>Each product gets its own color world.</h2>
+          <p>Layered backgrounds, cutout bottles, floating ingredients, and tilted cards make the catalog feel campaign-grade instead of template-made.</p>
+        </div>
+        <div className="flavorRail">
+          {flavors.map(([name, color, detail], index) => (
+            <TiltCard className={`flavorCard flavorCard${index + 1} motion-rise`} key={name}>
+              <img className="flavorBg" src={asset(`awwwards-assets/images/${color}-bg.svg`)} alt="" />
+              <img className="flavorElements" src={asset(`awwwards-assets/images/${color}-elements.webp`)} alt="" />
+              <img className="flavorDrink" src={asset(`awwwards-assets/images/${color}-drink.webp`)} alt={`${name} bottle.`} />
+              <div>
+                <span>0{index + 1}</span>
+                <h3>{name}</h3>
+                <p>{detail}</p>
+              </div>
             </TiltCard>
           ))}
         </div>
       </section>
 
-      <section className="awardClipScene saasClipScene">
-        <div className="clipCopy motion-rise">
-          <p className="kicker">Product film</p>
-          <AwardTitle text="Turn SaaS screenshots into a system people can feel." />
+      <section className="campaignBenefits">
+        <div className="benefitIntro motion-rise">
+          <p className="campaignKicker">Motion ingredients</p>
+          <h2>Shelf-stable layouts with scroll-triggered energy.</h2>
         </div>
-        <div className="clipFrame saasClipFrame motion-rise">
-          <Suspense fallback={<div className="saasSceneFallback" />}>
-            <SaasScene className="saasCanvas miniSaasCanvas" />
-          </Suspense>
-          <span>Scroll reactive command layer</span>
+        <div className="benefitStack">
+          {benefits.map(([title, detail], index) => (
+            <article className={`campaignBenefit benefit${index + 1} motion-rise`} key={title}>
+              <span>{title}</span>
+              <p>{detail}</p>
+            </article>
+          ))}
         </div>
       </section>
 
-      <section className="saasStoryRail">
-        {storyFrames.map(([number, title, detail]) => (
-          <TiltCard className="saasStoryCard motion-rise" key={title}>
-            <span>{number}</span>
+      <section className="campaignVideoPin" id="film">
+        <div className="videoPinCopy motion-rise">
+          <p className="campaignKicker">Pinned product film</p>
+          <AwardTitle text="Let the motion sell the first sip." />
+        </div>
+        <div className="videoPinFrame motion-rise">
+          <video src={asset('awwwards-assets/videos/pin-video.mp4')} autoPlay muted loop playsInline />
+          <div className="playOrbit">
+            <img src={asset('awwwards-assets/images/circle-text.svg')} alt="" />
+            <span>
+              <img src={asset('awwwards-assets/images/play.svg')} alt="" />
+            </span>
+          </div>
+        </div>
+      </section>
+
+      <section className="campaignCards">
+        {[
+          ['Hero video', 'Full-bleed animated background with product cutout in the first viewport.'],
+          ['Scroll reveal', 'GSAP motion-rise, award word reveals, clip frame expansion, and parallax.'],
+          ['Real assets', 'Video, bottle renders, ingredient overlays, and visual flavor families.'],
+        ].map(([title, detail]) => (
+          <TiltCard className="campaignProofCard motion-rise" key={title}>
             <h3>{title}</h3>
             <p>{detail}</p>
           </TiltCard>
         ))}
       </section>
 
-      <section className="saasBentoLab">
-        <div className="motion-rise">
-          <p className="kicker">Interactive product map</p>
-          <AwardTitle text="Make the dashboard feel alive before the demo call." />
-        </div>
-        <div className="saasBentoGrid">
-          {[
-            ['Live command', 'Signal stream, account risk, revenue pulse.', '01'],
-            ['Workflow engine', 'Routing, playbooks, triggers, audit trail.', '02'],
-            ['Executive view', 'Board-ready snapshots without spreadsheet work.', '03'],
-          ].map(([title, detail, number]) => (
-            <TiltCard className="saasBentoCard motion-rise" key={title}>
-              <span>{number}</span>
-              <h3>{title}</h3>
-              <p>{detail}</p>
-            </TiltCard>
-          ))}
-        </div>
-      </section>
-
-      <section className="saasOutcomes">
-        {[
-          ['Pipeline', 'Revenue movement, account risk, and sales activity in one screen.'],
-          ['Ops', 'Automated follow-ups, task routing, and weekly operating review.'],
-          ['Leadership', 'Readable dashboards for decisions without spreadsheet hunting.'],
-        ].map(([title, detail]) => (
-          <article className="outcomeCard motion-rise" key={title}>
-            <span>{title}</span>
-            <p>{detail}</p>
-          </article>
-        ))}
-      </section>
-
-      <section className="productGallery saasGallery">
-        <img className="motion-rise" src={asset('showcase-assets/saas-dashboard.png')} alt="" />
-        <div className="galleryCopy motion-rise">
-          <p className="kicker">Product story</p>
-          <h2>Dashboard, integrations, workflow cards, and demo conversion.</h2>
-        </div>
-        <img className="motion-rise" src={asset('showcase-assets/saas-device.png')} alt="" />
-      </section>
-
-      <section className="saasFlow motion-rise">
-        {['Connect tools', 'Read signals', 'Trigger actions', 'Review outcomes'].map((item) => (
-          <span key={item}>{item}</span>
-        ))}
-      </section>
-
-      <section className="productDetailGrid saasDetailGrid">
-        {[
-          ['Hero proof', 'Dashboard first so visitors understand the product immediately.'],
-          ['Feature map', 'Signals, automations, reports, and permissions are separated clearly.'],
-          ['Demo path', 'CTA, outcome cards, integrations, and launch-ready footer.'],
-        ].map(([title, detail]) => (
-          <article className="motion-rise" key={title}>
-            <span>{title}</span>
-            <p>{detail}</p>
-          </article>
-        ))}
-      </section>
-
-      <section className="saasCta motion-rise" id="demo">
+      <section className="campaignFinal motion-rise">
+        <img src={asset('awwwards-assets/images/big-img.png')} alt="SPYLT campaign product composition." />
         <div>
-          <p className="kicker">Launch page</p>
-          <h2>Dashboard-first SaaS landing page.</h2>
+          <p className="campaignKicker">Flagship case study</p>
+          <h2>Protein Caffeine is the lead product in this portfolio.</h2>
+          <p>
+            This product page shows GSAP, layout, video, product art direction, flavor systems, responsive delivery, and scroll storytelling in one stronger client-facing demo.
+          </p>
+          <a className="button milkButton" href="#/">
+            Back to portfolio
+          </a>
         </div>
-        <a className="button cyan" href="#/">
-          Portfolio
-        </a>
       </section>
 
       <SiteFooter />
@@ -934,7 +950,7 @@ function App() {
         .timeline({ defaults: { ease: 'power3.out' } })
         .from('.brandMark', { opacity: 0, scale: 0.82, duration: 0.45 })
         .from('.navLinks a', { opacity: 0, y: -10, stagger: 0.05, duration: 0.35 }, '-=0.15')
-        .to('.studioHero .motion-rise, .bedimHero .motion-rise, .bakeryHero .motion-rise, .luxuryHero .motion-rise, .saasHero .motion-rise', {
+        .to('.studioHero .motion-rise, .bedimHero .motion-rise, .bakeryHero .motion-rise, .luxuryHero .motion-rise, .motionCampaignHero .motion-rise', {
           opacity: 1,
           y: 0,
           stagger: 0.09,
@@ -943,7 +959,7 @@ function App() {
 
       gsap.utils
         .toArray<HTMLElement>(
-          '.motion-rise:not(.studioHero .motion-rise):not(.bedimHero .motion-rise):not(.bakeryHero .motion-rise):not(.luxuryHero .motion-rise):not(.saasHero .motion-rise)',
+          '.motion-rise:not(.studioHero .motion-rise):not(.bedimHero .motion-rise):not(.bakeryHero .motion-rise):not(.luxuryHero .motion-rise):not(.motionCampaignHero .motion-rise)',
         )
         .forEach((element) => {
           gsap.to(element, {
@@ -990,7 +1006,34 @@ function App() {
         stagger: 0.08,
         scrollTrigger: { scrub: true, start: 'top 82%', end: 'bottom 38%', trigger: '.buildTimeline' },
       })
-      gsap.to('.cakeCutout, .ringStage, .dashboardShell, .studioScene, .clipFrame, .saasSceneShell', {
+      if (!window.matchMedia('(max-width: 720px)').matches) {
+        gsap.to('.serviceLineOne', {
+          xPercent: 12,
+          ease: 'none',
+          scrollTrigger: { scrub: true, start: 'top bottom', end: 'bottom top', trigger: '.portfolioServiceSummary' },
+        })
+        gsap.to('.serviceLineTwo', {
+          xPercent: -12,
+          ease: 'none',
+          scrollTrigger: { scrub: true, start: 'top bottom', end: 'bottom top', trigger: '.portfolioServiceSummary' },
+        })
+        gsap.to('.serviceLineThree', {
+          xPercent: 18,
+          ease: 'none',
+          scrollTrigger: { scrub: true, start: 'top bottom', end: 'bottom top', trigger: '.portfolioServiceSummary' },
+        })
+      }
+      gsap.fromTo(
+        '.aboutPortrait',
+        { clipPath: 'polygon(0 100%, 100% 100%, 100% 100%, 0 100%)' },
+        {
+          clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 100%)',
+          duration: 1.15,
+          ease: 'power4.out',
+          scrollTrigger: { start: 'top 78%', trigger: '.portfolioAboutAwwwards' },
+        },
+      )
+      gsap.to('.cakeCutout, .ringStage, .studioScene, .clipFrame, .campaignHeroBottle, .videoPinFrame', {
         yPercent: 5,
         ease: 'none',
         scrollTrigger: { scrub: true, start: 'top top', end: 'bottom top', trigger: 'main' },
@@ -1007,7 +1050,7 @@ function App() {
       {showSplash && <SplashScreen />}
       {route === '/bakery-atelier' && <BakeryAtelier />}
       {route === '/luxury-rings' && <LuxuryRings />}
-      {route === '/saas-command' && <SaasCommand />}
+      {route === '/protein-caffeine' && <ProteinCaffeine />}
       {!routes.includes(route as Route) && <PortfolioHome />}
     </div>
   )
