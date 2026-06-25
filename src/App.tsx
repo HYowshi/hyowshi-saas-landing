@@ -10,7 +10,7 @@ const RingScene = lazy(() => import('./RingScene'))
 gsap.registerPlugin(ScrollTrigger)
 
 const asset = (path: string) => `${import.meta.env.BASE_URL}${path}`
-const routes = ['/luxury-rings', '/protein-caffeine', '/bakery-atelier', '/barbershop-studio'] as const
+const routes = ['/luxury-rings', '/protein-caffeine', '/bakery-atelier', '/barbershop-studio', '/real-estate-card'] as const
 type Route = (typeof routes)[number]
 
 function BrandNav({ tone = 'dark' }: { tone?: 'dark' | 'light' | 'ivory' }) {
@@ -23,6 +23,7 @@ function BrandNav({ tone = 'dark' }: { tone?: 'dark' | 'light' | 'ivory' }) {
         <a href="#/">Work</a>
         <a href="#/protein-caffeine">Protein</a>
         <a href="#/barbershop-studio">Barber</a>
+        <a href="#/real-estate-card">Estate</a>
         <a href="#/bakery-atelier">Bakery</a>
         <a href="#/luxury-rings">Rings</a>
       </div>
@@ -41,6 +42,7 @@ function SiteFooter({ tone = 'dark' }: { tone?: 'dark' | 'light' }) {
         <a href="#/">Work</a>
         <a href="#/protein-caffeine">Protein</a>
         <a href="#/barbershop-studio">Barber</a>
+        <a href="#/real-estate-card">Estate</a>
         <a href="#/bakery-atelier">Bakery</a>
         <a href="#/luxury-rings">Rings</a>
         <a href="mailto:HarashiYowshi@gmail.com">Email</a>
@@ -63,7 +65,7 @@ function SplashScreen() {
         </div>
         <div className="splashSystem">
           <span>Loading product scenes</span>
-          <strong>Portfolio / Protein / Barber / Cake / Ring</strong>
+          <strong>Portfolio / Protein / Estate / Barber / Cake / Ring</strong>
         </div>
         <div className="splashOrbit">
           <span />
@@ -120,6 +122,7 @@ function PortfolioHome() {
   const [copiedEmail, setCopiedEmail] = useState(false)
   const work = [
     ['Protein Caffeine', 'Energy drink brand', '#/protein-caffeine', 'awwwards-assets/images/Final.png'],
+    ['Alexander Nguyen', 'Real-estate digital card', '#/real-estate-card', 'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&q=80&w=900'],
     ['Barber House', 'Premium grooming shop', '#/barbershop-studio', 'barbershop-assets/home-bg.png'],
     ['Maison Miel', 'Bakery website', '#/bakery-atelier', 'showcase-assets/bakery-cake-cutout.png'],
     ['AURELIA', 'Ring boutique', '#/luxury-rings', 'showcase-assets/luxury-ring.png'],
@@ -305,7 +308,7 @@ function PortfolioHome() {
         {work.map(([title, label, href, image], index) => (
           <a className={`workTile portfolioWorkTile workTile${index + 1} motion-rise`} href={href} key={title}>
             <span>{String(index + 1).padStart(2, '0')}</span>
-            <img src={asset(image)} alt="" />
+            <img src={image.startsWith('http') ? image : asset(image)} alt="" />
             <div>
               <p>{label}</p>
               <h2>{title}</h2>
@@ -1089,6 +1092,15 @@ function BarbershopStudio() {
   )
 }
 
+function RealEstateCardExact() {
+  return (
+    <main className="estateExactPage">
+      <iframe className="estateExactFrame" src={asset('real-estate-card.html')} title="Alexander Nguyen luxury real estate digital card" />
+    </main>
+  )
+}
+
+
 function App() {
   const root = useRef<HTMLDivElement>(null)
   const skipSplash = new URLSearchParams(window.location.search).has('nosplash')
@@ -1134,7 +1146,7 @@ function App() {
         .timeline({ defaults: { ease: 'power3.out' } })
         .from('.brandMark', { opacity: 0, scale: 0.82, duration: 0.45 })
         .from('.navLinks a', { opacity: 0, y: -10, stagger: 0.05, duration: 0.35 }, '-=0.15')
-        .to('.studioHero .motion-rise, .bedimHero .motion-rise, .bakeryHero .motion-rise, .luxuryHero .motion-rise, .motionCampaignHero .motion-rise, .barberHero .motion-rise', {
+        .to('.studioHero .motion-rise, .bedimHero .motion-rise, .bakeryHero .motion-rise, .luxuryHero .motion-rise, .motionCampaignHero .motion-rise, .barberHero .motion-rise, .estateShell .motion-rise', {
           opacity: 1,
           y: 0,
           stagger: 0.09,
@@ -1143,7 +1155,7 @@ function App() {
 
       gsap.utils
         .toArray<HTMLElement>(
-          '.motion-rise:not(.studioHero .motion-rise):not(.bedimHero .motion-rise):not(.bakeryHero .motion-rise):not(.luxuryHero .motion-rise):not(.motionCampaignHero .motion-rise):not(.barberHero .motion-rise)',
+          '.motion-rise:not(.studioHero .motion-rise):not(.bedimHero .motion-rise):not(.bakeryHero .motion-rise):not(.luxuryHero .motion-rise):not(.motionCampaignHero .motion-rise):not(.barberHero .motion-rise):not(.estateShell .motion-rise)',
         )
         .forEach((element) => {
           gsap.to(element, {
@@ -1236,9 +1248,12 @@ function App() {
       {route === '/luxury-rings' && <LuxuryRings />}
       {route === '/protein-caffeine' && <ProteinCaffeine />}
       {route === '/barbershop-studio' && <BarbershopStudio />}
+      {route === '/real-estate-card' && <RealEstateCardExact />}
       {!routes.includes(route as Route) && <PortfolioHome />}
     </div>
   )
 }
 
 export default App
+
+

@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alexander Nguyen - Luxury Real Estate Specialist</title>
+    
+    <!-- Premium Google Fonts: Playfair Display for classic elegance & Inter for clean legibility -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        serif: ['Playfair Display', 'serif'],
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        gold: {
+                            50: '#FAF6F0',
+                            100: '#F4ECE1',
+                            200: '#E6D5C1',
+                            300: '#D5BDA0',
+                            400: '#C29F78', // Royal Champagne
+                            500: '#AA7F52', // Classic Bronze
+                            600: '#8E643D',
+                            700: '#714E30',
+                            800: '#553923',
+                            900: '#3D2819',
+                        },
+                        charcoal: {
+                            50: '#F8F8F9',
+                            100: '#ECECED',
+                            200: '#D5D5D8',
+                            300: '#AEAFB6',
+                            400: '#80828C',
+                            500: '#61636E',
+                            600: '#4D4E57',
+                            700: '#3D3E45',
+                            800: '#1C1C1E', // Apple Dark Gray
+                            900: '#121214', // Carbon Dark
+                            950: '#0A0A0C', // Absolute Black
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom Styling for Scrollbars and Premium Elements -->
+    <style>
+        /* Hide default scrollbars for an app-like seamless feeling */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        
+        /* Ultra-fine scrollbar for nested content */
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 3px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #C29F78;
+            border-radius: 9px;
+        }
+
+        /* Ambient colored phone mock screens blur in background mirroring image_2f30e3.jpg */
+        .ambient-glow-1 {
+            background: radial-gradient(circle, rgba(236,72,153,0.15) 0%, rgba(239,68,68,0) 70%);
+        }
+        .ambient-glow-2 {
+            background: radial-gradient(circle, rgba(59,130,246,0.15) 0%, rgba(16,185,129,0) 70%);
+        }
+        .ambient-glow-3 {
+            background: radial-gradient(circle, rgba(245,158,11,0.12) 0%, rgba(236,72,153,0) 70%);
+        }
+
+        /* Subtle scroll animations */
+        .reveal-element {
+            opacity: 0;
+            transform: translateY(15px);
+            transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal-element.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="bg-neutral-100 dark:bg-charcoal-950 text-neutral-800 dark:text-neutral-200 font-sans antialiased selection:bg-gold-400 selection:text-charcoal-950 transition-colors duration-500 overflow-x-hidden min-h-screen flex items-center justify-center py-10 px-4 relative">
+
+    <!-- Beautiful blurred shapes representing phone displays behind our centered card -->
+    <div class="absolute inset-0 pointer-events-none z-0 overflow-hidden">
+        <div class="absolute top-[5%] left-[10%] w-[500px] h-[500px] ambient-glow-1 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-[10%] right-[10%] w-[600px] h-[600px] ambient-glow-2 rounded-full blur-3xl"></div>
+        <div class="absolute top-[40%] right-[20%] w-[400px] h-[400px] ambient-glow-3 rounded-full blur-3xl"></div>
+    </div>
+
+    <!-- Floating Card mimicking the precise vertical alignment in image_2f30e3.jpg -->
+    <div class="w-full max-w-[400px] bg-white dark:bg-charcoal-900 rounded-[24px] shadow-[0_25px_60px_-15px_rgba(0,0,0,0.15)] overflow-hidden transition-all duration-500 z-10 flex flex-col border border-neutral-200/50 dark:border-white/[0.04]">
+        
+        <!-- User Portrait Header & Dark Mode Trigger -->
+        <div class="relative w-full h-[420px] overflow-hidden bg-neutral-200 dark:bg-charcoal-800">
+            <!-- Premium Image Gradient Overlay directly on top of the portrait -->
+            <img id="agent-headshot" 
+                 src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=600" 
+                 alt="Alexander Nguyen Portrait" 
+                 class="w-full h-full object-cover object-top transition-transform duration-[1200ms] hover:scale-105" />
+            
+            <!-- High-end gradient fade to create a seamless transition at the bottom of portrait -->
+            <div class="absolute inset-0 bg-gradient-to-t from-white via-transparent to-black/20 dark:from-charcoal-900 dark:via-transparent"></div>
+
+            <!-- Dark / Light Theme Toggle Button overlapping user's portrait image at top right -->
+            <button onclick="toggleThemeMode()" 
+                    class="absolute top-5 right-5 w-10 h-10 rounded-full bg-white/95 dark:bg-charcoal-800/95 shadow-lg flex items-center justify-center hover:scale-105 active:scale-95 transition-all duration-300 border border-neutral-200 dark:border-neutral-700/50 z-20"
+                    title="Toggle Dark/Light Mode">
+                <!-- Sun Icon (visible in dark mode) -->
+                <svg id="theme-sun-icon" class="w-5 h-5 text-gold-500 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m12.728 0l-.707-.707M6.343 6.343l-.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z"></path>
+                </svg>
+                <!-- Moon Icon (visible in light mode) -->
+                <svg id="theme-moon-icon" class="w-5 h-5 text-charcoal-700" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Layered Content Overlap Container utilizing negative margin for visual depth -->
+        <div class="relative z-10 -mt-10 bg-white dark:bg-charcoal-900 rounded-t-[24px] pt-6">
+            
+            <div class="px-7 text-center">
+                <h1 id="agent-name" class="font-serif text-2xl font-semibold tracking-wide text-neutral-900 dark:text-white leading-tight">Alexander Nguyen</h1>
+                <p id="agent-title" class="text-[10px] uppercase tracking-[0.2em] text-gold-500 font-bold mt-1.5">Luxury Real Estate Specialist</p>
+                
+                <a id="agent-website-display" href="https://alexandernguyen.estate" target="_blank" class="inline-flex items-center gap-1 text-[11px] text-neutral-500 dark:text-neutral-400 hover:text-gold-500 transition-colors mt-2 font-light">
+                    <span>alexandernguyen.estate</span>
+                    <svg class="w-2.5 h-2.5 opacity-60" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6m0 0v6m0-6L10 14" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </a>
+
+                <!-- Action buttons style mimicking Lucy Liu card (Rounded clean elements) -->
+                <div class="grid grid-cols-2 gap-3 max-w-[300px] mx-auto mt-6">
+                    <!-- Save Contact vCard trigger -->
+                    <button onclick="downloadVCard()" class="flex items-center justify-center gap-1.5 bg-neutral-100 hover:bg-neutral-200 dark:bg-charcoal-800 dark:hover:bg-charcoal-700 text-neutral-800 dark:text-white py-2.5 px-3 rounded-lg text-xs font-semibold transition-all shadow-sm border border-neutral-200 dark:border-neutral-700/50">
+                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        <span>Save Contact</span>
+                    </button>
+                    <!-- Direct call action -->
+                    <a id="agent-call-btn" href="tel:+84909123456" class="flex items-center justify-center gap-1.5 bg-gold-500 hover:bg-gold-600 text-white py-2.5 px-3 rounded-lg text-xs font-semibold transition-all shadow-sm shadow-gold-500/20">
+                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1 1 0 01-.321.988l-1.305.98a10.582 10.582 0 004.872 4.872l.98-1.305a1 1 0 01.988-.321l2.2.548a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        <span>Contact Now</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- About Section with generous spacing -->
+            <div class="px-7 pt-6 pb-5 text-left">
+                <h3 class="text-xs font-bold uppercase tracking-widest text-neutral-900 dark:text-white">About</h3>
+                <p id="agent-about" class="text-xs text-neutral-600 dark:text-neutral-300 mt-2 font-light leading-relaxed">
+                    Guiding global investors in acquiring architectural masterpieces, luxury waterfront estates, and bespoke penthouses with absolute transactional confidentiality.
+                </p>
+            </div>
+
+            <!-- Social Icons Suite relocated under About, above Walk-throughs (Robust Custom Inline SVGs) -->
+            <div class="px-7 pb-6 flex items-center justify-center gap-5 border-b border-neutral-100 dark:border-white/[0.04]">
+                <!-- Facebook -->
+                <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full bg-neutral-100 dark:bg-charcoal-800 flex items-center justify-center text-neutral-500 dark:text-neutral-400 hover:text-gold-500 dark:hover:text-gold-400 hover:scale-105 active:scale-95 transition-all" title="Facebook">
+                    <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                        <path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/>
+                    </svg>
+                </a>
+                <!-- LinkedIn -->
+                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full bg-neutral-100 dark:bg-charcoal-800 flex items-center justify-center text-neutral-500 dark:text-neutral-400 hover:text-gold-500 dark:hover:text-gold-400 hover:scale-105 active:scale-95 transition-all" title="LinkedIn">
+                    <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                    </svg>
+                </a>
+                <!-- Instagram -->
+                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full bg-neutral-100 dark:bg-charcoal-800 flex items-center justify-center text-neutral-500 dark:text-neutral-400 hover:text-gold-500 dark:hover:text-gold-400 hover:scale-105 active:scale-95 transition-all" title="Instagram">
+                    <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                    </svg>
+                </a>
+                <!-- Main Website -->
+                <a href="https://alexandernguyen.estate" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full bg-neutral-100 dark:bg-charcoal-800 flex items-center justify-center text-neutral-500 dark:text-neutral-400 hover:text-gold-500 dark:hover:text-gold-400 hover:scale-105 active:scale-95 transition-all" title="Website">
+                    <svg class="w-4 h-4 fill-none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <circle cx="12" cy="12" r="10"/>
+                        <path d="M12 2a14.5 14.5 0 0 0 0 20M12 2a14.5 14.5 0 0 1 0 20M2 12h20"/>
+                    </svg>
+                </a>
+                <!-- YouTube -->
+                <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full bg-neutral-100 dark:bg-charcoal-800 flex items-center justify-center text-neutral-500 dark:text-neutral-400 hover:text-gold-500 dark:hover:text-gold-400 hover:scale-105 active:scale-95 transition-all" title="YouTube">
+                    <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                        <path d="M23.498 6.163a3.003 3.003 0 00-2.11-2.11C19.518 3.545 12 3.545 12 3.545s-7.517 0-9.388.508a3.003 3.003 0 00-2.11 2.11C0 8.033 0 12 0 12s0 3.967.502 5.837a3.003 3.003 0 002.11 2.11c1.871.507 9.388.507 9.388.507s7.518 0 9.388-.507a3.003 3.003 0 002.11-2.11C24 15.967 24 12 24 12s0-3.967-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                    </svg>
+                </a>
+            </div>
+
+            <!-- Stats Block -->
+            <div class="px-7 py-4 bg-neutral-50 dark:bg-charcoal-800/30 border-b border-neutral-100 dark:border-white/[0.04]">
+                <div class="grid grid-cols-3 gap-2 text-center">
+                    <div>
+                        <div id="stat-years" class="text-neutral-900 dark:text-white font-semibold text-xs">8+ Years</div>
+                        <div class="text-[8px] text-neutral-400 dark:text-neutral-500 uppercase tracking-widest mt-0.5">Experience</div>
+                    </div>
+                    <div class="border-x border-neutral-200/60 dark:border-white/[0.04]">
+                        <div id="stat-sales" class="text-gold-500 font-semibold text-xs">$150M+</div>
+                        <div class="text-[8px] text-neutral-400 dark:text-neutral-500 uppercase tracking-widest mt-0.5">Transactions</div>
+                    </div>
+                    <div>
+                        <div id="stat-exclusive" class="text-neutral-900 dark:text-white font-semibold text-xs">18+</div>
+                        <div class="text-[8px] text-neutral-400 dark:text-neutral-500 uppercase tracking-widest mt-0.5">Exclusives</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Walk-Throughs YouTube Videos Section -->
+            <div class="reveal-element px-7 py-6 space-y-5">
+                <h3 class="text-xs font-bold uppercase tracking-widest text-neutral-900 dark:text-white border-b border-neutral-100 dark:border-white/[0.04] pb-2">Walk-Throughs</h3>
+                
+                <div class="space-y-4">
+                    <!-- Video Item 1 -->
+                    <div class="relative group rounded-xl overflow-hidden bg-neutral-100 dark:bg-charcoal-800 aspect-video flex items-center justify-center cursor-pointer shadow-sm transition-all duration-300" 
+                         onclick="loadIframeVideo(this, 'https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1')">
+                        <img id="video-thumb-1" src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&q=80&w=480" 
+                             alt="Property Tour Thumbnail" 
+                             class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-85 transition-all duration-500" loading="lazy" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                        
+                        <span class="relative z-10 w-10 h-10 rounded-full bg-white text-charcoal-900 flex items-center justify-center shadow-md transition-transform group-hover:scale-110">
+                            <svg class="w-4.5 h-4.5 fill-current ml-0.5 text-charcoal-900" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                        </span>
+
+                        <div class="absolute bottom-3 left-3 right-3 z-10 text-left">
+                            <span class="text-[7px] text-gold-400 uppercase tracking-widest font-bold">Tour</span>
+                            <h4 id="video-title-1" class="text-[10px] font-medium text-white truncate">Riverfront Grand Penthouse Tour</h4>
+                        </div>
+                    </div>
+
+                    <!-- Video Item 2 -->
+                    <div class="relative group rounded-xl overflow-hidden bg-neutral-100 dark:bg-charcoal-800 aspect-video flex items-center justify-center cursor-pointer shadow-sm transition-all duration-300" 
+                         onclick="loadIframeVideo(this, 'https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1')">
+                        <img id="video-thumb-2" src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=480" 
+                             alt="Client Testimony Thumbnail" 
+                             class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-85 transition-all duration-500" loading="lazy" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                        
+                        <span class="relative z-10 w-10 h-10 rounded-full bg-white text-charcoal-900 flex items-center justify-center shadow-md transition-transform group-hover:scale-110">
+                            <svg class="w-4.5 h-4.5 fill-current ml-0.5 text-charcoal-900" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                        </span>
+
+                        <div class="absolute bottom-3 left-3 right-3 z-10 text-left">
+                            <span class="text-[7px] text-gold-400 uppercase tracking-widest font-bold">Client Story</span>
+                            <h4 id="video-title-2" class="text-[10px] font-medium text-white truncate">Acquisition Journey With HNW Executive</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Active Portfolio Gallery Section -->
+            <div class="reveal-element px-7 py-5 bg-neutral-50 dark:bg-charcoal-800/20 border-t border-b border-neutral-100 dark:border-white/[0.04] relative">
+                <h3 class="text-xs font-bold uppercase tracking-widest text-neutral-900 dark:text-white mb-2">Active Portfolio</h3>
+                <p class="text-[9px] text-neutral-400 dark:text-neutral-500 mb-4">Swipe or use arrows to explore. Tap to zoom.</p>
+
+                <!-- Navigation Arrow Controls for Desktop Users -->
+                <div class="absolute right-7 top-5 flex items-center gap-1.5 z-20">
+                    <button onclick="scrollPortfolio(-1)" class="w-6 h-6 rounded-full bg-white dark:bg-charcoal-800 shadow-sm border border-neutral-200 dark:border-white/[0.06] flex items-center justify-center text-neutral-600 dark:text-neutral-300 hover:text-gold-500 hover:border-gold-300 dark:hover:text-gold-400 transition-all active:scale-90" aria-label="Slide Left">
+                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M15 19l-7-7 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </button>
+                    <button onclick="scrollPortfolio(1)" class="w-6 h-6 rounded-full bg-white dark:bg-charcoal-800 shadow-sm border border-neutral-200 dark:border-white/[0.06] flex items-center justify-center text-neutral-600 dark:text-neutral-300 hover:text-gold-500 hover:border-gold-300 dark:hover:text-gold-400 transition-all active:scale-90" aria-label="Slide Right">
+                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </button>
+                </div>
+
+                <!-- Swipeable Container with smooth behavior -->
+                <div id="portfolio-container" class="flex gap-4 overflow-x-auto no-scrollbar pb-2 snap-x snap-mandatory scroll-smooth">
+                    <!-- Slide Item 1 -->
+                    <div class="min-w-[220px] max-w-[220px] snap-center bg-white dark:bg-charcoal-800 rounded-xl overflow-hidden border border-neutral-200/40 dark:border-white/[0.04] relative group cursor-zoom-in" 
+                         onclick="openZoomLightbox('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&q=80&w=800', 'Shoreline Infinity Estate')">
+                        <div class="overflow-hidden h-28">
+                            <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&q=80&w=400" 
+                                 alt="Shoreline Infinity Estate" 
+                                 class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                        </div>
+                        <div class="p-3">
+                            <h4 class="text-[10px] font-semibold text-neutral-800 dark:text-white">Shoreline Infinity Estate</h4>
+                            <p class="text-[8px] text-gold-500 font-medium mt-0.5">Nha Trang Bay, Vietnam</p>
+                        </div>
+                    </div>
+
+                    <!-- Slide Item 2 -->
+                    <div class="min-w-[220px] max-w-[220px] snap-center bg-white dark:bg-charcoal-800 rounded-xl overflow-hidden border border-neutral-200/40 dark:border-white/[0.04] relative group cursor-zoom-in" 
+                         onclick="openZoomLightbox('https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&q=80&w=800', 'The Minimalist Glass Villa')">
+                        <div class="overflow-hidden h-28">
+                            <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&q=80&w=400" 
+                                 alt="Minimalist Glass Villa" 
+                                 class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                        </div>
+                        <div class="p-3">
+                            <h4 class="text-[10px] font-semibold text-neutral-800 dark:text-white">Minimalist Glass Villa</h4>
+                            <p class="text-[8px] text-gold-500 font-medium mt-0.5">Thao Dien, Saigon</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Testimonial Section -->
+            <div class="reveal-element px-7 py-6 space-y-4">
+                <h3 class="text-xs font-bold uppercase tracking-widest text-neutral-900 dark:text-white">Testimonial</h3>
+                <div class="bg-neutral-50 dark:bg-charcoal-800/40 border border-neutral-150 dark:border-white/[0.03] p-5 rounded-xl relative">
+                    <span class="absolute top-2 right-4 text-gold-500/10 font-serif text-5xl leading-none select-none">“</span>
+                    <div class="flex items-center gap-3 mb-3">
+                        <div class="w-8 h-8 rounded-full overflow-hidden border border-neutral-200 dark:border-neutral-700">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=128" 
+                                 alt="Theodore Long" class="w-full h-full object-cover" />
+                        </div>
+                        <div>
+                            <h4 class="text-[10px] font-bold text-neutral-800 dark:text-white">Mr. Theodore Long</h4>
+                            <p class="text-[7px] text-neutral-400 uppercase tracking-widest font-semibold">Chairman, Delta Holdings</p>
+                        </div>
+                    </div>
+                    <p class="text-[10px] italic text-neutral-600 dark:text-neutral-300 leading-relaxed font-light">
+                        "Alexander possesses an intuitive understanding of premium living. He respects our schedule and manages transactions with total absolute discretion."
+                    </p>
+                </div>
+            </div>
+
+            <!-- Concierge Desk (Lead capture) Section -->
+            <div class="reveal-element px-7 py-8 bg-neutral-50 dark:bg-charcoal-900/50 border-t border-neutral-100 dark:border-white/[0.04]">
+                <h3 class="text-xs font-bold uppercase tracking-widest text-neutral-900 dark:text-white mb-6">Concierge Desk</h3>
+                
+                <form id="lead-form" onsubmit="submitLeadForm(event)" class="space-y-6">
+                    <!-- Name input -->
+                    <div class="relative">
+                        <label class="block text-[8px] uppercase tracking-wider text-neutral-400 dark:text-neutral-500 font-bold mb-1">Full Name *</label>
+                        <input type="text" name="name" required placeholder="Enter your full name" 
+                               class="w-full bg-transparent border-b border-neutral-300 dark:border-neutral-700 focus:border-gold-500 focus:outline-none py-2 text-xs text-neutral-900 dark:text-white placeholder-neutral-400 transition-colors" />
+                    </div>
+
+                    <!-- Combined phone/email grid -->
+                    <div class="grid grid-cols-2 gap-5">
+                        <div class="relative">
+                            <label class="block text-[8px] uppercase tracking-wider text-neutral-400 dark:text-neutral-500 font-bold mb-1">Phone Number *</label>
+                            <input type="tel" name="phone" required placeholder="Contact phone" 
+                                   class="w-full bg-transparent border-b border-neutral-300 dark:border-neutral-700 focus:border-gold-500 focus:outline-none py-2 text-xs text-neutral-900 dark:text-white placeholder-neutral-400 transition-colors" />
+                        </div>
+                        <div class="relative">
+                            <label class="block text-[8px] uppercase tracking-wider text-neutral-400 dark:text-neutral-500 font-bold mb-1">Email Address</label>
+                            <input type="email" name="email" placeholder="Your email address" 
+                                   class="w-full bg-transparent border-b border-neutral-300 dark:border-neutral-700 focus:border-gold-500 focus:outline-none py-2 text-xs text-neutral-900 dark:text-white placeholder-neutral-400 transition-colors" />
+                        </div>
+                    </div>
+
+                    <!-- Note input -->
+                    <div class="relative">
+                        <label class="block text-[8px] uppercase tracking-wider text-neutral-400 dark:text-neutral-500 font-bold mb-1">Specific Requirements</label>
+                        <textarea name="message" rows="2" placeholder="e.g. Seeking off-market sea-view villas..." 
+                                  class="w-full bg-transparent border-b border-neutral-300 dark:border-neutral-700 focus:border-gold-500 focus:outline-none py-2 text-xs text-neutral-900 dark:text-white placeholder-neutral-400 transition-colors resize-none"></textarea>
+                    </div>
+
+                    <!-- Actions buttons -->
+                    <div class="flex gap-3 pt-3">
+                        <button type="submit" class="flex-1 bg-gold-500 hover:bg-gold-600 text-white py-3 px-4 rounded-lg font-bold text-xs tracking-widest uppercase flex items-center justify-center gap-2 shadow-sm transition">
+                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            <span>Send Inquiry</span>
+                        </button>
+                        <button type="button" onclick="pingInboxFallback()" class="bg-neutral-200 dark:bg-charcoal-800 hover:bg-neutral-300 dark:hover:bg-charcoal-700 text-neutral-800 dark:text-white p-3 rounded-lg border border-neutral-300/40 dark:border-neutral-700/50 transition" title="Direct Email">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Footer with Regulatory Disclaimers and Discreet Config Trigger -->
+            <footer class="bg-neutral-100 dark:bg-charcoal-800/80 px-7 py-6 text-center border-t border-neutral-200/80 dark:border-white/[0.04]">
+                <div class="flex items-center justify-between text-[8px] text-neutral-400 dark:text-neutral-500 uppercase tracking-widest font-semibold">
+                    <p>&copy; 2026 Alexander Nguyen</p>
+                    <div class="flex gap-4">
+                        <button onclick="togglePrivacyModal()" class="hover:text-gold-500 transition-colors">Privacy Notice</button>
+                        <span>&bull;</span>
+                        <button onclick="toggleConfigModal()" class="hover:text-gold-500 transition-all duration-300 p-0.5 rounded" title="Developer Integration Setup">
+                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065zM15 12a3 3 0 11-6 0 3 3 0 016 0z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </button>
+                    </div>
+                </div>
+            </footer>
+
+        </div>
+    </div>
+
+    <!-- Image Zoom Lightbox Overlay -->
+    <div id="lightbox-container" class="fixed inset-0 bg-charcoal-950/90 backdrop-blur-sm z-50 flex flex-col items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300" onclick="closeZoomLightbox()">
+        <button class="absolute top-6 right-6 text-white hover:text-gold-500 transition-colors p-2.5 rounded-full" aria-label="Close Image Modal">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M6 18L18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="relative max-w-[90vw] max-h-[70vh] flex flex-col justify-center items-center" onclick="event.stopPropagation()">
+            <img id="lightbox-img" src="" alt="High resolution zoom view" class="max-w-full max-h-full object-contain rounded-xl shadow-2xl transition-transform duration-300 cursor-zoom-in" onclick="toggleImageScale(this)" />
+            <div class="mt-5 text-center">
+                <h3 id="lightbox-caption" class="font-serif text-lg font-semibold text-white">Asset Name</h3>
+                <p class="text-[9px] text-neutral-500 mt-1.5 uppercase tracking-wider">Tap to scale zoom 2x</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cookie Consent GDPR Banner -->
+    <div id="gdpr-banner" class="fixed bottom-4 left-4 right-4 md:left-auto md:right-4 md:max-w-sm bg-white dark:bg-charcoal-800 border border-neutral-200 dark:border-white/10 p-5 rounded-2xl shadow-2xl z-50 transition-all duration-500 translate-y-12 opacity-0 pointer-events-none">
+        <div class="flex items-start gap-3.5">
+            <div class="bg-gold-500/10 p-2.5 rounded-lg text-gold-500 shrink-0">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div>
+                <h4 class="text-xs font-bold text-neutral-900 dark:text-white">Data Privacy Standards</h4>
+                <p class="text-[10px] text-neutral-500 dark:text-neutral-300 mt-1.5 leading-relaxed">
+                    We use secure cookies to process submission queries. Continuing signifies compliance with GDPR requirements.
+                </p>
+                <div class="mt-4 flex gap-3 justify-end">
+                    <button onclick="dismissGDPR(true)" class="bg-gold-500 hover:bg-gold-600 text-white text-[9px] font-bold uppercase tracking-wider px-4 py-2 rounded-lg transition duration-300">
+                        Accept
+                    </button>
+                    <button onclick="dismissGDPR(false)" class="text-neutral-400 dark:text-neutral-500 hover:text-neutral-600 dark:hover:text-white text-[9px] px-2 py-2">
+                        Decline
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Detailed Privacy Policy Modal -->
+    <div id="privacy-modal" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm flex items-center justify-center p-4 opacity-0 pointer-events-none transition-all duration-300">
+        <div class="bg-white dark:bg-charcoal-900 border border-neutral-200 dark:border-white/10 w-full max-w-sm rounded-3xl p-6 relative">
+            <button onclick="togglePrivacyModal()" class="absolute top-4 right-4 text-neutral-400 hover:text-neutral-600 dark:hover:text-white transition-colors">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M6 18L18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <h3 class="font-serif text-xl font-bold tracking-wide text-gold-500 mb-3">Privacy Policy</h3>
+            <div class="text-[11px] text-neutral-600 dark:text-neutral-300 leading-relaxed space-y-3 max-h-[300px] overflow-y-auto pr-1 custom-scrollbar">
+                <p><strong>1. Direct Log Processing:</strong> Content items submitted to the Concierge Form (Name, phone, specific queries) are securely routed to the agent's Google Spreadsheet database.</p>
+                <p><strong>2. Encrypted Lines:</strong> All transmission channels utilize HTTPS SSL certificates preventing third-party wiretappings.</p>
+                <p><strong>3. Erase Command:</strong> Users retain absolute authority to order complete metadata deletion of earlier messages anytime.</p>
+            </div>
+            <button onclick="togglePrivacyModal()" class="mt-5 w-full bg-neutral-200 dark:bg-charcoal-800 text-neutral-800 dark:text-white hover:bg-neutral-300 dark:hover:bg-charcoal-700 py-3 rounded-xl text-xs font-semibold transition-all">I Understand</button>
+        </div>
+    </div>
+
+    <!-- Developers Quick Update & Integration Configuration Panel -->
+    <div id="config-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 opacity-0 pointer-events-none transition-all duration-300">
+        <div class="bg-white dark:bg-charcoal-900 border border-neutral-200 dark:border-white/10 w-full max-w-md rounded-3xl p-6 relative max-h-[90vh] flex flex-col justify-between">
+            
+            <div class="flex border-b border-neutral-200 dark:border-neutral-800 pb-2 mb-4">
+                <button onclick="switchTab('tab-sheet')" id="btn-tab-sheet" class="flex-1 text-center pb-2 text-xs font-bold text-gold-500 border-b-2 border-gold-500">
+                    Google Sheets Setup
+                </button>
+                <button onclick="switchTab('tab-guide')" id="btn-tab-guide" class="flex-1 text-center pb-2 text-xs font-bold text-neutral-400 dark:text-neutral-500 border-b-2 border-transparent">
+                    How To Edit
+                </button>
+            </div>
+
+            <div class="overflow-y-auto pr-1 flex-1 custom-scrollbar">
+                
+                <!-- Google Sheet Tab Content -->
+                <div id="tab-sheet" class="space-y-4">
+                    <p class="text-[10px] text-neutral-500 dark:text-neutral-300 leading-relaxed">
+                        Securely link inquiries to a Google Sheet database without writing complex backend structures:
+                    </p>
+                    
+                    <div class="space-y-2 text-[10px] text-neutral-400 dark:text-neutral-500">
+                        <p><strong class="text-gold-500">Step 1:</strong> Prepare a secure sheet with five header values: <code class="bg-neutral-100 dark:bg-black px-1.5 py-0.5 rounded text-neutral-800 dark:text-neutral-200 font-mono">Name</code>, <code class="bg-neutral-100 dark:bg-black px-1.5 py-0.5 rounded text-neutral-800 dark:text-neutral-200 font-mono">Phone</code>, <code class="bg-neutral-100 dark:bg-black px-1.5 py-0.5 rounded text-neutral-800 dark:text-neutral-200 font-mono">Email</code>, <code class="bg-neutral-100 dark:bg-black px-1.5 py-0.5 rounded text-neutral-800 dark:text-neutral-200 font-mono">Message</code>, <code class="bg-neutral-100 dark:bg-black px-1.5 py-0.5 rounded text-neutral-800 dark:text-neutral-200 font-mono">Date</code>.</p>
+                        <p><strong class="text-gold-500">Step 2:</strong> Go to <span class="text-neutral-800 dark:text-white font-medium">Extensions > Apps Script</span> and insert the code from the next tab.</p>
+                        <p><strong class="text-gold-500">Step 3:</strong> Select <span class="text-neutral-800 dark:text-white font-medium">Deploy as Web App</span>, choose access level to <span class="text-neutral-800 dark:text-white font-medium">"Anyone"</span>, and copy Web App URL link below:</p>
+                    </div>
+
+                    <div class="space-y-2">
+                        <label class="block text-[8px] uppercase tracking-wider text-neutral-400 dark:text-neutral-500 font-bold">Google Script Web App URL</label>
+                        <input type="text" id="sheet-url" placeholder="https://script.google.com/macros/s/.../exec" 
+                               class="w-full bg-neutral-100 dark:bg-black border border-neutral-200 dark:border-white/10 rounded-lg px-3 py-2.5 text-xs text-neutral-900 dark:text-white focus:outline-none focus:ring-1 focus:ring-gold-500 transition-all" />
+                    </div>
+
+                    <div class="border-t border-neutral-100 dark:border-white/5 pt-4 space-y-3">
+                        <span class="text-[9px] uppercase tracking-wider text-gold-500 font-bold block">Quick Customizer Tool (Live Demo)</span>
+                        <div class="grid grid-cols-2 gap-2">
+                            <div>
+                                <label class="block text-[8px] text-neutral-400 dark:text-neutral-500 font-bold mb-1">Agent Name</label>
+                                <input type="text" id="edit-name" placeholder="Alexander Nguyen" class="w-full bg-neutral-100 dark:bg-black border border-neutral-200 dark:border-white/10 rounded p-2 text-xs text-neutral-900 dark:text-white" />
+                            </div>
+                            <div>
+                                <label class="block text-[8px] text-neutral-400 dark:text-neutral-500 font-bold mb-1">Agent Title</label>
+                                <input type="text" id="edit-title" placeholder="Luxury Real Estate Specialist" class="w-full bg-neutral-100 dark:bg-black border border-neutral-200 dark:border-white/10 rounded p-2 text-xs text-neutral-900 dark:text-white" />
+                            </div>
+                        </div>
+                        <button onclick="applyDemoCustomizations()" class="w-full bg-neutral-200 dark:bg-charcoal-800 text-xs text-neutral-800 dark:text-white hover:bg-neutral-300 dark:hover:bg-charcoal-700 py-2.5 rounded-lg font-semibold border border-neutral-200/40 dark:border-white/10 transition">Apply Live Changes</button>
+                    </div>
+                </div>
+
+                <!-- Apps Script guide Tab Content -->
+                <div id="tab-guide" class="space-y-4 hidden text-[11px] text-neutral-600 dark:text-neutral-300 leading-relaxed">
+                    <p class="text-xs font-bold text-gold-500">Pure Monolithic Architecture</p>
+                    <p>All styling components, functional states, and scripts reside in this single <code class="bg-neutral-100 dark:bg-black text-neutral-900 dark:text-white px-1.5 py-0.5 rounded">index.html</code> code file. No compilation required.</p>
+                    
+                    <p class="text-xs font-bold text-gold-500">Updating Personal Info</p>
+                    <p>To update details, search by ID tags within the file:</p>
+                    <ul class="list-disc pl-5 space-y-1 text-neutral-400 dark:text-neutral-500 text-[10px]">
+                        <li><code class="text-neutral-800 dark:text-white">agent-name</code>: To update name text elements.</li>
+                        <li><code class="text-neutral-800 dark:text-white">agent-about</code>: Rewrite self-descriptions.</li>
+                        <li><code class="text-neutral-800 dark:text-white">social-facebook</code>, <code class="text-neutral-800 dark:text-white">social-linkedin</code>: Swap the URL paths.</li>
+                    </ul>
+
+                    <p class="text-xs font-bold text-gold-500">Google Script for Sheet Delivery:</p>
+                    <pre class="bg-neutral-100 dark:bg-black/80 text-emerald-600 dark:text-emerald-400 text-[9px] p-3 rounded-xl overflow-x-auto font-mono">
+function doPost(e) {
+  var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheets();
+  var data = JSON.parse(e.postData.contents);
+  sheet.appendRow([data.name, data.phone, data.email, data.message, data.date]);
+  return ContentService.createTextOutput("Success")
+    .setMimeType(ContentService.MimeType.TEXT);
+}
+                    </pre>
+                </div>
+
+            </div>
+
+            <!-- Modal Bottom Control Elements -->
+            <div class="mt-5 pt-4 border-t border-neutral-200 dark:border-neutral-800 flex gap-2.5">
+                <button onclick="saveConfigurations()" class="flex-1 bg-gold-500 hover:bg-gold-600 text-white py-3 rounded-xl font-bold text-xs uppercase tracking-widest transition shadow-sm">
+                    Save Config
+                </button>
+                <button onclick="toggleConfigModal()" class="bg-neutral-200 dark:bg-charcoal-800 text-neutral-800 dark:text-white px-5 rounded-xl text-xs hover:bg-neutral-300 dark:hover:bg-charcoal-700 transition">
+                    Close
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Global Floating Toast Notification System -->
+    <div id="toast" class="fixed bottom-6 left-1/2 transform -translate-x-1/2 z-50 bg-neutral-900 dark:bg-charcoal-800 border border-gold-500/25 text-white px-5 py-3.5 rounded-2xl shadow-2xl flex items-center gap-3 opacity-0 pointer-events-none transition-all duration-300 translate-y-2">
+        <div class="w-5 h-5 rounded-full bg-gold-500/10 flex items-center justify-center text-gold-500 shrink-0">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+        </div>
+        <p class="text-[11px] text-neutral-100" id="toast-message">Configuration saved.</p>
+    </div>
+
+    <script>
+        let currentTheme = 'light';
+        
+        function toggleThemeMode() {
+            const htmlElement = document.documentElement;
+            const sunIcon = document.getElementById("theme-sun-icon");
+            const moonIcon = document.getElementById("theme-moon-icon");
+
+            if (currentTheme === 'light') {
+                htmlElement.classList.add('dark');
+                sunIcon.classList.remove('hidden');
+                moonIcon.classList.add('hidden');
+                currentTheme = 'dark';
+                localStorage.setItem('themeState', 'dark');
+            } else {
+                htmlElement.classList.remove('dark');
+                sunIcon.classList.add('hidden');
+                moonIcon.classList.remove('hidden');
+                currentTheme = 'light';
+                localStorage.setItem('themeState', 'light');
+            }
+        }
+
+        // Apply theme preferences dynamically
+        function applyInitialTheme() {
+            const savedTheme = localStorage.getItem('themeState') || 'light';
+            const htmlElement = document.documentElement;
+            const sunIcon = document.getElementById("theme-sun-icon");
+            const moonIcon = document.getElementById("theme-moon-icon");
+
+            if (savedTheme === 'dark') {
+                htmlElement.classList.add('dark');
+                sunIcon.classList.remove('hidden');
+                moonIcon.classList.add('hidden');
+                currentTheme = 'dark';
+            } else {
+                htmlElement.classList.remove('dark');
+                sunIcon.classList.add('hidden');
+                moonIcon.classList.remove('hidden');
+                currentTheme = 'light';
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            applyInitialTheme();
+            const elementsToReveal = document.querySelectorAll(".reveal-element");
+            
+            const observerOptions = {
+                root: null,
+                threshold: 0.1,
+                rootMargin: "0px 0px -40px 0px"
+            };
+
+            const revealObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("active");
+                        revealObserver.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            elementsToReveal.forEach(el => revealObserver.observe(el));
+        });
+
+        window.onload = function () {
+            const savedUrl = localStorage.getItem("googleSheetUrl");
+            if (savedUrl) {
+                document.getElementById("sheet-url").value = savedUrl;
+            }
+
+            const savedName = localStorage.getItem("agentNameOverride");
+            const savedTitle = localStorage.getItem("agentTitleOverride");
+            if (savedName) {
+                document.getElementById("agent-name").innerText = savedName;
+                document.getElementById("edit-name").value = savedName;
+            }
+            if (savedTitle) {
+                document.getElementById("agent-title").innerText = savedTitle;
+                document.getElementById("edit-title").value = savedTitle;
+            }
+
+            // Launch GDPR validation banner delay
+            setTimeout(() => {
+                const isApproved = localStorage.getItem("gdprApproved");
+                if (isApproved !== "true") {
+                    const banner = document.getElementById("gdpr-banner");
+                    banner.classList.remove("translate-y-12", "opacity-0", "pointer-events-none");
+                }
+            }, 1500);
+        };
+
+        function loadIframeVideo(element, iframeUrl) {
+            element.innerHTML = `
+                <iframe class="w-full h-full absolute inset-0 rounded-xl" 
+                        src="${iframeUrl}" 
+                        title="Property Walkthrough Video" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                </iframe>
+            `;
+        }
+
+        // Active Portfolio horizontal scroll functionality for desktop
+        function scrollPortfolio(direction) {
+            const container = document.getElementById("portfolio-container");
+            const scrollDistance = 240; // slide width + gap
+            container.scrollBy({
+                left: direction * scrollDistance,
+                behavior: 'smooth'
+            });
+        }
+
+        let activeScale = false;
+        function openZoomLightbox(imageSrc, captionText) {
+            const container = document.getElementById("lightbox-container");
+            const img = document.getElementById("lightbox-img");
+            const caption = document.getElementById("lightbox-caption");
+            
+            img.src = imageSrc;
+            img.style.transform = "scale(1)";
+            activeScale = false;
+            caption.innerText = captionText;
+
+            container.classList.remove("opacity-0", "pointer-events-none");
+            container.classList.add("opacity-100");
+        }
+
+        function closeZoomLightbox() {
+            const container = document.getElementById("lightbox-container");
+            container.classList.add("opacity-0", "pointer-events-none");
+            container.classList.remove("opacity-100");
+        }
+
+        function toggleImageScale(imgElement) {
+            if (!activeScale) {
+                imgElement.style.transform = "scale(1.8)";
+                imgElement.classList.remove("cursor-zoom-in");
+                imgElement.classList.add("cursor-zoom-out");
+                activeScale = true;
+            } else {
+                imgElement.style.transform = "scale(1)";
+                imgElement.classList.remove("cursor-zoom-out");
+                imgElement.classList.add("cursor-zoom-in");
+                activeScale = false;
+            }
+        }
+
+        function downloadVCard() {
+            const name = document.getElementById("agent-name").innerText;
+            const parts = name.split(" ");
+            const firstName = parts[parts.length - 1] || "Nguyen";
+            const lastName = parts.slice(0, parts.length - 1).join(" ") || "Alexander";
+
+            const contactInfo = {
+                firstName: firstName,
+                lastName: lastName,
+                org: "Luxury Real Estate Specialist",
+                title: document.getElementById("agent-title").innerText,
+                phone: "+84909123456",
+                email: "alexander.nguyen@luxuryestate.vn",
+                url: window.location.href,
+                note: "Advisor specializing in ultra-luxury estates and signature beachfront properties."
+            };
+
+            const vCardData = `BEGIN:VCARD
+VERSION:3.0
+N:${contactInfo.lastName};${contactInfo.firstName};;;
+FN:${contactInfo.lastName} ${contactInfo.firstName}
+ORG:${contactInfo.org}
+TITLE:${contactInfo.title}
+TEL;TYPE=CELL,VOICE:${contactInfo.phone}
+EMAIL;TYPE=PREF,INTERNET:${contactInfo.email}
+URL:${contactInfo.url}
+NOTE:${contactInfo.note}
+REV:${new Date().toISOString()}
+END:VCARD`;
+
+            const blob = new Blob([vCardData], { type: "text/vcard;charset=utf-8;" });
+            const url = URL.createObjectURL(blob);
+            const link = document.createElement("a");
+            link.href = url;
+            link.setAttribute("download", `Contact_Alexander_Nguyen.vcf`);
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+
+            showToast("Contact card downloaded!");
+        }
+
+        // Trigger prompt toast
+        function showToast(message) {
+            const toast = document.getElementById("toast");
+            const toastMsg = document.getElementById("toast-message");
+            toastMsg.innerText = message;
+            
+            toast.classList.remove("opacity-0", "pointer-events-none", "translate-y-2");
+            toast.classList.add("opacity-100", "translate-y-0");
+
+            setTimeout(() => {
+                toast.classList.remove("opacity-100", "translate-y-0");
+                toast.classList.add("opacity-0", "pointer-events-none", "translate-y-2");
+            }, 3000);
+        }
+
+        function toggleConfigModal() {
+            const configModal = document.getElementById("config-modal");
+            if (configModal.classList.contains("opacity-0")) {
+                configModal.classList.remove("opacity-0", "pointer-events-none");
+                configModal.classList.add("opacity-100");
+            } else {
+                configModal.classList.add("opacity-0", "pointer-events-none");
+                configModal.classList.remove("opacity-100");
+            }
+        }
+
+        function togglePrivacyModal() {
+            const privacyModal = document.getElementById("privacy-modal");
+            if (privacyModal.classList.contains("opacity-0")) {
+                privacyModal.classList.remove("opacity-0", "pointer-events-none");
+                privacyModal.classList.add("opacity-100");
+            } else {
+                privacyModal.classList.add("opacity-0", "pointer-events-none");
+                privacyModal.classList.remove("opacity-100");
+            }
+        }
+
+        function switchTab(tabId) {
+            const sheetTab = document.getElementById("tab-sheet");
+            const guideTab = document.getElementById("tab-guide");
+            const sheetBtn = document.getElementById("btn-tab-sheet");
+            const guideBtn = document.getElementById("btn-tab-guide");
+
+            if (tabId === "tab-sheet") {
+                sheetTab.classList.remove("hidden");
+                guideTab.classList.add("hidden");
+                sheetBtn.classList.add("text-gold-500", "border-gold-500");
+                sheetBtn.classList.remove("text-neutral-400", "border-transparent");
+                guideBtn.classList.remove("text-gold-500", "border-gold-500");
+                guideBtn.classList.add("text-neutral-400", "border-transparent");
+            } else {
+                sheetTab.classList.add("hidden");
+                guideTab.classList.remove("hidden");
+                guideBtn.classList.add("text-gold-500", "border-gold-500");
+                guideBtn.classList.remove("text-neutral-400", "border-transparent");
+                sheetBtn.classList.remove("text-gold-500", "border-gold-500");
+                sheetBtn.classList.add("text-neutral-400", "border-transparent");
+            }
+        }
+
+        function applyDemoCustomizations() {
+            const inputName = document.getElementById("edit-name").value.trim();
+            const inputTitle = document.getElementById("edit-title").value.trim();
+
+            if (inputName) {
+                document.getElementById("agent-name").innerText = inputName;
+                localStorage.setItem("agentNameOverride", inputName);
+            }
+            if (inputTitle) {
+                document.getElementById("agent-title").innerText = inputTitle;
+                localStorage.setItem("agentTitleOverride", inputTitle);
+            }
+            showToast("Demo interface updated.");
+        }
+
+        function saveConfigurations() {
+            const urlInput = document.getElementById("sheet-url").value.trim();
+            if (urlInput) {
+                localStorage.setItem("googleSheetUrl", urlInput);
+                showToast("Connected to Google Sheets!");
+            } else {
+                localStorage.removeItem("googleSheetUrl");
+                showToast("Configuration saved locally.");
+            }
+            toggleConfigModal();
+        }
+
+        function dismissGDPR(isAccepted) {
+            const banner = document.getElementById("gdpr-banner");
+            banner.classList.add("translate-y-12", "opacity-0", "pointer-events-none");
+            
+            if (isAccepted) {
+                localStorage.setItem("gdprApproved", "true");
+                showToast("Privacy details saved.");
+            }
+        }
+
+        function submitLeadForm(event) {
+            event.preventDefault();
+            const form = event.target;
+            const submitBtn = form.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+
+            submitBtn.innerHTML = `
+                <svg class="animate-spin -ml-1 mr-2 h-4 w-4 text-white inline" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                </svg>
+                <span>Sending...</span>
+            `;
+            submitBtn.disabled = true;
+
+            const formData = {
+                name: form.name.value,
+                phone: form.phone.value,
+                email: form.email.value || "Not provided",
+                message: form.message.value || "Interested in luxury estates.",
+                date: new Date().toLocaleString("en-US")
+            };
+
+            const sheetUrl = localStorage.getItem("googleSheetUrl");
+
+            if (sheetUrl) {
+                fetch(sheetUrl, {
+                    method: "POST",
+                    mode: "no-cors",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(formData)
+                })
+                .then(() => {
+                    handleSuccess(form, submitBtn, originalText, "Inquiry delivered securely.");
+                })
+                .catch(err => {
+                    console.error("Leads delivery error:", err);
+                    handleFallback(formData, form, submitBtn, originalText);
+                });
+            } else {
+                setTimeout(() => {
+                    handleFallback(formData, form, submitBtn, originalText);
+                }, 1000);
+            }
+        }
+
+        function handleSuccess(form, submitBtn, originalText, msgText) {
+            submitBtn.innerHTML = originalText;
+            submitBtn.disabled = false;
+            form.reset();
+            showToast(msgText);
+        }
+
+        function handleFallback(data, form, submitBtn, originalText) {
+            let localStore = JSON.parse(localStorage.getItem("visitingCardLeads") || "[]");
+            localStore.push(data);
+            localStorage.setItem("visitingCardLeads", JSON.stringify(localStore));
+            
+            handleSuccess(form, submitBtn, originalText, "Saved locally! Update web app settings to sync.");
+        }
+
+        function pingInboxFallback() {
+            const form = document.getElementById("lead-form");
+            const name = form.name.value || "Prospect Client";
+            const phone = form.phone.value || "None";
+            const email = form.email.value || "None";
+            const message = form.message.value || "Requesting details regarding listings.";
+
+            const mailtoSubject = encodeURIComponent(`[Private Inquiry] Digital Business Card: ${name}`);
+            const mailtoBody = encodeURIComponent(
+                `Prospect Name: ${name}\nPhone: ${phone}\nEmail: ${email}\n\nRequirements:\n${message}\n\n---\nAuto-generated via Digital Business Card`
+            );
+
+            window.location.href = `mailto:alexander.nguyen@luxuryestate.vn?subject=${mailtoSubject}&body=${mailtoBody}`;
+        }
+    </script>
+</body>
+</html>

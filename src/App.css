@@ -4068,8 +4068,1203 @@ h3 {
     flex-direction: column;
   }
 
-  .newsletterForm {
+.newsletterForm {
     align-items: stretch;
     flex-direction: column;
+  }
+}
+
+.estatePage {
+  background:
+    radial-gradient(circle at 8% 16%, rgba(212, 175, 55, 0.13), transparent 31%),
+    radial-gradient(circle at 92% 72%, rgba(255, 255, 255, 0.08), transparent 28%),
+    #080807;
+  color: #f7f1df;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.estateShell {
+  align-items: center;
+  display: grid;
+  gap: clamp(28px, 5vw, 82px);
+  grid-template-columns: minmax(0, 0.86fr) minmax(340px, 430px);
+  min-height: 100vh;
+  padding: clamp(92px, 10vw, 140px) clamp(20px, 6vw, 96px) clamp(42px, 6vw, 82px);
+}
+
+.estateDesktopPanel p,
+.estateHeader span,
+.estateBadge,
+.estateSectionHeader h2,
+.estateVideoCard p,
+.estateFooter span {
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.estateDesktopPanel p {
+  color: #d4af37;
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+
+.estateDesktopPanel h1 {
+  color: #fffaf0;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(4rem, 8vw, 9.4rem);
+  line-height: 0.88;
+  margin: 24px 0 34px;
+  max-width: 900px;
+}
+
+.estateDesktopStats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.estateDesktopStats span {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  border-radius: 999px;
+  color: rgba(255, 250, 240, 0.72);
+  padding: 12px 16px;
+}
+
+.estateDesktopStats strong {
+  color: #d4af37;
+}
+
+.estatePhone {
+  background: #121211;
+  border: 5px solid rgba(255, 255, 255, 0.08);
+  border-radius: 38px;
+  box-shadow: 0 40px 120px rgba(0, 0, 0, 0.48), 0 0 88px rgba(212, 175, 55, 0.12);
+  height: min(850px, calc(100vh - 42px));
+  min-height: 650px;
+  overflow-y: auto;
+  position: relative;
+  scrollbar-width: none;
+}
+
+.estatePhone::-webkit-scrollbar {
+  display: none;
+}
+
+.estateHeader {
+  align-items: center;
+  backdrop-filter: blur(18px);
+  background: rgba(18, 18, 17, 0.86);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 12px;
+  padding: 16px 22px;
+  position: sticky;
+  top: 0;
+  z-index: 5;
+}
+
+.estateMark {
+  color: #d4af37;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 1.08rem;
+  font-style: italic;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.estateHeader span {
+  border-left: 1px solid rgba(255, 255, 255, 0.17);
+  color: rgba(255, 250, 240, 0.54);
+  font-size: 0.66rem;
+  padding-left: 12px;
+}
+
+.estateHeader button,
+.estateActions button,
+.estateActions a,
+.estateLead button,
+.estateModal button {
+  border: 0;
+  cursor: pointer;
+  font: inherit;
+}
+
+.estateHeader button {
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 999px;
+  color: #f8efd4;
+  font-size: 0.72rem;
+  padding: 8px 11px;
+}
+
+.estateProfile,
+.estateSection,
+.estateTestimonials,
+.estateFooter {
+  padding: 28px 24px;
+}
+
+.estateProfile {
+  text-align: center;
+}
+
+.estatePortrait {
+  background: linear-gradient(135deg, #f8e7a2, #d4af37, #7e5a1b);
+  border-radius: 50%;
+  box-shadow: 0 0 44px rgba(212, 175, 55, 0.28);
+  height: 136px;
+  margin: 8px auto 20px;
+  padding: 3px;
+  width: 136px;
+}
+
+.estatePortrait img {
+  border: 4px solid #121211;
+  border-radius: inherit;
+  filter: grayscale(1);
+  height: 100%;
+  object-fit: cover;
+  transition: filter 0.55s ease, transform 0.55s ease;
+  width: 100%;
+}
+
+.estatePortrait:hover img {
+  filter: grayscale(0);
+  transform: scale(1.04);
+}
+
+.estateBadge {
+  background: rgba(212, 175, 55, 0.1);
+  border: 1px solid rgba(212, 175, 55, 0.24);
+  border-radius: 999px;
+  color: #d4af37;
+  display: inline-flex;
+  font-size: 0.62rem;
+  font-weight: 800;
+  margin-bottom: 12px;
+  padding: 7px 11px;
+}
+
+.estateProfile h1 {
+  color: #fff;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 2rem;
+  line-height: 1;
+  margin: 0 0 9px;
+}
+
+.estateRole,
+.estateBio {
+  color: rgba(255, 250, 240, 0.66);
+  line-height: 1.65;
+}
+
+.estateRole {
+  font-size: 0.85rem;
+  margin: 0 0 12px;
+}
+
+.estateBio {
+  font-size: 0.78rem;
+  margin: 0 auto 22px;
+  max-width: 340px;
+}
+
+.estateStatGrid {
+  display: grid;
+  gap: 8px;
+  grid-template-columns: repeat(3, 1fr);
+  margin-bottom: 22px;
+}
+
+.estateStatGrid span {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  color: #d4af37;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 0.9rem;
+  font-weight: 800;
+  padding: 13px 8px;
+}
+
+.estateActions {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.estateActions button,
+.estateActions a,
+.estateLead button,
+.estateModal button:not(.estateModalClose) {
+  align-items: center;
+  background: linear-gradient(135deg, #d4af37, #f3df8a);
+  border-radius: 15px;
+  color: #111;
+  display: inline-flex;
+  font-size: 0.74rem;
+  font-weight: 900;
+  justify-content: center;
+  min-height: 48px;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.estateActions a {
+  background: rgba(255, 255, 255, 0.09);
+  border: 1px solid rgba(255, 255, 255, 0.11);
+  color: #fff;
+}
+
+.estateSocials {
+  border-block: 1px solid rgba(255, 255, 255, 0.07);
+  display: grid;
+  gap: 8px;
+  grid-template-columns: repeat(5, 1fr);
+  padding: 17px 20px;
+}
+
+.estateSocials a {
+  align-items: center;
+  aspect-ratio: 1;
+  background: rgba(255, 255, 255, 0.055);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+  color: rgba(255, 250, 240, 0.68);
+  display: flex;
+  font-size: 0.58rem;
+  justify-content: center;
+  overflow-wrap: anywhere;
+  padding: 8px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.estateSectionHeader {
+  align-items: center;
+  display: flex;
+  gap: 14px;
+  margin-bottom: 16px;
+}
+
+.estateSectionHeader h2 {
+  color: #fffaf0;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 1.08rem;
+  margin: 0;
+}
+
+.estateSectionHeader span {
+  background: rgba(255, 255, 255, 0.12);
+  flex: 1;
+  height: 1px;
+}
+
+.estateVideoStack {
+  display: grid;
+  gap: 14px;
+}
+
+.estateVideoCard {
+  aspect-ratio: 16 / 9;
+  background: #070707;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 22px;
+  color: #fff;
+  cursor: pointer;
+  overflow: hidden;
+  padding: 0;
+  position: relative;
+  text-align: left;
+}
+
+.estateVideoCard img,
+.estateVideoCard iframe {
+  border: 0;
+  height: 100%;
+  inset: 0;
+  object-fit: cover;
+  position: absolute;
+  width: 100%;
+}
+
+.estateVideoCard img {
+  opacity: 0.64;
+  transition: transform 0.55s ease, opacity 0.55s ease;
+}
+
+.estateVideoCard:hover img {
+  opacity: 0.78;
+  transform: scale(1.06);
+}
+
+.estateVideoCard::after {
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.9), transparent 72%);
+  content: '';
+  inset: 0;
+  position: absolute;
+}
+
+.estateVideoCard div,
+.estatePlay {
+  position: absolute;
+  z-index: 2;
+}
+
+.estatePlay {
+  align-items: center;
+  background: #d4af37;
+  border-radius: 50%;
+  color: #111;
+  display: flex;
+  font-size: 0.68rem;
+  font-weight: 900;
+  height: 58px;
+  justify-content: center;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 58px;
+}
+
+.estateVideoCard div {
+  bottom: 16px;
+  left: 16px;
+  right: 16px;
+}
+
+.estateVideoCard p {
+  color: #d4af37;
+  font-size: 0.58rem;
+  font-weight: 900;
+  margin: 0 0 5px;
+}
+
+.estateVideoCard h3 {
+  color: #fff;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.estateGallery {
+  background: rgba(0, 0, 0, 0.23);
+}
+
+.estateGalleryRail {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.estateGalleryRail button {
+  aspect-ratio: 1;
+  background: transparent;
+  border: 0;
+  border-radius: 20px;
+  cursor: zoom-in;
+  overflow: hidden;
+  padding: 0;
+}
+
+.estateGalleryRail img {
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+  width: 100%;
+}
+
+.estateGalleryRail button:hover img {
+  transform: scale(1.08);
+}
+
+.estateTestimonials {
+  display: grid;
+  gap: 12px;
+}
+
+.estateTestimonials article {
+  background: rgba(255, 255, 255, 0.055);
+  border: 1px solid rgba(255, 255, 255, 0.075);
+  border-radius: 22px;
+  padding: 18px;
+  position: relative;
+}
+
+.estateTestimonials span {
+  color: rgba(212, 175, 55, 0.28);
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 4rem;
+  position: absolute;
+  right: 18px;
+  top: 2px;
+}
+
+.estateTestimonials p {
+  color: rgba(255, 250, 240, 0.72);
+  font-size: 0.82rem;
+  line-height: 1.6;
+  margin: 0 0 12px;
+  position: relative;
+}
+
+.estateTestimonials strong {
+  color: #d4af37;
+  font-size: 0.78rem;
+}
+
+.estateLead {
+  background: rgba(0, 0, 0, 0.32);
+}
+
+.estateLead form,
+.estateModal div {
+  display: grid;
+  gap: 13px;
+}
+
+.estateLead label {
+  color: rgba(255, 250, 240, 0.62);
+  display: grid;
+  font-size: 0.66rem;
+  font-weight: 800;
+  gap: 8px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.estateFormSplit {
+  display: grid;
+  gap: 11px;
+  grid-template-columns: 1fr 1fr;
+}
+
+.estateLead input,
+.estateLead textarea,
+.estateModal input {
+  background: rgba(255, 255, 255, 0.055);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 14px;
+  color: #fff;
+  font: inherit;
+  outline: 0;
+  padding: 14px;
+}
+
+.estateLead textarea {
+  resize: vertical;
+}
+
+.estateLead input:focus,
+.estateLead textarea:focus,
+.estateModal input:focus {
+  border-color: rgba(212, 175, 55, 0.76);
+}
+
+.estateLead button:disabled {
+  cursor: progress;
+  opacity: 0.72;
+}
+
+.estateFooter {
+  background: #050505;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  text-align: center;
+}
+
+.estateFooter span {
+  color: #8be6a1;
+  font-size: 0.66rem;
+  font-weight: 900;
+}
+
+.estateFooter p {
+  color: rgba(255, 250, 240, 0.43);
+  font-size: 0.7rem;
+  line-height: 1.55;
+  margin: 12px auto 0;
+  max-width: 320px;
+}
+
+.estateLightbox,
+.estateModal {
+  align-items: center;
+  background: rgba(0, 0, 0, 0.9);
+  border: 0;
+  display: flex;
+  inset: 0;
+  justify-content: center;
+  padding: 24px;
+  position: fixed;
+  z-index: 60;
+}
+
+.estateLightbox {
+  cursor: zoom-out;
+}
+
+.estateLightbox img {
+  border-radius: 18px;
+  max-height: 82vh;
+  max-width: 92vw;
+  object-fit: contain;
+}
+
+.estateLightbox span {
+  background: #d4af37;
+  border-radius: 999px;
+  bottom: 28px;
+  color: #111;
+  font-weight: 900;
+  padding: 10px 16px;
+  position: absolute;
+}
+
+.estateModal div {
+  background: #121211;
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  border-radius: 28px;
+  color: #fff;
+  max-width: 440px;
+  padding: 26px;
+  position: relative;
+  width: min(100%, 440px);
+}
+
+.estateModal h2 {
+  color: #d4af37;
+  font-family: Georgia, 'Times New Roman', serif;
+  margin: 0;
+}
+
+.estateModal p {
+  color: rgba(255, 250, 240, 0.66);
+  font-size: 0.86rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.estateModalClose {
+  background: transparent;
+  color: rgba(255, 255, 255, 0.72);
+  justify-self: end;
+}
+
+.estateToast {
+  background: #121211;
+  border: 1px solid rgba(212, 175, 55, 0.36);
+  border-radius: 18px;
+  bottom: 28px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.42);
+  color: #fffaf0;
+  left: 50%;
+  padding: 14px 18px;
+  position: fixed;
+  transform: translateX(-50%);
+  z-index: 70;
+}
+
+@media (max-width: 980px) {
+  .estateShell {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    padding-inline: 16px;
+  }
+
+  .estateDesktopPanel {
+    max-width: 680px;
+    text-align: center;
+  }
+
+  .estateDesktopPanel h1 {
+    font-size: clamp(3rem, 12vw, 6rem);
+  }
+
+  .estateDesktopStats {
+    justify-content: center;
+  }
+
+  .estatePhone {
+    height: auto;
+    max-width: 430px;
+    min-height: 0;
+    width: 100%;
+  }
+}
+
+@media (max-width: 560px) {
+  .estateShell {
+    padding: 76px 0 0;
+  }
+
+  .estateDesktopPanel {
+    display: none;
+  }
+
+  .estatePhone {
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    max-width: none;
+  }
+
+  .estateFormSplit,
+  .estateActions {
+    grid-template-columns: 1fr;
+  }
+}
+
+.estateExactPage {
+  background: #0a0a0c;
+  min-height: 100vh;
+}
+
+.estateExactFrame {
+  border: 0;
+  display: block;
+  height: 100vh;
+  width: 100%;
+}
+
+/* Real estate card v2: closer to the supplied luxury mobile-card reference. */
+.estatePage {
+  background:
+    radial-gradient(circle at 32% -16%, rgba(170, 127, 82, 0.18), transparent 36%),
+    radial-gradient(circle at 72% 86%, rgba(128, 130, 140, 0.08), transparent 34%),
+    #0b0c0e;
+  color: #e7e2da;
+}
+
+.estateShell {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  padding: clamp(78px, 8vw, 112px) clamp(0px, 4vw, 48px) clamp(22px, 5vw, 48px);
+}
+
+.estateDesktopPanel,
+.estateDesktopStats {
+  display: none;
+}
+
+.estatePhone {
+  background: #141519;
+  border: 8px solid #23242a;
+  border-radius: 48px;
+  box-shadow: 0 30px 80px -20px rgba(0, 0, 0, 0.95), 0 0 0 1px rgba(255, 255, 255, 0.02);
+  display: flex;
+  flex-direction: column;
+  height: min(860px, calc(100vh - 48px));
+  min-height: 660px;
+  overflow: hidden;
+  width: min(100%, 395px);
+}
+
+.estateScroll {
+  background: linear-gradient(180deg, #141519 0%, #0b0c0e 100%);
+  flex: 1;
+  overflow-y: auto;
+  position: relative;
+  scrollbar-width: none;
+}
+
+.estateScroll::-webkit-scrollbar,
+.estatePhone::-webkit-scrollbar {
+  display: none;
+}
+
+.estateHeader {
+  background: rgba(20, 21, 25, 0.82);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.035);
+  grid-template-columns: auto 1fr auto;
+  padding: 18px 24px;
+  position: sticky;
+  top: 0;
+  z-index: 8;
+}
+
+.estateMark {
+  color: #c29f78;
+  font-size: 1.24rem;
+  letter-spacing: 0.14em;
+}
+
+.estateHeader span {
+  border-left-color: rgba(255, 255, 255, 0.1);
+  color: #9a9ca6;
+  font-size: 0.56rem;
+  font-weight: 800;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+}
+
+.estateHeader button {
+  background: rgba(255, 255, 255, 0.025);
+  border-color: rgba(255, 255, 255, 0.055);
+  color: #d5bda0;
+  font-size: 0.58rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  min-height: 34px;
+  padding: 8px 12px;
+  text-transform: uppercase;
+}
+
+.estateProfile {
+  padding: 0;
+  text-align: center;
+}
+
+.estateHeroImage {
+  height: 360px;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.estateHeroImage img {
+  filter: contrast(1.02) brightness(0.9);
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+  width: 100%;
+}
+
+.estateHeroImage:hover img {
+  transform: scale(1.05);
+}
+
+.estateHeroImage::after {
+  background: linear-gradient(0deg, #141519 0%, rgba(20, 21, 25, 0.78) 18%, rgba(20, 21, 25, 0.26) 58%, transparent 100%);
+  content: '';
+  inset: 0;
+  position: absolute;
+}
+
+.estateEliteBadge {
+  align-items: center;
+  background: rgba(20, 21, 25, 0.7);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.035);
+  border-radius: 999px;
+  color: #f4ece1;
+  display: inline-flex;
+  font-size: 0.5rem;
+  font-weight: 900;
+  gap: 8px;
+  left: 20px;
+  letter-spacing: 0.2em;
+  padding: 8px 14px;
+  position: absolute;
+  text-transform: uppercase;
+  top: 20px;
+  z-index: 2;
+}
+
+.estateEliteBadge::before {
+  background: #c29f78;
+  border-radius: 50%;
+  box-shadow: 0 0 12px rgba(194, 159, 120, 0.72);
+  content: '';
+  height: 6px;
+  width: 6px;
+}
+
+.estateProfileCopy {
+  margin-top: -48px;
+  padding: 0 28px 0;
+  position: relative;
+  z-index: 2;
+}
+
+.estateProfileCopy h1 {
+  color: #fff;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 2rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  line-height: 1.05;
+  margin: 0;
+}
+
+.estateRole {
+  color: #c29f78;
+  font-size: 0.62rem;
+  font-weight: 900;
+  letter-spacing: 0.25em;
+  margin: 10px 0 0;
+  text-transform: uppercase;
+}
+
+.estateWebsite {
+  color: #9a9ca6;
+  display: inline-flex;
+  font-size: 0.7rem;
+  margin-top: 10px;
+  text-decoration: none;
+}
+
+.estateActions {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(2, 1fr);
+  margin: 28px auto 0;
+  max-width: 320px;
+}
+
+.estateActions button,
+.estateActions a {
+  border-radius: 14px;
+  font-size: 0.75rem;
+  font-weight: 900;
+  min-height: 50px;
+  text-transform: none;
+}
+
+.estateActions button {
+  background: #fff;
+  color: #0b0c0e;
+}
+
+.estateActions a {
+  background: #aa7f52;
+  border: 0;
+  color: #0b0c0e;
+}
+
+.estateMission {
+  margin: 38px auto 0;
+  max-width: 340px;
+  text-align: left;
+}
+
+.estateMission span {
+  color: rgba(194, 159, 120, 0.82);
+  display: block;
+  font-size: 0.5rem;
+  font-weight: 900;
+  letter-spacing: 0.3em;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+}
+
+.estateMission p {
+  color: #d5d5d8;
+  font-size: 0.78rem;
+  font-weight: 300;
+  line-height: 1.72;
+  margin: 0;
+}
+
+.estateStatGrid {
+  border-block: 1px solid rgba(255, 255, 255, 0.045);
+  display: grid;
+  gap: 0;
+  grid-template-columns: repeat(3, 1fr);
+  margin: 30px auto 0;
+  max-width: 340px;
+  padding: 18px 0;
+}
+
+.estateStatGrid span {
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  color: #fff;
+  display: grid;
+  gap: 6px;
+  padding: 0 8px;
+}
+
+.estateStatGrid span + span {
+  border-left: 1px solid rgba(255, 255, 255, 0.045);
+}
+
+.estateStatGrid strong {
+  color: inherit;
+  font-family: inherit;
+  font-size: 0.86rem;
+  font-weight: 600;
+}
+
+.estateStatGrid span:nth-child(2) strong {
+  color: #c29f78;
+}
+
+.estateStatGrid small {
+  color: #80828c;
+  font-size: 0.5rem;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.estateSocials {
+  background: rgba(11, 12, 14, 0.2);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.025);
+  border-top: 0;
+  display: flex;
+  justify-content: space-around;
+  margin-top: 18px;
+  padding: 22px 24px;
+}
+
+.estateSocials a {
+  aspect-ratio: auto;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  color: #80828c;
+  font-size: 0.72rem;
+  font-weight: 800;
+  height: auto;
+  letter-spacing: 0.08em;
+  padding: 8px;
+  text-transform: uppercase;
+}
+
+.estateSection,
+.estateTestimonials,
+.estateFooter {
+  padding: 38px 28px;
+}
+
+.estateSectionHeader {
+  margin-bottom: 26px;
+}
+
+.estateSectionHeader h2 {
+  color: #fff;
+  font-size: 1.25rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  text-transform: none;
+}
+
+.estateSectionHeader span {
+  background: rgba(255, 255, 255, 0.045);
+}
+
+.estateVideoStack {
+  gap: 24px;
+}
+
+.estateVideoCard {
+  background: #23242a;
+  border-color: rgba(255, 255, 255, 0.045);
+  border-radius: 18px;
+  box-shadow: 0 18px 36px rgba(0, 0, 0, 0.28);
+}
+
+.estateVideoCard img {
+  opacity: 0.52;
+}
+
+.estateVideoCard:hover {
+  border-color: rgba(194, 159, 120, 0.25);
+}
+
+.estateVideoCard:hover img {
+  opacity: 0.74;
+}
+
+.estateVideoCard::after {
+  background: linear-gradient(0deg, rgba(11, 12, 14, 0.92), transparent 72%);
+}
+
+.estatePlay {
+  background: rgba(170, 127, 82, 0.92);
+  color: #0b0c0e;
+  font-size: 0.9rem;
+  height: 50px;
+  width: 50px;
+}
+
+.estateVideoCard p {
+  color: #c29f78;
+  font-size: 0.46rem;
+  letter-spacing: 0.2em;
+}
+
+.estateVideoCard h3 {
+  font-size: 0.78rem;
+  font-weight: 500;
+  line-height: 1.45;
+}
+
+.estateGallery {
+  background: rgba(11, 12, 14, 0.22);
+}
+
+.estateGalleryRail {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: 1fr;
+}
+
+.estateGalleryRail button {
+  aspect-ratio: 1.42;
+  border-radius: 20px;
+  position: relative;
+}
+
+.estateGalleryRail button span {
+  background: rgba(11, 12, 14, 0.62);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 999px;
+  bottom: 12px;
+  color: #f4ece1;
+  font-size: 0.58rem;
+  font-weight: 900;
+  left: 12px;
+  letter-spacing: 0.16em;
+  padding: 7px 10px;
+  position: absolute;
+  text-transform: uppercase;
+}
+
+.estateTestimonials article {
+  background: rgba(35, 36, 42, 0.46);
+  border-color: rgba(255, 255, 255, 0.045);
+  border-radius: 20px;
+}
+
+.estateTestimonials span {
+  color: rgba(194, 159, 120, 0.22);
+}
+
+.estateTestimonials strong {
+  color: #c29f78;
+}
+
+.estateLead {
+  background: rgba(0, 0, 0, 0.18);
+}
+
+.estateLead label {
+  color: #80828c;
+  font-size: 0.52rem;
+  letter-spacing: 0.18em;
+}
+
+.estateLead input,
+.estateLead textarea,
+.estateModal input {
+  background: rgba(0, 0, 0, 0.48);
+  border-color: rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  font-size: 0.78rem;
+}
+
+.estateLead input:focus,
+.estateLead textarea:focus,
+.estateModal input:focus {
+  border-color: rgba(194, 159, 120, 0.78);
+}
+
+.estateLead button,
+.estateModal button:not(.estateModalClose),
+.estatePrivacy button {
+  background: #aa7f52;
+  border-radius: 14px;
+  color: #0b0c0e;
+}
+
+.estateFooter {
+  background: #050506;
+}
+
+.estateFooter span {
+  color: #c29f78;
+}
+
+.estateModal div {
+  background: #141519;
+  border-color: rgba(194, 159, 120, 0.24);
+}
+
+.estateModal h2 {
+  color: #c29f78;
+}
+
+.estateGuide {
+  background: rgba(255, 255, 255, 0.035);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 16px;
+  padding: 13px;
+}
+
+.estateGuide strong {
+  color: #f4ece1;
+  font-size: 0.78rem;
+}
+
+.estateGuide p {
+  font-size: 0.72rem;
+}
+
+.estatePrivacy {
+  align-items: center;
+  background: rgba(20, 21, 25, 0.92);
+  border: 1px solid rgba(194, 159, 120, 0.18);
+  border-radius: 20px;
+  bottom: 18px;
+  box-shadow: 0 18px 55px rgba(0, 0, 0, 0.42);
+  color: #d5d5d8;
+  display: flex;
+  gap: 12px;
+  left: 50%;
+  max-width: min(360px, calc(100vw - 28px));
+  padding: 14px;
+  position: fixed;
+  transform: translateX(-50%);
+  z-index: 64;
+}
+
+.estatePrivacy p {
+  font-size: 0.68rem;
+  line-height: 1.45;
+  margin: 0;
+}
+
+.estatePrivacy button {
+  border: 0;
+  cursor: pointer;
+  flex: 0 0 auto;
+  font: inherit;
+  font-size: 0.7rem;
+  font-weight: 900;
+  padding: 10px 12px;
+}
+
+.estateToast {
+  background: #23242a;
+  border-color: rgba(194, 159, 120, 0.28);
+}
+
+@media (max-width: 560px) {
+  .estateShell {
+    min-height: auto;
+    padding: 76px 0 0;
+  }
+
+  .estatePhone {
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    height: auto;
+    min-height: calc(100svh - 76px);
+    width: 100%;
+  }
+
+  .estateActions,
+  .estateFormSplit {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
