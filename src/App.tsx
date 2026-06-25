@@ -35,7 +35,7 @@ function SiteFooter({ tone = 'dark' }: { tone?: 'dark' | 'light' }) {
     <footer className={`siteFooter ${tone}`}>
       <div>
         <p className="eyebrow">Harashi Yowshi</p>
-        <h2>Visual frontend portfolio.</h2>
+        <h2>Frontend websites with polished visual direction.</h2>
       </div>
       <div className="footerLinks">
         <a href="#/">Work</a>
@@ -119,8 +119,8 @@ function TiltCard({ children, className = '' }: { children: ReactNode; className
 function PortfolioHome() {
   const [copiedEmail, setCopiedEmail] = useState(false)
   const work = [
-    ['Protein Caffeine', 'Primary brand campaign', '#/protein-caffeine', 'awwwards-assets/images/Final.png'],
-    ['Barber House', 'Barbershop booking site', '#/barbershop-studio', 'barbershop-assets/home-bg.png'],
+    ['Protein Caffeine', 'Energy drink brand', '#/protein-caffeine', 'awwwards-assets/images/Final.png'],
+    ['Barber House', 'Premium grooming shop', '#/barbershop-studio', 'barbershop-assets/home-bg.png'],
     ['Maison Miel', 'Bakery website', '#/bakery-atelier', 'showcase-assets/bakery-cake-cutout.png'],
     ['AURELIA', 'Ring boutique', '#/luxury-rings', 'showcase-assets/luxury-ring.png'],
   ]
@@ -130,7 +130,7 @@ function PortfolioHome() {
     ['03', 'Build', 'React, CSS, GSAP, 3D'],
     ['04', 'Ship', 'Build, test, GitHub deploy'],
   ]
-  const tickerItems = ['Portfolio', 'Protein Caffeine', 'GSAP', 'Three.js', 'React', 'Brand Motion']
+  const tickerItems = ['Harashi Yowshi', 'Frontend Design', 'Brand Websites', 'Product Pages', 'Motion UI', 'Responsive Layout']
   const skills = [
     ['Frontend', 'React / TypeScript / Vite'],
     ['Motion', 'GSAP / ScrollTrigger / clip-path'],
@@ -148,7 +148,7 @@ function PortfolioHome() {
   const craftChips = ['React', 'GSAP', 'Three.js', 'Layout', 'Brand UI', 'Deploy']
   const capabilityCards = [
     ['Landing Page', 'Brand-first hero, scroll story, responsive conversion flow.'],
-    ['Product Demo', '3D/product visuals, catalog sections, proof, and CTA.'],
+    ['Product Website', 'Product visuals, catalog sections, proof, and CTA.'],
     ['Portfolio Build', 'Case-study layout, skills wall, contact, and GitHub handoff.'],
   ]
 
@@ -167,20 +167,20 @@ function PortfolioHome() {
           <p className="eyebrow motion-rise">Portfolio / Harashi Yowshi</p>
           <h1 className="motion-rise">Portfolio</h1>
           <p className="portfolioHeroText motion-rise">
-            Visual frontend portfolio built around one flagship product: Protein Caffeine,
-            supported by Barber, Cake, and Ring demos for brand, product, motion, and responsive layout work.
+            I am Harashi Yowshi, a frontend website designer who turns brand ideas into clear,
+            polished, responsive websites with strong imagery, smooth movement, and practical delivery.
           </p>
           <div className="heroActions motion-rise">
             <a className="button primary" href="#work">
               View work
             </a>
-            <a className="button secondary" href="#/protein-caffeine">
-              Protein Caffeine
+            <a className="button secondary" href="#work">
+              See projects
             </a>
           </div>
           <div className="heroProfilePanel motion-rise">
             <span className="statusDot" />
-            <p>Flagship: Protein Caffeine. Role: React, GSAP, visual layout, responsive delivery.</p>
+            <p>Available for brand websites, product pages, portfolio sites, landing pages, and UI polish.</p>
           </div>
         </div>
         <div className="studioScene motion-rise">
@@ -193,7 +193,7 @@ function PortfolioHome() {
           </div>
           <div className="sceneBadge badgeBottom">
             <span>Stack</span>
-            <strong>React / GSAP / 3D</strong>
+            <strong>React / Motion / 3D</strong>
           </div>
         </div>
       </section>
@@ -226,11 +226,11 @@ function PortfolioHome() {
       <section className="aboutStudio motion-rise">
         <div>
           <p className="eyebrow">About</p>
-          <h2>A portfolio built like a product presentation, not a resume page.</h2>
+          <h2>I build websites that make a brand look serious from the first screen.</h2>
         </div>
         <p>
-          The main proof is Protein Caffeine: a video-led GSAP campaign page with product assets,
-          clip-path titles, flavor system, responsive layout, and launch-style storytelling.
+          My work focuses on the things visitors judge first: hierarchy, spacing, imagery, rhythm,
+          mobile fit, contact flow, and a page structure that helps people understand the offer quickly.
         </p>
       </section>
 
@@ -240,10 +240,11 @@ function PortfolioHome() {
         </div>
         <div className="aboutCopyAwwwards motion-rise">
           <p className="eyebrow">Profile</p>
-          <h2>Designer-minded frontend developer for product websites.</h2>
+          <h2>Harashi Yowshi, frontend website designer.</h2>
           <p>
-            I focus on the visible quality clients judge first: hierarchy, spacing, scroll rhythm,
-            product imagery, animation restraint, mobile fit, and a clean deployed handoff.
+            I design and build responsive websites for brands, shops, creators, and products.
+            My strength is turning rough ideas into a clean visual system: strong sections, fitting images,
+            tasteful motion, clear calls to action, and a site that feels finished on desktop and mobile.
           </p>
         </div>
       </section>
@@ -253,7 +254,7 @@ function PortfolioHome() {
           <div>
             <p className="eyebrow">Profile</p>
             <h3>Harashi Yowshi</h3>
-            <p>Frontend builder for visual product websites with a strong taste for motion and layout.</p>
+            <p>Frontend designer for brands that need a sharper website, better presentation, and clean delivery.</p>
           </div>
         </TiltCard>
         <TiltCard className="bentoCraft motion-rise">
@@ -337,7 +338,7 @@ function PortfolioHome() {
       <section className="motionLab">
         <div className="motionPanel motion-rise">
           <p className="eyebrow">Motion system</p>
-          <h2>GSAP reveals, scroll movement, hover depth, and a real Three.js hero.</h2>
+          <h2>Scroll reveals, smooth movement, hover depth, and immersive product scenes.</h2>
         </div>
         <div className="motionCards">
           {['ScrollTrigger', 'Parallax', 'Timeline', '3D canvas'].map((item) => (
@@ -475,7 +476,8 @@ function BakeryAtelier() {
           <p className="scriptKicker">About us</p>
           <h2>Made by pastry chefs who care about the first photo and the last bite.</h2>
           <p>
-            Every cake page needs to sell appetite fast: a clear hero product, visible flavors, emotional occasion copy, and a direct ordering flow. This concept uses cutout imagery, layered motion, warm typography, and focused conversion blocks.
+            Maison Cake prepares soft celebration cakes, seasonal pastries, and custom dessert boxes
+            for birthdays, weddings, events, and weekend orders.
           </p>
           <a className="textLink" href="#menu">
             Browse flavors
@@ -486,7 +488,7 @@ function BakeryAtelier() {
       <section className="awardClipScene cakeClipScene">
         <div className="clipCopy motion-rise">
           <p className="scriptKicker">Flavor film</p>
-          <AwardTitle text="A cake page should feel edible before it explains anything." />
+          <AwardTitle text="Soft sponge, fresh cream, and sweet details made for celebration." />
         </div>
         <div className="clipFrame motion-rise">
           <img src={asset('bedim-cake-assets/new-cake-1.png')} alt="" />
@@ -559,9 +561,9 @@ function BakeryAtelier() {
 
       <section className="productDetailGrid bakeryDetailGrid">
         {[
-          ['Brand system', 'Soft pink palette, cake-script accents, rounded product cards, and joyful cutout imagery.'],
-          ['Conversion flow', 'Menu, new cakes, order process, service blocks, and one clear contact card.'],
-          ['Motion layer', 'Floating hero assets, hover lift, reveal timeline, and lightweight CSS animation.'],
+          ['Custom finish', 'Choose the size, message, flavor, candle kit, color palette, and pickup window.'],
+          ['Fresh delivery', 'Cakes are packed carefully for pickup, local delivery, events, and dessert tables.'],
+          ['Seasonal menu', 'Limited drops bring fruit, cream, chocolate, and party flavors into rotation every week.'],
         ].map(([title, detail]) => (
           <article className="motion-rise" key={title}>
             <span>{title}</span>
@@ -577,10 +579,10 @@ function BakeryAtelier() {
         </div>
         <div>
           <p className="scriptKicker">Maison Cake</p>
-          <h2>Ready to turn a cake shop into a brand people remember?</h2>
-          <p>Built as a complete product demo: emotional first screen, real food imagery, clear menu, micro-interactions, and a practical sales path.</p>
+          <h2>Ready for a cake that looks beautiful and tastes even better?</h2>
+          <p>Choose a cake, select your pickup date, add a personal message, and let the bakery prepare a sweet centerpiece for the occasion.</p>
           <a className="button berry" href="#/">
-            Portfolio
+            Start an order
           </a>
         </div>
       </section>
@@ -599,9 +601,9 @@ function LuxuryRings() {
   ]
 
   const storyFrames = [
-    ['01', 'Hero view', 'A large fixed 3D product moment introduces the ring before any sales copy competes with it.'],
-    ['02', 'Material close-up', 'Gold, rose gold, diamond light, and prong detail are separated into readable product moments.'],
-    ['03', 'Configurator', 'The customer sees metal, stone, size, service, and appointment options in one premium flow.'],
+    ['01', 'Private viewing', 'Begin with a calm boutique consultation and a close look at the ring profile.'],
+    ['02', 'Material close-up', 'Compare gold, rose gold, diamond light, stone mood, and prong detail.'],
+    ['03', 'Final fitting', 'Confirm metal, stone, size, service, packaging, and appointment timing.'],
   ]
 
   return (
@@ -610,10 +612,11 @@ function LuxuryRings() {
 
       <section className="luxuryHero webgiHero">
         <div className="luxuryCopy motion-rise">
-          <p className="kicker">AURELIA 3D</p>
-          <h1>Design the ring in cinematic 3D.</h1>
+          <p className="kicker">AURELIA</p>
+          <h1>Design the ring before the first fitting.</h1>
           <p>
-            A luxury jewelry product page inspired by WebGi storytelling: large interactive ring render, scroll-reactive motion, material cards, gemstone options, and private appointment conversion.
+            Aurelia creates made-to-order rings with refined metals, hand-selected stones,
+            private fittings, and a calm boutique experience from first look to final box.
           </p>
           <div className="heroActions">
             <a className="button gold" href="#collections">
@@ -625,7 +628,7 @@ function LuxuryRings() {
           </div>
           <div className="webgiSpecs">
             <span><strong>18K</strong> gold</span>
-            <span><strong>3D</strong> product view</span>
+            <span><strong>Private</strong> fitting</span>
             <span><strong>4</strong> stone moods</span>
           </div>
         </div>
@@ -634,8 +637,8 @@ function LuxuryRings() {
           <Suspense fallback={<div className="ringCanvasFallback" />}>
             <RingScene className="ringCanvas" />
           </Suspense>
-          <span className="ringTag tagTop">Scroll reactive</span>
-          <span className="ringTag tagBottom">Procedural 3D ring</span>
+          <span className="ringTag tagTop">Made to order</span>
+          <span className="ringTag tagBottom">Stone selection</span>
         </div>
       </section>
 
@@ -649,10 +652,11 @@ function LuxuryRings() {
       <section className="luxuryEditorial webgiEditorial">
         <img className="editorialImage motion-rise" src={asset('showcase-assets/ring-detail.png')} alt="" />
         <div className="editorialCopy motion-rise">
-          <p className="kicker">Craft camera</p>
-          <h2>From hero render to macro material story.</h2>
+          <p className="kicker">Craft detail</p>
+          <h2>Every angle is chosen for light, balance, and emotion.</h2>
           <p>
-            The page behaves like a guided product film: strong first screen, restrained copy, gold-on-black contrast, and each scroll section gives one reason to trust the purchase.
+            AURELIA pairs refined metalwork with hand-selected stones, private guidance,
+            and a quiet boutique experience for rings that feel personal from the first look.
           </p>
         </div>
       </section>
@@ -670,13 +674,13 @@ function LuxuryRings() {
       <section className="awardClipScene ringClipScene">
         <div className="clipCopy motion-rise">
           <p className="kicker">Cinematic reveal</p>
-          <AwardTitle text="Luxury needs fewer words and a stronger object." />
+          <AwardTitle text="A ring should say enough before anyone speaks." />
         </div>
         <div className="clipFrame ringClipFrame motion-rise">
           <Suspense fallback={<div className="ringCanvasFallback" />}>
             <RingScene className="ringCanvas miniRingCanvas" />
           </Suspense>
-          <span>3D inspection mode</span>
+          <span>Private inspection</span>
         </div>
       </section>
 
@@ -728,21 +732,21 @@ function LuxuryRings() {
       <section className="luxuryShowcase motion-rise">
         <div>
           <p className="kicker">Boutique story</p>
-          <h2>Scroll, inspect, configure, book.</h2>
+          <h2>Choose the setting, confirm the fit, and book a private viewing.</h2>
         </div>
         <div className="showcaseLines">
-          <span>Fixed 3D product canvas</span>
-          <span>Scroll-based camera language</span>
-          <span>Material and gemstone selection</span>
-          <span>Private viewing call-to-action</span>
+          <span>Gold and rose-gold settings</span>
+          <span>Diamond and gemstone selection</span>
+          <span>Size, profile, and finish guidance</span>
+          <span>Private viewing appointment</span>
         </div>
       </section>
 
       <section className="productDetailGrid ringDetailGrid">
         {[
-          ['3D technique', 'Three.js procedural ring, physical materials, diamond refraction, prongs, side stones, and environment lighting.'],
-          ['WebGi learning', 'Adopts the WebGi idea of one premium object moving through a scroll story and configurator.'],
-          ['Commercial safety', 'No licensed WebGi model copied; the ring render is rebuilt for this portfolio demo.'],
+          ['Material detail', 'Gold, rose gold, diamond light, prongs, side stones, and finish options are presented clearly.'],
+          ['Private selection', 'Customers can compare stone moods, ring profiles, and service options before booking.'],
+          ['Boutique service', 'Sizing, gift packaging, pickup timing, and appointment support are all part of the experience.'],
         ].map(([title, detail]) => (
           <article className="motion-rise" key={title}>
             <span>{title}</span>
@@ -754,7 +758,7 @@ function LuxuryRings() {
       <section className="luxuryAppointment motion-rise">
         <h2>Book a private viewing.</h2>
         <a className="button gold" href="#/">
-          Portfolio
+          Book viewing
         </a>
       </section>
 
@@ -768,15 +772,15 @@ function ProteinCaffeine() {
     ['Chocolate Milk', 'brown', 'Protein, caffeine, cocoa punch.'],
     ['Strawberry Rush', 'red', 'Berry energy with a soft creamy finish.'],
     ['Cookies & Cream', 'blue', 'Nostalgic dessert flavor for launch buzz.'],
-    ['Peanut Butter', 'orange', 'Bold snack mood with campaign-ready color.'],
-    ['Vanilla Shake', 'white', 'Clean bright pack shot for lifestyle scenes.'],
-    ['Max Chocolate', 'black', 'Dark high-contrast bottle for hero moments.'],
+    ['Peanut Butter', 'orange', 'Roasted nut flavor with a salty-sweet finish.'],
+    ['Vanilla Shake', 'white', 'Smooth vanilla body with a bright chilled finish.'],
+    ['Max Chocolate', 'black', 'Dark cocoa flavor with extra dessert energy.'],
   ]
   const benefits = [
-    ['Clip-path titles', 'Awwwards-style text bands reveal on scroll with staggered motion.'],
-    ['Pinned video', 'A circular video mask expands into a full editorial product film.'],
-    ['Product rail', 'Cutout bottle assets, flavor cards, tilted layouts, and layered graphics.'],
-    ['Responsive art', 'Mobile keeps the campaign readable without breaking the composition.'],
+    ['Bold flavor identity', 'Each drink has its own color, taste profile, and launch-ready product moment.'],
+    ['Energy first', 'Protein, caffeine, and dessert-inspired flavors are presented with a loud campaign attitude.'],
+    ['Flavor rail', 'Chocolate, strawberry, cookies, peanut butter, vanilla, and dark cocoa sit in one clear product family.'],
+    ['Made to move', 'The brand feels active, playful, and easy to remember across every screen size.'],
   ]
 
   return (
@@ -787,7 +791,7 @@ function ProteinCaffeine() {
         <video className="campaignHeroVideo" src={asset('awwwards-assets/videos/hero-bg.mp4')} autoPlay muted loop playsInline />
         <div className="campaignHeroOverlay" />
         <div className="campaignHeroContent motion-rise">
-          <p className="campaignKicker">Protein Caffeine / Flagship product</p>
+          <p className="campaignKicker">Protein Caffeine / Energy drink</p>
           <div className="campaignTitleMask">
             <h1>Freaking Delicious</h1>
           </div>
@@ -795,15 +799,15 @@ function ProteinCaffeine() {
             <span>Protein + Caffeine</span>
           </div>
           <p>
-            A flagship brand campaign landing page inspired by the GSAP Awwwards repo: bold product staging,
-            video background, clip-path reveals, scroll story, and a flavor rail that feels made for a real launch.
+            Protein Caffeine is a bold drink for people who want dessert flavor, smooth energy,
+            and a playful kick in one cold can.
           </p>
           <div className="heroActions">
             <a className="button milkButton" href="#flavors">
               Explore flavors
             </a>
             <a className="button brownButton" href="#film">
-              Watch motion
+              Watch film
             </a>
           </div>
         </div>
@@ -812,22 +816,22 @@ function ProteinCaffeine() {
 
       <section className="campaignTicker">
         <div>
-          {[...['Protein Caffeine', 'GSAP', 'Clip Path', 'Pinned Video', 'Product Rail', 'ScrollTrigger'], ...['Protein Caffeine', 'GSAP', 'Clip Path', 'Pinned Video', 'Product Rail', 'ScrollTrigger']].map((item, index) => (
+          {[...['Protein Caffeine', 'Chocolate Milk', 'Strawberry Rush', 'Cookies & Cream', 'Peanut Butter', 'Vanilla Shake'], ...['Protein Caffeine', 'Chocolate Milk', 'Strawberry Rush', 'Cookies & Cream', 'Peanut Butter', 'Vanilla Shake']].map((item, index) => (
             <span key={`${item}-${index}`}>{item}</span>
           ))}
         </div>
       </section>
 
       <section className="campaignMessage">
-        <p className="motion-rise">Built for a drink brand that needs to feel loud, tactile, and memorable before the visitor reads the full story.</p>
-        <AwardTitle text="Stir up the product story with motion, color, and appetite." />
+        <p className="motion-rise">Made for a drink brand that feels loud, creamy, nostalgic, and ready for the next chug.</p>
+        <AwardTitle text="A creamy energy drink with dessert flavor and a loud personality." />
       </section>
 
       <section className="flavorShowcase" id="flavors">
         <div className="flavorIntro motion-rise">
-          <p className="campaignKicker">Flavor system</p>
+          <p className="campaignKicker">Flavor lineup</p>
           <h2>Each product gets its own color world.</h2>
-          <p>Layered backgrounds, cutout bottles, floating ingredients, and tilted cards make the catalog feel campaign-grade instead of template-made.</p>
+          <p>Each can has a clear flavor mood, from chocolate comfort to strawberry brightness and cookie nostalgia.</p>
         </div>
         <div className="flavorRail">
           {flavors.map(([name, color, detail], index) => (
@@ -847,8 +851,8 @@ function ProteinCaffeine() {
 
       <section className="campaignBenefits">
         <div className="benefitIntro motion-rise">
-          <p className="campaignKicker">Motion ingredients</p>
-          <h2>Shelf-stable layouts with scroll-triggered energy.</h2>
+          <p className="campaignKicker">Why it hits</p>
+          <h2>Protein, caffeine, dessert flavor, and a cold-can attitude.</h2>
         </div>
         <div className="benefitStack">
           {benefits.map(([title, detail], index) => (
@@ -862,7 +866,7 @@ function ProteinCaffeine() {
 
       <section className="campaignVideoPin" id="film">
         <div className="videoPinCopy motion-rise">
-          <p className="campaignKicker">Pinned product film</p>
+          <p className="campaignKicker">Product film</p>
           <AwardTitle text="Let the motion sell the first sip." />
         </div>
         <div className="videoPinFrame motion-rise">
@@ -878,9 +882,9 @@ function ProteinCaffeine() {
 
       <section className="campaignCards">
         {[
-          ['Hero video', 'Full-bleed animated background with product cutout in the first viewport.'],
-          ['Scroll reveal', 'GSAP motion-rise, award word reveals, clip frame expansion, and parallax.'],
-          ['Real assets', 'Video, bottle renders, ingredient overlays, and visual flavor families.'],
+          ['Flavor family', 'Six drink moods with strong colors, clear names, and a recognizable product system.'],
+          ['Campaign energy', 'Big headlines, rich movement, and bold product moments keep the brand memorable.'],
+          ['Shop-ready story', 'The page gives visitors flavor, benefit, mood, and action without overexplaining.'],
         ].map(([title, detail]) => (
           <TiltCard className="campaignProofCard motion-rise" key={title}>
             <h3>{title}</h3>
@@ -892,13 +896,13 @@ function ProteinCaffeine() {
       <section className="campaignFinal motion-rise">
         <img src={asset('awwwards-assets/images/big-img.png')} alt="SPYLT campaign product composition." />
         <div>
-          <p className="campaignKicker">Flagship case study</p>
-          <h2>Protein Caffeine is the lead product in this portfolio.</h2>
+          <p className="campaignKicker">Protein Caffeine</p>
+          <h2>Pick a flavor, crack it cold, and bring back the fun.</h2>
           <p>
-            This product page shows GSAP, layout, video, product art direction, flavor systems, responsive delivery, and scroll storytelling in one stronger client-facing demo.
+            A creamy drink lineup for chocolate lovers, berry fans, cookie people, vanilla loyalists, and anyone who wants energy with personality.
           </p>
           <a className="button milkButton" href="#/">
-            Back to portfolio
+            Back to shop
           </a>
         </div>
       </section>
@@ -938,11 +942,11 @@ function BarbershopStudio() {
           <img src={asset('barbershop-assets/home-bg.png')} alt="" />
         </div>
         <div className="barberHeroCopy motion-rise">
-          <p className="barberKicker">Barber House / Booking website</p>
-          <h1>Precision cuts with a cinematic booking flow.</h1>
+          <p className="barberKicker">Barber House / Grooming studio</p>
+          <h1>Sharp cuts, clean fades, and proper chair time.</h1>
           <p>
-            A premium barbershop landing page using Bedimcode assets upgraded with stronger product storytelling,
-            GSAP reveals, editorial image rhythm, clear services, team trust, and a direct appointment CTA.
+            Barber House offers sharp cuts, clean fades, beard care, hot towel service,
+            and appointment-ready grooming for people who care about the details.
           </p>
           <div className="heroActions">
             <a className="button amberButton" href="#barber-services">
@@ -977,8 +981,7 @@ function BarbershopStudio() {
           <p className="barberKicker">Book an appointment</p>
           <h2>Pick a chair, choose a barber, and lock the time.</h2>
           <p>
-            Inspired by real multi-location barbershop booking flows: location cards,
-            visible addresses, service confidence, and one clear booking action per shop.
+            Choose the location closest to you, pick a service, and reserve a chair with the barber team.
           </p>
         </div>
         <div className="locationGrid">
@@ -1001,10 +1004,10 @@ function BarbershopStudio() {
         </div>
         <div className="barberAboutCopy motion-rise">
           <p className="barberKicker">The experience</p>
-          <AwardTitle text="A shop website should sell trust before the booking form." />
+          <AwardTitle text="Good haircuts start with calm hands and a chair you trust." />
           <p>
-            The page structure makes the brand feel established: a strong first image, service pricing, recent work,
-            expert profiles, testimonials-style proof, and a booking footer that stays simple.
+            Barber House keeps the experience direct: a proper consultation, precise cutting,
+            beard care when needed, hot towel service, and a finish that looks clean when you leave the chair.
           </p>
         </div>
       </section>
@@ -1023,7 +1026,7 @@ function BarbershopStudio() {
       <section className="barberGallery" id="barber-gallery">
         <div className="barberGalleryIntro motion-rise">
           <p className="barberKicker">Recent work</p>
-          <h2>Cut gallery built like an editorial rail.</h2>
+          <h2>Recent cuts, clean fades, and sharp beard work.</h2>
         </div>
         <div className="barberImageRail">
           {gallery.map((image, index) => (
@@ -1035,7 +1038,7 @@ function BarbershopStudio() {
       <section className="barberExperts">
         <div className="motion-rise">
           <p className="barberKicker">Experts</p>
-          <h2>Four barber profiles so the shop feels real.</h2>
+          <h2>Meet the barbers behind the chair.</h2>
         </div>
         <div className="expertGrid">
           {experts.map(([name, role, image]) => (
@@ -1077,7 +1080,7 @@ function BarbershopStudio() {
           <h2>Choose service, barber, time, and walk in sharp.</h2>
         </div>
         <a className="button amberButton" href="#/">
-          Portfolio
+          Book a chair
         </a>
       </section>
 
@@ -1224,7 +1227,7 @@ function App() {
     }, root)
 
     return () => context.revert()
-  }, [route])
+  }, [route, skipSplash])
 
   return (
     <div ref={root}>
