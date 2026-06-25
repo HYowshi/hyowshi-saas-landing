@@ -3181,6 +3181,25 @@ h3 {
   max-width: 680px;
 }
 
+.barberQuickNav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 28px;
+}
+
+.barberQuickNav span {
+  background: rgba(18, 13, 9, 0.62);
+  border: 1px solid rgba(240, 164, 86, 0.2);
+  border-radius: 999px;
+  color: rgba(245, 234, 216, 0.78);
+  font-size: 0.78rem;
+  font-weight: 950;
+  letter-spacing: 0.08em;
+  padding: 10px 13px;
+  text-transform: uppercase;
+}
+
 .amberButton {
   background: #f0a456;
   color: #120d09;
@@ -3241,13 +3260,79 @@ h3 {
 }
 
 .barberAbout,
+.barberAppointment,
 .barberServices,
 .barberGallery,
 .barberExperts,
+.barberGift,
+.barberNewsletter,
 .barberBooking {
   margin: 0 auto;
   max-width: 1220px;
   padding: 92px 22px;
+}
+
+.barberAppointment {
+  display: grid;
+  gap: 40px;
+}
+
+.barberAppointmentIntro {
+  align-items: end;
+  display: grid;
+  gap: 28px;
+  grid-template-columns: minmax(0, 0.72fr) minmax(360px, 0.48fr);
+}
+
+.barberAppointmentIntro p:not(.barberKicker) {
+  color: rgba(245, 234, 216, 0.68);
+  line-height: 1.65;
+}
+
+.locationGrid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.locationCard {
+  background: rgba(245, 234, 216, 0.055);
+  border: 1px solid rgba(240, 164, 86, 0.16);
+  border-radius: 8px;
+  min-height: 420px;
+  overflow: hidden;
+}
+
+.locationCard img {
+  aspect-ratio: 0.86;
+  filter: saturate(0.9) contrast(1.06);
+  object-fit: cover;
+  transition: transform 240ms ease;
+  width: 100%;
+}
+
+.locationCard:hover img {
+  transform: scale(1.04);
+}
+
+.locationCard div {
+  padding: 18px;
+}
+
+.locationCard p {
+  color: rgba(245, 234, 216, 0.68);
+  line-height: 1.5;
+  margin: 8px 0 18px;
+  text-transform: uppercase;
+}
+
+.locationCard a {
+  color: #f0a456;
+  font-size: 0.82rem;
+  font-weight: 950;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  text-transform: uppercase;
 }
 
 .barberAbout {
@@ -3384,6 +3469,89 @@ h3 {
   padding-bottom: 18px;
 }
 
+.barberGift {
+  align-items: center;
+  background:
+    radial-gradient(circle at 78% 20%, rgba(240, 164, 86, 0.2), transparent 18rem),
+    rgba(245, 234, 216, 0.055);
+  border: 1px solid rgba(240, 164, 86, 0.16);
+  border-radius: 8px;
+  display: grid;
+  gap: 32px;
+  grid-template-columns: minmax(0, 0.8fr) minmax(320px, 0.52fr);
+}
+
+.giftCardMock {
+  aspect-ratio: 1.62;
+  background:
+    linear-gradient(135deg, rgba(245, 234, 216, 0.16), rgba(240, 164, 86, 0.1)),
+    #1d140e;
+  border: 1px solid rgba(240, 164, 86, 0.26);
+  border-radius: 8px;
+  display: grid;
+  padding: 26px;
+}
+
+.giftCardMock span {
+  color: #f0a456;
+  font-size: 0.76rem;
+  font-weight: 950;
+  letter-spacing: 0.14em;
+}
+
+.giftCardMock strong {
+  align-self: center;
+  color: #f5ead8;
+  font-size: clamp(2.4rem, 5vw, 4.8rem);
+  line-height: 0.9;
+  text-transform: uppercase;
+}
+
+.giftCardMock p {
+  align-self: end;
+  color: rgba(245, 234, 216, 0.66);
+  line-height: 1.45;
+}
+
+.barberNewsletter {
+  align-items: end;
+  display: grid;
+  gap: 32px;
+  grid-template-columns: minmax(0, 0.8fr) minmax(360px, 0.62fr);
+}
+
+.newsletterForm {
+  align-items: center;
+  background: rgba(245, 234, 216, 0.06);
+  border: 1px solid rgba(240, 164, 86, 0.16);
+  border-radius: 8px;
+  display: flex;
+  gap: 10px;
+  padding: 10px;
+}
+
+.newsletterForm input {
+  color: #f5ead8;
+  flex: 1;
+  font: inherit;
+  min-width: 0;
+  padding: 14px;
+}
+
+.newsletterForm input::placeholder {
+  color: rgba(245, 234, 216, 0.52);
+}
+
+.newsletterForm button {
+  background: #f0a456;
+  border: 0;
+  border-radius: 8px;
+  color: #120d09;
+  cursor: pointer;
+  font-weight: 950;
+  padding: 15px 18px;
+}
+
 .barberBooking {
   align-items: center;
   background: #f5ead8;
@@ -3486,9 +3654,13 @@ h3 {
   }
 
   .barberAbout,
+  .barberAppointmentIntro,
+  .locationGrid,
   .barberServices,
   .barberGalleryIntro,
-  .barberExperts {
+  .barberExperts,
+  .barberGift,
+  .barberNewsletter {
     grid-template-columns: 1fr;
   }
 
@@ -3498,6 +3670,10 @@ h3 {
 
   .barberServiceCard {
     min-height: 230px;
+  }
+
+  .locationCard {
+    min-height: 0;
   }
 
   .bentoProfile,
@@ -3852,14 +4028,26 @@ h3 {
     max-width: calc(100vw - 56px);
   }
 
+  .barberAppointmentIntro h2 {
+    font-size: clamp(2.25rem, 11vw, 3.2rem);
+    line-height: 1;
+  }
+
+  .barberAppointmentIntro p:not(.barberKicker) {
+    max-width: calc(100vw - 56px);
+  }
+
   .barberSeal {
     display: none;
   }
 
   .barberAbout,
+  .barberAppointment,
   .barberServices,
   .barberGallery,
   .barberExperts,
+  .barberGift,
+  .barberNewsletter,
   .barberBooking {
     padding-bottom: 64px;
     padding-top: 64px;
@@ -3876,6 +4064,11 @@ h3 {
   }
 
   .barberBooking {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .newsletterForm {
     align-items: stretch;
     flex-direction: column;
   }

@@ -916,6 +916,12 @@ function BarbershopStudio() {
     ['Groom package', '$58', 'Cut, beard, shampoo, scalp massage, and finish photo.'],
   ]
   const gallery = ['work-img-1.png', 'work-img-3.png', 'work-img-5.png', 'work-img-8.png', 'work-img-10.png']
+  const locations = [
+    ['Downtown Studio', '21 Mercer Street', 'work-img-2.png'],
+    ['Old Quarter', '48 Pine Lane, 2nd floor', 'work-img-4.png'],
+    ['Market House', '2 Kensington Walk', 'work-img-6.png'],
+    ['West End', '990 Wellington Row', 'work-img-7.png'],
+  ]
   const experts = [
     ['Marco', 'Fade specialist', 'expert-img-1.png'],
     ['Leo', 'Classic cuts', 'expert-img-2.png'],
@@ -946,6 +952,11 @@ function BarbershopStudio() {
               View cuts
             </a>
           </div>
+          <div className="barberQuickNav">
+            {['Appointments', 'Services', 'Barbers', 'Gift cards'].map((item) => (
+              <span key={item}>{item}</span>
+            ))}
+          </div>
         </div>
         <div className="barberSeal motion-rise">
           <img src={asset('barbershop-assets/home-logo.svg')} alt="" />
@@ -957,6 +968,29 @@ function BarbershopStudio() {
         <div>
           {[...['Fade', 'Classic cut', 'Beard ritual', 'Hot towel', 'Booking', 'Style'], ...['Fade', 'Classic cut', 'Beard ritual', 'Hot towel', 'Booking', 'Style']].map((item, index) => (
             <span key={`${item}-${index}`}>{item}</span>
+          ))}
+        </div>
+      </section>
+
+      <section className="barberAppointment" id="barber-appointment">
+        <div className="barberAppointmentIntro motion-rise">
+          <p className="barberKicker">Book an appointment</p>
+          <h2>Pick a chair, choose a barber, and lock the time.</h2>
+          <p>
+            Inspired by real multi-location barbershop booking flows: location cards,
+            visible addresses, service confidence, and one clear booking action per shop.
+          </p>
+        </div>
+        <div className="locationGrid">
+          {locations.map(([name, address, image]) => (
+            <article className="locationCard motion-rise" key={name}>
+              <img src={asset(`barbershop-assets/${image}`)} alt="" />
+              <div>
+                <h3>{name}</h3>
+                <p>{address}</p>
+                <a href="#barber-services">Book now</a>
+              </div>
+            </article>
           ))}
         </div>
       </section>
@@ -1012,6 +1046,29 @@ function BarbershopStudio() {
             </article>
           ))}
         </div>
+      </section>
+
+      <section className="barberGift motion-rise">
+        <div>
+          <p className="barberKicker">Gift cards</p>
+          <h2>Give someone a clean cut, hot towel, and a reason to come back.</h2>
+        </div>
+        <div className="giftCardMock">
+          <span>BARBER HOUSE</span>
+          <strong>Gift Card</strong>
+          <p>Redeem for cuts, beard rituals, styling, and shop products.</p>
+        </div>
+      </section>
+
+      <section className="barberNewsletter motion-rise">
+        <div>
+          <p className="barberKicker">Stay in touch</p>
+          <h2>Promotions, events, new barbers, and grooming notes.</h2>
+        </div>
+        <form className="newsletterForm">
+          <input aria-label="Email address" placeholder="Email address" type="email" />
+          <button type="button">Sign up</button>
+        </form>
       </section>
 
       <section className="barberBooking motion-rise">
